@@ -1,46 +1,52 @@
-**App name**
+# Team 3
+| Name                                      | Contact Info      |
+| ----------------------------------------- | ----------------- |
+| [Josephine Chan](https://github.com/JC32101)       | jc41405n@pace.edu |
+| [Christian Concepcion](https://github.com/ce60939n)     | ce60939n@pace.edu |
+| [Jack Egan](https://github.com/jackegan444) | je19513n@pace.edu |
 
-**Team** 
+# App Information
 
-**App description**
+* **App name**
 
-[**Idea Proposal**](https://docs.google.com/document/d/1K9LND5sPPHR9ES6Eiql0esIrMomXwbib/edit?usp=sharing&ouid=113850289169906394470&rtpof=true&sd=true)
+* **App description**
 
-**Calendar**
+* [**Idea Proposal**](https://docs.google.com/document/d/1K9LND5sPPHR9ES6Eiql0esIrMomXwbib/edit?usp=sharing&ouid=113850289169906394470&rtpof=true&sd=true)
 
-**Product Backlog**
+* **Calendar**
 
-**Architecture & Design**
+# Requirements
 
-**Content**
+* **Product Backlog**
 
-**Sprint 1**
+* **Architecture & Design**
 
-* Sprint planning
-* Scrums
-* Sprint demo - video and apk (or equivalent)
-* Spring retrospective
+# Content
 
-**Sprint 2**
+* **Sprint 1**
+  * Sprint planning
+  * Scrums
+  * Sprint demo - video and apk (or equivalent)
+  * Spring retrospective
 
-* Sprint planning
-* Scrums
-* Sprint demo - video and apk (or equivalent)
-* Spring retrospective
+* **Sprint 2**
+  * Sprint planning
+  * Scrums
+  * Sprint demo - video and apk (or equivalent)
+  * Spring retrospective
 
-**Sprint 3** 
+* **Sprint 3** 
+  * Sprint planning
+  * Scrums
+  * Sprint demo - video and apk (or equivalent)
+  * Spring retrospective
 
-* Sprint planning
-* Scrums
-* Sprint demo - video and apk (or equivalent)
-* Spring retrospective
+# **Final presentation**
 
-**Final presentation**
+# **Poster**
 
-**Poster**
+# **Process description**
 
-**Process description**
+# **Communications**
 
-**Communications**
-
-**Tools**
+# **Tools**
