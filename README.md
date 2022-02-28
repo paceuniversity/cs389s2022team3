@@ -1,4 +1,7 @@
 # Team 3
+
+[![Team 3 Profile Picture](https://imgur.com/qlfVSTd.png)](https://github.com/paceuniversity/cs389f2022team3)
+
 | Name                                      | Contact Info      |
 | ----------------------------------------- | ----------------- |
 | [Josephine Chan](https://github.com/JC32101)       | jc41405n@pace.edu |
