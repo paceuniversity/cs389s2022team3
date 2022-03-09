@@ -10,7 +10,7 @@
 
 # App Information
 
-* **App name: **LumBar
+* **App name: ** LumBar
 
 * **App description**
 
@@ -20,7 +20,7 @@
 
 # Requirements
 
-* [**Product Backlog**](https://docs.google.com/spreadsheets/d/135c6JsQN4UTsBRrBcKcYqUYMNWI__qDn9qXHS7ra_cc/edit#gid=8)
+* [**Product Backlog**](https://docs.google.com/spreadsheets/d/135c6JsQN4UTsBRrBcKcYqUYMNWI__qDn9qXHS7ra_cc/edit#gid=1064640418)
 
 # App Design
 * **Architecture & Design**
