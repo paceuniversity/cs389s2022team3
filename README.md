@@ -10,7 +10,7 @@
 
 # App Information
 
-* **App name**
+* **App name: **LumBar
 
 * **App description**
 
