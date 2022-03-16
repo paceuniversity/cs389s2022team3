@@ -2,11 +2,11 @@
 
 <a href="https://github.com/paceuniversity/cs389f2022team3"><img src = "https://imgur.com/qlfVSTd.png" alt="Team 3" height = "415" width="554"></a>
 
-| Name                                      | Contact Info      |
+| Name                                      | Contact Info      | Roles|
 | ----------------------------------------- | ----------------- |
-| [Josephine Chan](https://github.com/JC32101)       | jc41405n@pace.edu |
-| [Christian Concepcion](https://github.com/ce60939n)     | ce60939n@pace.edu |
-| [Jack Egan](https://github.com/jackegan444) | je19513n@pace.edu |
+| [Josephine Chan](https://github.com/JC32101)       | jc41405n@pace.edu | Product Owner |
+| [Christian Concepcion](https://github.com/ce60939n)     | ce60939n@pace.edu | Scrum Master |
+| [Jack Egan](https://github.com/jackegan444) | je19513n@pace.edu | Developer|
 
 # App Information
 
