@@ -25,7 +25,7 @@
 * [**Product Backlog**](https://docs.google.com/spreadsheets/d/135c6JsQN4UTsBRrBcKcYqUYMNWI__qDn9qXHS7ra_cc/edit#gid=1064640418)
 
 # App Design
-* **Architecture & Design**
+* [**Architecture & Design**](https://docs.google.com/document/d/1tkVDwMjryCOzyxC_kNbw0DVB1HPw76qENcFqsgl1UHM/edit?usp=sharing)
 
 # Content
 
