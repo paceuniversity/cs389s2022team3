@@ -1,3 +1,5 @@
+<a href="https://github.com/paceuniversity/cs389f2022team3"><img src = "https://imgur.com/po4wbwv.png" alt="Logo"></a>
+
 # Team 3
 
 <a href="https://github.com/paceuniversity/cs389s2022team3"><img src = "https://imgur.com/qlfVSTd.png" alt="Team 3" height = "415" width="554"></a>
