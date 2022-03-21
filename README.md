@@ -30,7 +30,7 @@
 # Content
 
 * **Sprint 1**
-  * Sprint planning
+  * [Sprint planning](https://docs.google.com/document/d/1wE4Kct3EDs_IfUM8kzJJFkTJQDPeCHg2AtvuexqCD_w/edit?usp=sharing)
   * Scrums
   * Sprint demo - video and apk (or equivalent)
   * Spring retrospective
