@@ -30,7 +30,7 @@
 # Content
 
 * **Sprint 1**
-  * [Sprint planning](https://docs.google.com/document/d/1wE4Kct3EDs_IfUM8kzJJFkTJQDPeCHg2AtvuexqCD_w/edit?usp=sharing) | [backlog](https://docs.google.com/spreadsheets/d/135c6JsQN4UTsBRrBcKcYqUYMNWI__qDn9qXHS7ra_cc/edit#gid=1056044682)
+  * [Sprint planning](https://docs.google.com/spreadsheets/d/135c6JsQN4UTsBRrBcKcYqUYMNWI__qDn9qXHS7ra_cc/edit#gid=1056044682)
   * Scrums
   * Sprint demo - video and apk (or equivalent)
   * Spring retrospective
