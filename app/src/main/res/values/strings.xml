@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">LumBar</string>
+    <string name="nameTVTxt">Name:</string>
+    <string name="namePTTxt">Enter name here</string>
+    <string name="ageTVTxt">Age:</string>
+    <string name="agePTTxt">Enter age here</string>
+    <string name="agePVTxt">Enter age here</string>
+    <string name="cityTVTxt">City:</string>
+    <string name="stateTVTxt">State:</string>
+    <string name="cityPVTxt">Enter city here</string>
+    <string-array name="states">
+        <item>New York</item>
+        <item>New Jersey</item>
+        <item>Connecticut</item>
+    </string-array>
 </resources>
