@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">AboutPage_Own</string>
+    <string name="page_title">About LumBar</string>
+    <string name="page_subtitle1">App Description</string>
+    <string name="sub1_text">This App is built on <b>March 21, 2022</b>.\n\nOn a daily basis, people wouldn't need a lawyer unless they encountered some problem or have their own personal lawyer. When it comes to finding lawyers, people would either search them up on google or get recommended for one. Most times people don’t know how to find them, the expenses of hiring one, and if they’re trustworthy or not.\n\nThis app will help clients narrow down their selections by their budget, the distance in travel (visiting them), and their legal needs.
+    </string>
+    <string name="page_subtitle2">Developers</string>
+    <string name="sub2_text"><b>LumBar</b> is created by three wonderful and excelled developers:\n
+        <ol><b>Josephine Chan</b> - Product Owner
+        <b>Christian Concepcion</b> - Scrum Master
+        <b>Jack Egan</b> - Head Developer
+        </ol>
+    </string>
+</resources>
