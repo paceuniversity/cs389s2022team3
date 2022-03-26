@@ -9,10 +9,13 @@
     <string name="stateTVTxt">State:</string>
     <string name="cityPVTxt">Enter city here</string>
     <string name="selectPicBtnTxt">Select</string>
-    <string name="selectProfilePicTVTxt">Select Profile Pic</string>
+    <string name="selectProfilePicTVTxt">Profile Pic</string>
     <string-array name="states">
         <item>New York</item>
         <item>New Jersey</item>
         <item>Connecticut</item>
     </string-array>
+    <string name="stateSelectorTxt">State Selector</string>
+    <string name="createProfBtn">Create</string>
+    <string name="profileImgHint">uploaded profile</string>
 </resources>

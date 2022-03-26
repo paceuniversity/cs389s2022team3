@@ -102,29 +102,53 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
+        android:contentDescription="@string/stateSelectorTxt"
         android:minHeight="48dp"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cityPlainText" />
 
     <Button
-        android:id="@+id/uploadPicButton"
+        android:id="@+id/uploadImgBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
         android:text="@string/selectPicBtnTxt"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/selectPicTVTxt"
         app:layout_constraintTop_toBottomOf="@+id/stateSpinner" />
 
     <TextView
         android:id="@+id/selectPicTVTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:text="@string/selectProfilePicTVTxt"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/uploadPicButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stateTextView" />
+
+    <ImageView
+        android:id="@+id/profileImgView"
+        android:layout_width="112dp"
+        android:layout_height="105dp"
+        android:contentDescription="@string/profileImgHint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/uploadImgBtn"
+        app:layout_constraintTop_toBottomOf="@+id/stateSpinner"
+        tools:ignore="ImageContrastCheck"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/createProfBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/createProfBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
