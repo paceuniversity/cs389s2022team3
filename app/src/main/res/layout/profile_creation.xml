@@ -13,9 +13,9 @@
         android:layout_marginTop="8dp"
         android:autofillHints=""
         android:ems="10"
+        android:hint="@string/namePTTxt"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/namePTTxt"
         android:textColor="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,9 +62,9 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
+        android:hint="@string/cityPVTxt"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/cityPVTxt"
         android:textColor="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageTextNumber" />
