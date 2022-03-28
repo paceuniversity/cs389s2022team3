@@ -8,7 +8,7 @@
     <string name="cityTVTxt">City:</string>
     <string name="stateTVTxt">State:</string>
     <string name="cityPVTxt">Enter city here</string>
-    <string name="selectPicBtnTxt">Select</string>
+    <string name="selectPicBtnTxt">Select Profile Pic</string>
     <string name="selectProfilePicTVTxt">Profile Pic</string>
     <string-array name="states">
         <item>New York</item>
