@@ -71,7 +71,7 @@
                 android:lineSpacingExtra="@dimen/line_spacing"
                 android:padding="@dimen/padding_regular"
                 android:text="@string/sub1_text"
-                android:textColor="#BA000000"
+                android:textColor="#DF000000"
                 tools:layout_conversion_absoluteHeight="200dp"
                 tools:layout_conversion_absoluteWidth="411dp"
                 tools:layout_editor_absoluteX="0dp"
@@ -97,12 +97,12 @@
 
             <TextView
                 android:id="@+id/sub2_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="@dimen/line_spacing"
                 android:padding="@dimen/padding_regular"
                 android:text="@string/sub2_text"
-                android:textColor="#BA000000"
+                android:textColor="#DF000000"
                 tools:layout_conversion_absoluteHeight="118dp"
                 tools:layout_conversion_absoluteWidth="411dp"
                 tools:layout_editor_absoluteX="0dp"
