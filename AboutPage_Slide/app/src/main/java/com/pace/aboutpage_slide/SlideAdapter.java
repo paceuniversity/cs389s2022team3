@@ -30,7 +30,7 @@ public class SlideAdapter extends PagerAdapter {
     //list of images
     public int[] img = {
             R.drawable.origin,
-            R.drawable.image_3,
+            R.drawable.courthouse,
             R.drawable.app
     };
 
