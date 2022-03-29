@@ -4,7 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jodec/AndroidStudioProjects/LumBar/app/src/main/res/layout/activity_main.xml" value="0.2857142857142857" />
-        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/activity_main.xml" value="0.14628623188405798" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_main.xml" value="0.2324074074074074" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1905" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/activity_main.xml" value="0.2857142857142857" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_explore.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_home.xml" value="0.2857142857142857" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.2760416666666667" />
       </map>
     </option>
   </component>
