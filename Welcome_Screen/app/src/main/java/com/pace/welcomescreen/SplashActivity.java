@@ -7,7 +7,6 @@ import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.widget.ImageView;
 
 public class SplashActivity extends AppCompatActivity{
     private static int SPLASH_TIME_OUT = 2000;
@@ -25,7 +24,7 @@ public class SplashActivity extends AppCompatActivity{
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                Intent intent = new Intent(SplashActivity.this, WelcomeScreen.class);
                 startActivity(intent);
                 finish();
             }

@@ -13,7 +13,7 @@
             android:name=".LawLogPg2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LawLogPg1"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

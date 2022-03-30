@@ -5,7 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class AboutPage extends AppCompatActivity {
 
     private ViewPager viewPager;
     private SlideAdapter myAdapter;

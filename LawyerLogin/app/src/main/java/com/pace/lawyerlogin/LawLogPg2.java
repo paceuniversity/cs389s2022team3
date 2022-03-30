@@ -25,7 +25,7 @@ public class LawLogPg2 extends AppCompatActivity {
     }
 
     private void openActivity3() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LawLogPg1.class);
         startActivity(intent);
     }
 }
