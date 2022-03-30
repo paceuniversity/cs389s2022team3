@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8DF9B"
+    android:background="#F8F3E7"
     tools:context=".MainActivity">
 
 
@@ -14,9 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:background="#F8DF9B"
+        android:background="#F8F3E7"
         android:text="Welcome to LumBar"
-        android:textColor="#85BB78"
+        android:textColor="#538A33"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
