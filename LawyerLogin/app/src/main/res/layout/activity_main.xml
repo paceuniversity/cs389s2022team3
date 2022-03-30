@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#F8F3E7">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="304dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/appicon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Lawyer Registry"
+        android:textColor="#654900"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/etFname"
+        android:layout_marginTop="15dp"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Enter Your Name"
+        android:background="@drawable/edit_round"
+        android:padding="5dp"
+        android:textColor="#7E000000"
+        android:textSize="15dp"/>
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_marginTop="15dp"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="Enter Your Phone Number"
+        android:background="@drawable/edit_round"
+        android:padding="5dp"
+        android:textColor="#7E000000"
+        android:textSize="15dp"/>
+
+    <EditText
+        android:id="@+id/emailAddress"
+        android:layout_marginTop="15dp"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Enter Your Email"
+        android:background="@drawable/edit_round"
+        android:padding="5dp"
+        android:textColor="#7E000000"
+        android:textSize="15dp"/>
+
+    <EditText
+        android:id="@+id/bday"
+        android:layout_marginTop="15dp"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:text="Enter Your Birthday"
+        android:background="@drawable/edit_round"
+        android:padding="5dp"
+        android:textColor="#7E000000"
+        android:textSize="15dp"/>
+
+    <EditText
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:id="@+id/etUsername"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Create Username"
+        android:background="@drawable/edit_round"
+        android:padding="5dp"
+        android:textColor="#7E000000"
+        android:textSize="15dp"/>
+
+    <EditText
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:id="@+id/etPassword"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textVisiblePassword"
+        android:text="Create Password"
+        android:background="@drawable/edit_round"
+        android:padding="5dp"
+        android:textColor="#7E000000"
+        android:textSize="15dp"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_gravity="right"
+        android:text="Next" />
+
+</LinearLayout>
