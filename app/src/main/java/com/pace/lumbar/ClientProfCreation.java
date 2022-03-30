@@ -26,7 +26,6 @@ public class ClientProfCreation extends AppCompatActivity {
     private EditText pwdPtOne;
     private EditText pwdPtTwo;
     private int SELECT_PICTURE = 200;
-    private Spinner caseSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +50,6 @@ public class ClientProfCreation extends AppCompatActivity {
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         stateSpinner.setAdapter(stateAdapter);
 
-        caseSpinner = findViewById(R.id.caseSpinner);
-        ArrayAdapter<CharSequence>caseAdapter = ArrayAdapter.createFromResource
-                (this, R.array.cases, android.R.layout.simple_spinner_item);
-        caseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        caseSpinner.setAdapter(caseAdapter);
-
         //allows for profile pic selection from Gallery
         profSelectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,8 +66,7 @@ public class ClientProfCreation extends AppCompatActivity {
             public void onClick(View v) {
                 if (isNotEmpty(namePt) && isNotEmpty(agePicker) &&
                         isNotEmpty(cityPt) && stateSpinner.getSelectedItem() != null &&
-                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)
-                        && caseSpinner.getSelectedItem() != null) {
+                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
                     if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
                         CharSequence incompleteMsg = "Creation failed: passwords must match";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
@@ -83,11 +75,12 @@ public class ClientProfCreation extends AppCompatActivity {
                         Client newUser = new Client(namePt.getText().toString(),
                                 Integer.parseInt(agePicker.getText().toString()),
                                 cityPt.getText().toString(), stateSpinner.getSelectedItem().toString(),
-                                userPt.getText().toString(), pwdPtOne.getText().toString(),
-                                caseSpinner.getSelectedItem().toString());
+                                userPt.getText().toString(), pwdPtOne.getText().toString());
                         CharSequence incompleteMsg = "Account creation succesful";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
+                            openActivity2();
+
                     }
                 } else{
                     CharSequence incompleteMsg = "Creation failed: profile info incomplete";
@@ -134,5 +127,9 @@ public class ClientProfCreation extends AppCompatActivity {
                 }
             }
         }
+    }
+    private void openActivity2() {
+        Intent intent = new Intent(this, ClientCaseCreate.class);
+        startActivity(intent);
     }
 }

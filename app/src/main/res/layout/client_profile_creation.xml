@@ -7,32 +7,6 @@
     android:background="#F8F3E7"
     tools:context=".ClientProfCreation">
 
-    <Spinner
-        android:id="@+id/caseSpinner"
-        style="@style/Widget.AppCompat.Spinner.Underlined"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:contentDescription="@string/stateSelectorTxt"
-        android:minHeight="48dp"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pwdPlainTxt2" />
-
-    <TextView
-        android:id="@+id/caseTypeTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Case Type:"
-        android:textColor="#654900"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ageTextView4" />
-
     <TextView
         android:id="@+id/ageTextView4"
         android:layout_width="wrap_content"
@@ -50,15 +24,17 @@
         android:id="@+id/namePlainText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:autofillHints=""
+        android:background="@drawable/edit_round"
+        android:ellipsize="start"
         android:ems="10"
+        android:gravity="center"
         android:hint="@string/namePTTxt"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="#757575"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/nameTextView"
@@ -66,12 +42,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
         android:text="@string/nameTVTxt"
         android:textColor="#654900"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/ageTextView"
@@ -79,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:text="@string/ageTVTxt"
         android:textColor="#654900"
         android:textSize="24sp"
@@ -135,6 +110,9 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="#757575"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:background="@drawable/edit_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageTextNumber" />
 
@@ -149,6 +127,9 @@
         android:minHeight="48dp"
         android:textColor="#80000000"
         android:textColorHint="#757575"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:background="@drawable/edit_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/namePlainText" />
 
@@ -204,11 +185,11 @@
         android:id="@+id/createProfBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="@string/createProfBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caseTypeTV" />
+        app:layout_constraintTop_toBottomOf="@+id/ageTextView4" />
 
     <EditText
         android:id="@+id/usernamePlainText"
@@ -218,6 +199,9 @@
         android:hint="Enter username here"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:background="@drawable/edit_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImgView" />
 
@@ -229,6 +213,9 @@
         android:hint="Enter password here"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:background="@drawable/edit_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernamePlainText" />
 
@@ -237,11 +224,22 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
+        android:background="@drawable/edit_round"
+        android:ellipsize="start"
         android:ems="10"
-        android:hint="Reenter pwd"
+        android:gravity="center"
+        android:hint="Reenter password"
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernamePlainText" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="125dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/appicon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
