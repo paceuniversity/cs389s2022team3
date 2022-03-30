@@ -1,4 +1,4 @@
-package com.pace.homepage;
+package com.pace.lumbar;
 
 import org.junit.Test;
 

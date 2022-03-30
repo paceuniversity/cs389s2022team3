@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">Home Page</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">LumBar</string>
+    <string name="button_label_dislike">Dislike</string>
+    <string name="button_label_like">Like</string>
+    <string name="like_message">Like Pressed!</string>
+    <string name="dislike_message">Dislike Pressed!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

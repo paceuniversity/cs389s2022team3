@@ -10,7 +10,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="304dp"
+        android:layout_height="300dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/appicon" />
 
@@ -28,11 +28,12 @@
         android:layout_width="250dp"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:text="Enter Your Name"
+        android:hint="Enter Your Name"
         android:background="@drawable/edit_round"
         android:padding="5dp"
         android:textColor="#7E000000"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/phone"
@@ -42,7 +43,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="phone"
-        android:text="Enter Your Phone Number"
+        android:hint="Enter Your Phone Number"
         android:background="@drawable/edit_round"
         android:padding="5dp"
         android:textColor="#7E000000"
@@ -56,7 +57,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="Enter Your Email"
+        android:hint="Enter Your Email"
         android:background="@drawable/edit_round"
         android:padding="5dp"
         android:textColor="#7E000000"
@@ -70,7 +71,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="date"
-        android:text="Enter Your Birthday"
+        android:hint="Enter Your Birthday"
         android:background="@drawable/edit_round"
         android:padding="5dp"
         android:textColor="#7E000000"
@@ -78,25 +79,26 @@
 
     <EditText
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/etUsername"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Create Username"
+        android:hint="Create Username"
         android:background="@drawable/edit_round"
         android:padding="5dp"
         android:textColor="#7E000000"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        android:inputType="text"/>
 
     <EditText
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/etPassword"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textVisiblePassword"
-        android:text="Create Password"
+        android:hint="Create Password"
         android:background="@drawable/edit_round"
         android:padding="5dp"
         android:textColor="#7E000000"
@@ -104,7 +106,7 @@
         />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/donebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
