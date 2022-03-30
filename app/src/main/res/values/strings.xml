@@ -11,9 +11,15 @@
     <string name="selectPicBtnTxt">Select Profile Pic</string>
     <string name="selectProfilePicTVTxt">Profile Pic</string>
     <string-array name="states">
-        <item>New York</item>
-        <item>New Jersey</item>
         <item>Connecticut</item>
+        <item>New Jersey</item>
+        <item>New York</item>
+    </string-array>
+    <string-array name="cases">
+        <item>Criminal</item>
+        <item>Divorce</item>
+        <item>Personal Injury</item>
+        <item>Traffic</item>
     </string-array>
     <string name="stateSelectorTxt">State Selector</string>
     <string name="createProfBtn">Create</string>

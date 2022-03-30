@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jacke/Projects/cs389s2022team3/app/src/main/res/drawable/edit_round.xml" value="0.2075" />
+        <entry key="..\:/Users/jacke/Projects/cs389s2022team3/app/src/main/res/drawable/rounded_edittext.xml" value="0.1" />
         <entry key="..\:/Users/jacke/Projects/cs389s2022team3/app/src/main/res/layout/activity_main.xml" value="0.17889492753623187" />
+        <entry key="..\:/Users/jacke/Projects/cs389s2022team3/app/src/main/res/layout/client_profile_creation.xml" value="0.2" />
         <entry key="..\:/Users/jacke/Projects/cs389s2022team3/app/src/main/res/layout/profile_creation.xml" value="0.22" />
         <entry key="..\:/Users/jacke/Projects/cs389s2022team3/app/src/main/res/layout/spinner_item.xml" value="0.1" />
       </map>

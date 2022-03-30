@@ -4,7 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileCreation">
+    android:background="#F8F3E7"
+    tools:context=".ClientProfCreation">
+
+    <Spinner
+        android:id="@+id/caseSpinner"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:contentDescription="@string/stateSelectorTxt"
+        android:minHeight="48dp"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwdPlainTxt2" />
+
+    <TextView
+        android:id="@+id/caseTypeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Case Type:"
+        android:textColor="#654900"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageTextView4" />
 
     <TextView
         android:id="@+id/ageTextView4"
@@ -14,7 +41,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="Confirm pwd:"
-        android:textColor="#000000"
+        android:textColor="#654900"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageTextView3" />
@@ -41,7 +68,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/nameTVTxt"
-        android:textColor="#000000"
+        android:textColor="#654900"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +81,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="12dp"
         android:text="@string/ageTVTxt"
-        android:textColor="#000000"
+        android:textColor="#654900"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
@@ -67,7 +94,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
         android:text="Username:"
-        android:textColor="#000000"
+        android:textColor="#654900"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uploadImgBtn" />
@@ -80,7 +107,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="Password:"
-        android:textColor="#000000"
+        android:textColor="#654900"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageTextView2" />
@@ -93,7 +120,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/cityTVTxt"
-        android:textColor="#000000"
+        android:textColor="#654900"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageTextView" />
@@ -133,7 +160,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/stateTVTxt"
-        android:textColor="#000000"
+        android:textColor="#654900"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cityTextView" />
@@ -177,14 +204,14 @@
         android:id="@+id/createProfBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="24dp"
         android:text="@string/createProfBtn"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caseTypeTV" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/usernamePlainText"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -195,7 +222,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profileImgView" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/pwdPlainTxt1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -203,10 +230,10 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/usernamePlainText" />
 
     <EditText
-        android:id="@+id/editTextTextPassword4"
+        android:id="@+id/pwdPlainTxt2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -215,6 +242,6 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/usernamePlainText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

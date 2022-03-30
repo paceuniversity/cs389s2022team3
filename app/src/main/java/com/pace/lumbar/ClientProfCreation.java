@@ -2,7 +2,6 @@ package com.pace.lumbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class ProfileCreation extends AppCompatActivity {
+public class ClientProfCreation extends AppCompatActivity {
 
     private EditText namePt;
     private EditText agePicker;
@@ -23,12 +22,16 @@ public class ProfileCreation extends AppCompatActivity {
     private Button profSelectBtn;
     private ImageView profImageView;
     private Button createProfBtn;
+    private EditText userPt;
+    private EditText pwdPtOne;
+    private EditText pwdPtTwo;
     private int SELECT_PICTURE = 200;
+    private Spinner caseSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_creation);
+        setContentView(R.layout.client_profile_creation);
         getSupportActionBar().setTitle("Profile Creation");
 
         namePt = findViewById(R.id.namePlainText);
@@ -37,13 +40,22 @@ public class ProfileCreation extends AppCompatActivity {
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
         createProfBtn = findViewById(R.id.createProfBtn);
+        userPt = findViewById(R.id.usernamePlainText);
+        pwdPtOne = findViewById(R.id.pwdPlainTxt1);
+        pwdPtTwo = findViewById(R.id.pwdPlainTxt2);
 
         //creates the state selection dropdown
         stateSpinner = findViewById(R.id.stateSpinner);
-        ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource
+        ArrayAdapter<CharSequence>stateAdapter = ArrayAdapter.createFromResource
                 (this, R.array.states, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        stateSpinner.setAdapter(adapter);
+        stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        stateSpinner.setAdapter(stateAdapter);
+
+        caseSpinner = findViewById(R.id.caseSpinner);
+        ArrayAdapter<CharSequence>caseAdapter = ArrayAdapter.createFromResource
+                (this, R.array.cases, android.R.layout.simple_spinner_item);
+        caseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        caseSpinner.setAdapter(caseAdapter);
 
         //allows for profile pic selection from Gallery
         profSelectBtn.setOnClickListener(new View.OnClickListener() {
@@ -60,10 +72,23 @@ public class ProfileCreation extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isNotEmpty(namePt) && isNotEmpty(agePicker) &&
-                        isNotEmpty(cityPt) && stateSpinner.getSelectedItem() != null) {
-                    User newUser = new User(namePt.getText().toString(),
-                            Integer.parseInt(agePicker.getText().toString()),
-                            cityPt.getText().toString(), stateSpinner.getSelectedItem().toString());
+                        isNotEmpty(cityPt) && stateSpinner.getSelectedItem() != null &&
+                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)
+                        && caseSpinner.getSelectedItem() != null) {
+                    if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
+                        CharSequence incompleteMsg = "Creation failed: passwords must match";
+                        Toast.makeText(getApplicationContext(), incompleteMsg,
+                                Toast.LENGTH_SHORT).show();
+                    } else {
+                        Client newUser = new Client(namePt.getText().toString(),
+                                Integer.parseInt(agePicker.getText().toString()),
+                                cityPt.getText().toString(), stateSpinner.getSelectedItem().toString(),
+                                userPt.getText().toString(), pwdPtOne.getText().toString(),
+                                caseSpinner.getSelectedItem().toString());
+                        CharSequence incompleteMsg = "Account creation succesful";
+                        Toast.makeText(getApplicationContext(), incompleteMsg,
+                                Toast.LENGTH_SHORT).show();
+                    }
                 } else{
                     CharSequence incompleteMsg = "Creation failed: profile info incomplete";
                     Toast.makeText(getApplicationContext(), incompleteMsg,
