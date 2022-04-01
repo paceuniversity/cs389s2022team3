@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class LawLogPg2 extends AppCompatActivity {
-    Button button;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
