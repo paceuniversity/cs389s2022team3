@@ -6,7 +6,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TableLayout;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -17,10 +16,11 @@ import com.pace.lumbar.fragments.ProfileFragment;
 import com.pace.lumbar.fragments.adapters.CustomViewPager;
 import com.pace.lumbar.fragments.adapters.ViewPagerAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private CustomViewPager viewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setUpTabs();
-
     }
 
     private void setUpTabs(){
@@ -50,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_baseline_account_circle_24);
 
         viewPager.disableScroll(true);
-
     }
 
     public void likePressed(View view) {
@@ -64,6 +62,4 @@ public class MainActivity extends AppCompatActivity {
                 Toast.LENGTH_SHORT);
         toast.show();
     }
-
-//To call like/dislikePressed in gesture class, try doing "xml_ID".likePressed
 }
