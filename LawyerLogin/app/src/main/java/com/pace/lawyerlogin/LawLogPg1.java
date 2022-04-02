@@ -37,14 +37,8 @@ public class LawLogPg1 extends AppCompatActivity {
         userPt = findViewById(R.id.etUsername);
         pwdPtOne = findViewById(R.id.etPassword);
         pwdPtTwo = findViewById(R.id.etconfirm);
+        next = findViewById(R.id.next);
 
-//        button = (Button)findViewById(R.id.next);
-//        button.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                openActivity2();
-//            }
-//        });
         profSelectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

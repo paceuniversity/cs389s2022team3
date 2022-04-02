@@ -11,7 +11,8 @@
         android:theme="@style/Theme.LawyerLogin">
         <activity
             android:name=".LawLogPg2"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/app2_name" />
         <activity
             android:name=".LawLogPg1"
             android:exported="true">
