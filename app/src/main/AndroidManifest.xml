@@ -10,19 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LumBar">
         <activity
-            android:name=".LoginPage"
+            android:name=".ClientProfCreation"
             android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginPage"
-            android:exported="false"
-            android:label="@string/title_activity_login_page" />
         <activity
             android:name=".ClientCaseCreate"
             android:exported="false"
             android:label="@string/title_activity_client_case_create"
             android:theme="@style/Theme.LumBar.NoActionBar" />
         <activity
-            android:name=".ClientProfCreation"
+            android:name=".LoginPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

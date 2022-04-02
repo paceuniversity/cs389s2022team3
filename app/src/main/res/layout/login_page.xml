@@ -7,10 +7,22 @@
     <!--ImageView, TextView, ButtonView
         etc with specified position-->
 
+    <TextView
+        android:id="@+id/clientLoginTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:text="Client Login"
+        android:textColor="#654900"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageView2">
+        android:layout_below="@id/clientLoginTV">
 
         <EditText
             android:id="@+id/usernameET"
@@ -40,16 +52,25 @@
             android:ems="10"
             android:hint="Enter password"
             android:inputType="textPassword"
-            android:textColor="#654900"/>
+            android:textColor="#654900" />
 
         <Button
             android:id="@+id/loginBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="128dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/passwordET"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
             android:text="Login" />
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loginBtn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Register" />
 
     </RelativeLayout>
 

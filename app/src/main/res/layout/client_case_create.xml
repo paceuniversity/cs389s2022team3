@@ -7,10 +7,21 @@
     <!--ImageView, TextView, ButtonView
         etc with specified position-->
 
+    <TextView
+        android:id="@+id/caseCreateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:text="Create a Case"
+        android:textColor="#654900"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageView2">
+        android:layout_below="@id/caseCreateTitle">
 
         <TextView
             android:id="@+id/caseTypeTV"
@@ -24,8 +35,8 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="Case Type"
-            android:textSize="24sp"
-            android:textColor="#654900"/>
+            android:textColor="#654900"
+            android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/caseSpinner"
@@ -46,8 +57,8 @@
             android:layout_below="@id/caseTypeTV"
             android:layout_centerHorizontal="true"
             android:text="Case Details"
-            android:textSize="24sp"
-            android:textColor="#654900"/>
+            android:textColor="#654900"
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/caseDetailsMultiLine"
@@ -72,6 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/caseDetailsMultiLine"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
             android:text="Create Case" />
     </RelativeLayout>
 

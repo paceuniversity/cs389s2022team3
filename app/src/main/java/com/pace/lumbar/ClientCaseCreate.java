@@ -18,7 +18,7 @@ public class ClientCaseCreate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.Theme_LumBar);
+        //setTheme(R.style.Theme_LumBar); no appbar for now
         setContentView(R.layout.client_case_create);
         RelativeLayout layout1 = new RelativeLayout(this);
         layout1.setBackgroundColor(Color.parseColor("#F8F3E7"));
