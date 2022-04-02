@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--ImageView, TextView, ButtonView
+        etc with specified position-->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView2">
+
+        <EditText
+            android:id="@+id/usernameET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginRight="64dp"
+            android:ems="10"
+            android:hint="Enter username"
+            android:inputType="textPersonName"
+            android:textColor="#654900" />
+
+        <EditText
+            android:id="@+id/passwordET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/usernameET"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="64sp"
+            android:layout_marginLeft="64sp"
+            android:layout_marginTop="24sp"
+            android:layout_marginEnd="64sp"
+            android:layout_marginRight="64sp"
+            android:ems="10"
+            android:hint="Enter password"
+            android:inputType="textPassword"
+            android:textColor="#654900"/>
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/passwordET"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="Login" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="240dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/appicon" />
+
+</RelativeLayout>

@@ -46,8 +46,8 @@ public class ClientProfCreation extends AppCompatActivity {
         //creates the state selection dropdown
         stateSpinner = findViewById(R.id.stateSpinner);
         ArrayAdapter<CharSequence>stateAdapter = ArrayAdapter.createFromResource
-                (this, R.array.states, android.R.layout.simple_spinner_item);
-        stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+                (this, R.array.states, R.layout.spinner_item);
+        stateAdapter.setDropDownViewResource(R.layout.spinner_item);
         stateSpinner.setAdapter(stateAdapter);
 
         //allows for profile pic selection from Gallery
@@ -76,8 +76,8 @@ public class ClientProfCreation extends AppCompatActivity {
                                 Integer.parseInt(agePicker.getText().toString()),
                                 cityPt.getText().toString(), stateSpinner.getSelectedItem().toString(),
                                 userPt.getText().toString(), pwdPtOne.getText().toString());
-                        CharSequence incompleteMsg = "Account creation succesful";
-                        Toast.makeText(getApplicationContext(), incompleteMsg,
+                        CharSequence completeMsg = "Account creation succesful";
+                        Toast.makeText(getApplicationContext(), completeMsg,
                                 Toast.LENGTH_SHORT).show();
                             openActivity2();
 
