@@ -13,12 +13,13 @@ import com.pace.lumbar.fragments.ExploreFragment;
 import com.pace.lumbar.fragments.HomeFragment;
 import com.pace.lumbar.fragments.MatchesFragment;
 import com.pace.lumbar.fragments.ProfileFragment;
+import com.pace.lumbar.fragments.adapters.CustomViewPager;
 import com.pace.lumbar.fragments.adapters.ViewPagerAdapter;
 
 public class HomePage extends AppCompatActivity {
 
     private TabLayout tabLayout;
-    private ViewPager viewPager;
+    private CustomViewPager viewPager;
 
 
     @Override
@@ -46,6 +47,8 @@ public class HomePage extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_favorite_border_24);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_search_24);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_baseline_account_circle_24);
+
+        viewPager.disableScroll(true);
     }
 
     public void likePressed(View view) {
