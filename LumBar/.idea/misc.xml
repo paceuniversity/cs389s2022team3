@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/jacke/Projects/cs389s2022team3/HomePage/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/Test/HomePage/app/src/main/res/layout/about_page.xml" value="0.15140845070422534" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/Test/HomePage/app/src/main/res/layout/fragment_explore.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/Test/HomePage/app/src/main/res/layout/fragment_home.xml" value="0.15678824721377912" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/Test/HomePage/app/src/main/res/layout/fragment_profile.xml" value="0.26358695652173914" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/Test/HomePage/app/src/main/res/layout/slide.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/Test/cs389s2022team3/HomePage/app/src/main/res/layout/fragment_home.xml" value="0.19610507246376813" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/Test/cs389s2022team3/HomePage/app/src/main/res/layout/fragment_matches.xml" value="0.19610507246376813" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/Test/cs389s2022team3/HomePage/app/src/main/res/layout/splash_activity.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/HomePage/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.185" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/HomePage/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/HomePage/app/src/main/res/layout/fragment_explore.xml" value="0.24320652173913043" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/HomePage/app/src/main/res/layout/fragment_home.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/HomePage/app/src/main/res/layout/fragment_matches.xml" value="0.19293478260869565" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/HomePage/app/src/main/res/layout/fragment_profile.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/HomePage/app/src/main/res/drawable/login_bkg.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/HomePage/app/src/main/res/layout/activity_law_log_pg1.xml" value="0.3223958333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/HomePage/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/HomePage/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1475" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/drawable/edit_round.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1475" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.1475" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1475" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/drawable/round_descr.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/drawable/round_title.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/about_page.xml" value="0.3223958333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/activity_law_log_pg1.xml" value="0.3223958333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/activity_law_log_pg2.xml" value="0.3223958333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/client_case_create.xml" value="0.28804347826086957" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/client_profile_creation.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/fragment_explore.xml" value="0.21739130434782608" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/fragment_home.xml" value="0.21739130434782608" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.21739130434782608" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/login_page.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/slide.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/jodec/AndroidStudioProjects/LumBar/app/src/main/res/layout/activity_main.xml" value="0.2857142857142857" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_main.xml" value="0.2324074074074074" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3-jack-fix/cs389s2022team3-jack-fix/HomePage/app/src/main/res/layout/activity_main.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3-jack-fix/cs389s2022team3-jack-fix/HomePage/app/src/main/res/layout/fragment_home.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1905" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/activity_main.xml" value="0.2857142857142857" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_explore.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_home.xml" value="0.2857142857142857" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.2760416666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
