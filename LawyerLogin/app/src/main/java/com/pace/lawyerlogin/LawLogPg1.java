@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ public class LawLogPg1 extends AppCompatActivity {
     private EditText pwdPtTwo;
     private final int SELECT_PICTURE = 200;
     private Button next;
+    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,14 +93,11 @@ public class LawLogPg1 extends AppCompatActivity {
 
         // create an instance of the
         // intent of the type image
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
-
-        // pass the constant to compare it
-        // with the returned requestCode
-        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+        Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(i, SELECT_PICTURE);
     }
+
+
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -109,11 +108,8 @@ public class LawLogPg1 extends AppCompatActivity {
             // SELECT_PICTURE constant
             if (requestCode == SELECT_PICTURE) {
                 // Get the url of the image from data
-                Uri selectedImageUri = data.getData();
-                if (null != selectedImageUri) {
-                    // update the preview image in the layout
-                    profImageView.setImageURI(selectedImageUri);
-                }
+                imageUri = data.getData();
+                profImageView.setImageURI(imageUri);
             }
         }
     }
