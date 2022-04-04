@@ -36,7 +36,7 @@ public class ClientProfCreation extends AppCompatActivity {
         getSupportActionBar().setTitle("Profile Creation");
 
         namePt = findViewById(R.id.etFname);
-        agePicker = findViewById(R.id.bday);
+        agePicker = findViewById(R.id.phone);
         cityPt = findViewById(R.id.cityPlainText);
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
