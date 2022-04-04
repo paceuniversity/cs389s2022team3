@@ -11,9 +11,6 @@ import androidx.fragment.app.Fragment;
 
 import com.pace.lumbar.LoginPage;
 import com.pace.lumbar.R;
-import com.pace.lumbar.SplashActivity;
-import com.pace.lumbar.aboutpage.AboutPage;
-
 
 
 public class ProfileFragment extends Fragment {

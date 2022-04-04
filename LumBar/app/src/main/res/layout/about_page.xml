@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".aboutpage.AboutPage"
+    tools:context=".AboutPage"
     android:background="@drawable/work">
 
     <androidx.viewpager.widget.ViewPager

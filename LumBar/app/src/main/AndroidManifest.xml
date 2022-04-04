@@ -60,7 +60,7 @@ package="com.pace.lumbar">
         </intent-filter>
     </activity>
     <activity
-        android:name=".aboutpage.AboutPage"
+        android:name=".AboutPage"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.DEFAULT" />
