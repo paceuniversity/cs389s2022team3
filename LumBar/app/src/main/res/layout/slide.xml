@@ -42,6 +42,7 @@
     <TextView
         android:layout_marginTop="10dp"
         android:id="@+id/txtdescrip"
+        android:padding="10dp"
         android:layout_width="313dp"
         android:layout_height="wrap_content"
         android:text="Description Here"

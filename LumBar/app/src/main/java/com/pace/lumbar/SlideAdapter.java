@@ -1,4 +1,4 @@
-package com.pace.lumbar.aboutpage;
+package com.pace.lumbar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,31 +12,20 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
-
-import com.pace.lumbar.LoginPage;
 import com.pace.lumbar.R;
 
 public class SlideAdapter extends PagerAdapter{
 
-    private Context context;
-    private LayoutInflater inflater;
+    Context context;
+    LayoutInflater inflater;
     private ImageButton button;
 
     public SlideAdapter(Context context){
         this.context = context;
-
-        button = button.findViewById(R.id.revert);
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(v.getContext(), LoginPage.class);
-                context.startActivity(intent);
-            }
-        });
     }
 
     //list of images
-    public int[] img = {
+    private int[] img = {
             R.drawable.origin,
             R.drawable.courthouse,
             R.drawable.app
@@ -55,23 +44,32 @@ public class SlideAdapter extends PagerAdapter{
         ImageView imgslide = (ImageView) view.findViewById(R.id.slideimg);
         TextView txttitle = (TextView) view.findViewById(R.id.txttitle);
         TextView descriptions = (TextView) view.findViewById(R.id.txtdescrip);
-//        layoutslide.setBackgroundColor();
         imgslide.setImageResource(img[position]);
         txttitle.setText(titles[position]);
         descriptions.setText(desc[position]);
         container.addView(view);
+
+//        button = button.findViewById(R.id.revert);
+//        button.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                Intent intent = new Intent(v.getContext(), LoginPage.class);
+//                context.startActivity(intent);
+//            }
+//        });
+
         return view;
     }
 
     //list of titles
-    public String [] titles = {
+    private String [] titles = {
             "Origin",
             "Mission",
             "Developers"
     };
 
     //list of descriptions
-    public String[] desc = {
+    private String[] desc = {
             "LumBar is an in-construction app targeted to users who are looking for lawyers.",
             "On a daily basis, people wouldn't need a lawyer unless they encountered some problem or have their own personal lawyer. When it comes to finding lawyers, people would either search them up on google or get recommended for one. Most times people don’t know how to find them, the expenses of hiring one, and if they’re trustworthy or not. This app will help clients narrow down their selections by their budget, the distance in travel (visiting them), and their legal needs.",
             "Josephine Chan - Product Owner\nChristian Concepcion - Scrum Master\nJack Egan - Head Developer"

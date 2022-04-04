@@ -10,9 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.pace.lumbar.aboutpage.AboutPage;
-import com.pace.lumbar.aboutpage.SlideAdapter;
-
 public class LoginPage extends AppCompatActivity {
 
     private Button registerBtn, clientbtn, lawyerbtn;
