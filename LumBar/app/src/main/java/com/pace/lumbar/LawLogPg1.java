@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class LawLogPg1 extends AppCompatActivity {
     private EditText namePt;
     private EditText agePicker;
@@ -74,6 +77,11 @@ public class LawLogPg1 extends AppCompatActivity {
                                 Integer.parseInt(agePicker.getText().toString()),
                                 emailPt.getText().toString(), Integer.parseInt(phonePt.getText().toString()),
                                 userPt.getText().toString(), pwdPtOne.getText().toString());
+
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = database.getReference("lawyer");
+                        myRef.setValue(newUser);
+
                         CharSequence incompleteMsg = "Credentials Correct!";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();

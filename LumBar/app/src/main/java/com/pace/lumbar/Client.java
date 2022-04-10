@@ -2,30 +2,30 @@ package com.pace.lumbar;
 
 public class Client { //parent class for Client and Lawyer
 
-    private String name;
-    private int age;
+    private String realName;
+    private int phoneNumber;
     private String city;
     private String state;
     private String username;
     private String password;
     //TODO: profile pic
 
-    public Client(String name, int age, String city, String state, String username,
+    public Client(String realName, int phoneNumber, String city, String state, String username,
                   String password) {
-        this.name = name;
-        this.age = age;
+        this.realName = realName;
+        this.phoneNumber = phoneNumber;
         this.city = city;
         this.state = state;
         this.username = username;
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getRealName() {
+        return realName;
     }
 
-    public int getAge() {
-        return age;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
     public String getCity() {
@@ -36,4 +36,12 @@ public class Client { //parent class for Client and Lawyer
         return state;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    //for testing
+    public String getPassword() {
+        return password;
+    }
 }

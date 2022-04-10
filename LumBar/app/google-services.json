@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "177067313052",
+    "project_id": "lumbar-af6f0",
+    "storage_bucket": "lumbar-af6f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177067313052:android:a5f643aeeefc5ec0d72a59",
+        "android_client_info": {
+          "package_name": "com.pace.lumbar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177067313052-m3ue8ts8gon3q8njtrm7g2ehdn6t6fgc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCq9EShewB4SgSz6gd2_CJObYcYloCD1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177067313052-m3ue8ts8gon3q8njtrm7g2ehdn6t6fgc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

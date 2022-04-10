@@ -5,18 +5,38 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class LawLogPg2 extends AppCompatActivity {
     private Button backbtn, donebtn;
+    private EditText lawFirmText;
+    private EditText addressText;
+    private EditText cityEditText;
     private Spinner stateSpinner, caseSpinner;
+    private EditText emailText;
+    private EditText phoneNumText;
+    private EditText firmWebsiteText;
+    private EditText caseWebsite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_law_log_pg2);
+
+        lawFirmText = findViewById(R.id.Agency);
+        addressText = findViewById(R.id.address);
+        cityEditText = findViewById(R.id.cityPlainText);
+        emailText = findViewById(R.id.emailAddress);
+        phoneNumText = findViewById(R.id.phonenum);
+        firmWebsiteText = findViewById(R.id.website);
+        caseWebsite = findViewById(R.id.caseWeb);
 
         stateSpinner = findViewById(R.id.stateSpinner);
         ArrayAdapter<CharSequence> stateAdapter = ArrayAdapter.createFromResource
@@ -42,8 +62,30 @@ public class LawLogPg2 extends AppCompatActivity {
         donebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LawLogPg2.this, HomePage.class);
-                startActivity(intent);
+                if (isNotEmpty(lawFirmText) && isNotEmpty(addressText) &&
+                    isNotEmpty(cityEditText) && isNotEmpty(emailText) &&
+                    isNotEmpty(phoneNumText) && isNotEmpty(firmWebsiteText)
+                    && isNotEmpty(caseWebsite) && stateSpinner.getSelectedItem() != null
+                    && caseSpinner.getSelectedItem() != null) {
+                    CharSequence completeMsg = "Firm creation succesful";
+                    Toast.makeText(getApplicationContext(), completeMsg,
+                            Toast.LENGTH_SHORT).show();
+
+                    LawFirm firm = new LawFirm(lawFirmText.getText().toString(),
+                            addressText.getText().toString(), cityEditText.getText().toString(),
+                            stateSpinner.getSelectedItem().toString(),
+                            emailText.getText().toString(), phoneNumText.getText().toString(),
+                            firmWebsiteText.getText().toString(), caseSpinner.getSelectedItem().toString(),
+                            caseWebsite.getText().toString());
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("lawfirm");
+                    myRef.setValue(firm);
+
+
+                    Intent intent = new Intent(LawLogPg2.this, HomePage.class);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -51,5 +93,9 @@ public class LawLogPg2 extends AppCompatActivity {
     private void openActivity3() {
         Intent intent = new Intent(this, LawLogPg1.class);
         startActivity(intent);
+    }
+
+    private boolean isNotEmpty(EditText edTxt) {
+        return edTxt.getText().toString().trim().length() > 0;
     }
 }
