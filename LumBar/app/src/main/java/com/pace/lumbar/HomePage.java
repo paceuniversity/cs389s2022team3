@@ -62,4 +62,10 @@ public class HomePage extends AppCompatActivity {
                 Toast.LENGTH_SHORT);
         toast.show();
     }
+
+    public void chatPressed(View view) {
+        Toast toast = Toast.makeText(this, R.string.chat_message,
+                Toast.LENGTH_SHORT);
+        toast.show();
+    }
 }
