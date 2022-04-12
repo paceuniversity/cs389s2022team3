@@ -4,6 +4,72 @@
     <string name="button_label_like">Like</string>
     <string name="like_message">Like Pressed!</string>
     <string name="dislike_message">Dislike Pressed!</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="chat_message">Chat Pressed!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nameTVTxt">Name:</string>
+    <string name="namePTTxt">Enter name here</string>
+    <string name="ageTVTxt">Age:</string>
+    <string name="agePTTxt">Enter age here</string>
+    <string name="agePVTxt">Enter age here</string>
+    <string name="cityTVTxt">City:</string>
+    <string name="stateTVTxt">State:</string>
+    <string name="cityPVTxt">Enter city here</string>
+    <string name="selectPicBtnTxt">Select Profile Pic</string>
+    <string name="selectProfilePicTVTxt">Profile Pic</string>
+
+    <string name="createProfBtn">Create</string>
+    <string name="profileImgHint">uploaded profile</string>
+    <string name="title_activity_client_case_create">Create a Case</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_login_page">Login</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="stateSelectorTxt">statesSelect</string>
+    <string name="app2_name">Law Firm</string>
+    <string name="cases">cases</string>
+    <string-array name="states">
+        <item>Connecticut</item>
+        <item>New Jersey</item>
+        <item>New York</item>
+        <item>Alaska</item>
+        <item>North Carolina</item>
+        <item>South Carolina</item>
+        <item>Maryland</item>
+        <item>Florida</item>
+        <item>Wisconsin</item>
+        <item>Georgia</item>
+        <item>Virginia</item>
+        <item>California</item>
+        <item>Nevada</item>
+        <item>Montana</item>
+        <item>Oklahoma</item>
+        <item>Texas</item>
+        <item>Maine</item>
+        <item>New Jersey</item>
+        <item>Illinois</item>
+        <item>Massachusetts</item>
+        <item>Hawaii</item>
+        <item>New Mexico</item>
+        <item>Philadelphia</item>
+    </string-array>
+    <string-array name="cases">
+        <item>Criminal</item>
+        <item>Divorce</item>
+        <item>Personal Injury</item>
+        <item>Traffic</item>
+    </string-array>
 </resources>
