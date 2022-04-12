@@ -85,7 +85,13 @@ public class LawLogPg1 extends AppCompatActivity {
                         CharSequence incompleteMsg = "Credentials Correct!";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
-                        openActivity2();
+                        next.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(LawLogPg1.this, LawLogPg2.class);
+                                startActivity(intent);
+                            }
+                        });
 
                     }
                 } else{
@@ -95,11 +101,6 @@ public class LawLogPg1 extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    private void openActivity2() {
-        Intent intent = new Intent(this, LawLogPg2.class);
-        startActivity(intent);
     }
 
     private boolean isNotEmpty(EditText edTxt) {
@@ -115,8 +116,6 @@ public class LawLogPg1 extends AppCompatActivity {
         Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(i, SELECT_PICTURE);
     }
-
-
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
