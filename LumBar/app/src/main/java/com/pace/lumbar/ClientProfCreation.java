@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class ClientProfCreation extends AppCompatActivity {
 
     private EditText namePt;
@@ -90,7 +93,12 @@ public class ClientProfCreation extends AppCompatActivity {
                         CharSequence completeMsg = "Account creation succesful";
                         Toast.makeText(getApplicationContext(), completeMsg,
                                 Toast.LENGTH_SHORT).show();
-                            openActivity2();
+
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = database.getReference("client");
+                        myRef.setValue(newUser);
+
+                        openActivity2(userPt.getText().toString());
 
                     }
                 } else{
@@ -139,8 +147,9 @@ public class ClientProfCreation extends AppCompatActivity {
             }
         }
     }
-    private void openActivity2() {
+    private void openActivity2(String username) {
         Intent intent = new Intent(this, ClientCaseCreate.class);
+        intent.putExtra("username", username);
         startActivity(intent);
     }
 }

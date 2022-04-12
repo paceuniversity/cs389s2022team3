@@ -34,4 +34,13 @@ public class Lawyer {
     public int getPhone() {
         return phone;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    //for testing
+    public String getPassword() {
+        return password;
+    }
 }

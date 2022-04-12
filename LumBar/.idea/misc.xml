@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jacke/Projects/cs389s2022team3/HomePage/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/Users/jacke/Projects/cs389s2022team3/LumBar/app/src/main/res/layout/activity_law_log_pg2.xml" value="0.2" />
         <entry key="..\:/Users/jacke/Projects/cs389s2022team3/LumBar/app/src/main/res/layout/client_profile_creation.xml" value="0.33" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/Test/HomePage/app/src/main/res/layout/about_page.xml" value="0.15140845070422534" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/Test/HomePage/app/src/main/res/layout/fragment_explore.xml" value="0.1" />
@@ -48,7 +49,6 @@
         <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/jodec/AndroidStudioProjects/LumBar/app/src/main/res/layout/activity_main.xml" value="0.2857142857142857" />
         <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_main.xml" value="0.2324074074074074" />
-        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3-jack-fix/cs389s2022team3-jack-fix/HomePage/app/src/main/res/layout/activity_main.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3-jack-fix/cs389s2022team3-jack-fix/HomePage/app/src/main/res/layout/fragment_home.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1905" />
