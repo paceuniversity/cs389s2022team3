@@ -1,6 +1,10 @@
 package com.pace.lumbar;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -9,6 +13,7 @@ public class AboutPage extends AppCompatActivity {
 
     private ViewPager viewPager;
     private SlideAdapter myAdapter;
+    private ImageButton revertBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,5 +23,14 @@ public class AboutPage extends AppCompatActivity {
         myAdapter = new SlideAdapter(this);
         if(myAdapter!=null)
             viewPager.setAdapter(myAdapter);
+
+        revertBtn = findViewById(R.id.revert);
+        revertBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AboutPage.this, LoginPage.class);
+                startActivity(intent);
+            }
+        });
     }
 }
