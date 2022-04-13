@@ -82,7 +82,6 @@ public class LawLogPg2 extends AppCompatActivity {
                     DatabaseReference myRef = database.getReference("lawfirm");
                     myRef.setValue(firm);
 
-
                     Intent intent = new Intent(LawLogPg2.this, HomePage.class);
                     startActivity(intent);
                 }

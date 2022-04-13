@@ -6,16 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 
 import com.pace.lumbar.LoginPage;
 import com.pace.lumbar.R;
+import com.pace.lumbar.SettingPage;
 
 
 public class ProfileFragment extends Fragment {
 
     private Button signoutbtn;
+    private ImageButton menuBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,16 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        menuBtn= view.findViewById(R.id.setting);
+        menuBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getActivity(), SettingPage.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 }

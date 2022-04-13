@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.HomeFragment"
-    android:background="#F8F3E7">
+    android:background="#F8F3E7"
+    tools:context=".fragments.HomeFragment">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="286dp"
         android:layout_height="108dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="50dp"
         android:gravity="center"
         android:text="Profile"
@@ -33,5 +33,16 @@
         android:text="Sign Out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="20dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_baseline_settings_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
