@@ -92,10 +92,37 @@
         <item>Wyoming</item>
     </string-array>
     <string-array name="cases">
+        <item>Assault</item>
+        <item>Bribery</item>
+        <item>Burglary</item>
+        <item>Child Abandonment</item>
+        <item>Child Pornography</item>
+        <item>Civil</item>
         <item>Criminal</item>
+        <item>Cyberbullying</item>
         <item>Divorce</item>
+        <item>Domestic Violence</item>
+        <item>Drug Distribution/Possession/Trafficking</item>
+        <item>Emancipation and Approval of Underage Marriages</item>
+        <item>Extortion</item>
+        <item>Family</item>
+        <item>Forgery</item>
+        <item>Fraud</item>
+        <item>Guardianship</item>
+        <item>Harassment</item>
+        <item>Hate Crimes</item>
+        <item>Juvenile Matters</item>
+        <item>Marriage Dissolution</item>
+        <item>Name Changes</item>
+        <item>Paternity and Child Custody</item>
         <item>Personal Injury</item>
+        <item>Prostitution</item>
+        <item>Rape</item>
+        <item>Tax Evasion/Fraud</item>
+        <item>Termination of Parental Rights and Adoptions</item>
+        <item>Theft</item>
         <item>Traffic</item>
+        <item>Vandalism</item>
     </string-array>
     <string name="title_activity_setting_page">SettingPage</string>
 </resources>
