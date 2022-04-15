@@ -17,7 +17,6 @@ import com.pace.lumbar.SettingPage;
 
 public class ProfileFragment extends Fragment {
 
-    private Button signoutbtn;
     private ImageButton menuBtn;
 
     @Override
@@ -30,15 +29,6 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-
-        signoutbtn = view.findViewById(R.id.signOut);
-        signoutbtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getActivity(), LoginPage.class);
-                startActivity(intent);
-            }
-        });
 
         menuBtn= view.findViewById(R.id.setting);
         menuBtn.setOnClickListener(new View.OnClickListener(){

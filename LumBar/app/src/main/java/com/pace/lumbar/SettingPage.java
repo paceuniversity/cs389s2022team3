@@ -1,49 +1,53 @@
 package com.pace.lumbar;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceFragmentCompat;
-
+import com.pace.lumbar.dupAboutPage.AboutPageDup;
 import com.pace.lumbar.fragments.ProfileFragment;
 
 public class SettingPage extends AppCompatActivity {
 
-//    private ImageButton revertBtn;
+    private Button signOut, aboutBtn, helpBtn;
+    private ImageButton revertBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_activity);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.settings, new SettingsFragment())
-                    .commit();
-        }
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        setContentView(R.layout.setting_page);
 
-//        revertBtn= findViewById(R.id.revert);
-//        revertBtn.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                Intent intent = new Intent(SettingPage.this, ProfileFragment.class);
-//                startActivity(intent);
-//            }
-//        });
-    }
+        signOut = findViewById(R.id.signout);
+        signOut.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(SettingPage.this, LoginPage.class);
+                startActivity(intent);
+            }
+        });
 
-    public static class SettingsFragment extends PreferenceFragmentCompat {
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.root_preferences, rootKey);
-        }
+        aboutBtn = findViewById(R.id.about);
+        aboutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingPage.this, AboutPageDup.class);
+                startActivity(intent);
+            }
+        });
+
+        helpBtn = findViewById(R.id.help);
+
+        revertBtn = findViewById(R.id.revertToProf);
+        revertBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingPage.this, ProfileFragment.class);
+                startActivity(intent);
+            }
+        });
     }
 }
