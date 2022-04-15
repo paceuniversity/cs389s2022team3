@@ -22,7 +22,7 @@ public class SettingPage extends AppCompatActivity {
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.settings, new SettingsFragment())
+                    .replace(R.id.secd ttings, new SettingsFragment())
                     .commit();
         }
         ActionBar actionBar = getSupportActionBar();

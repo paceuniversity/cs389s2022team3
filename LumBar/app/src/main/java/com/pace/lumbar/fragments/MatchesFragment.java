@@ -18,12 +18,12 @@ public class MatchesFragment extends Fragment {
 
     private TextView matchID, matchName;
     private ImageView matchPic;
-    private MatchesFragment(View view){
-        view.setOnClickListener((View.OnClickListener) this);
-        matchID = (TextView) view.findViewById(R.id.matchID);
-        matchName = (TextView) view.findViewById(R.id.matchName);
-        matchPic = (ImageView) view.findViewById(R.id.matchPic);
-    }
+//    private MatchesFragment(View view){
+//        view.setOnClickListener((View.OnClickListener) this);
+//        matchID = (TextView) view.findViewById(R.id.matchID);
+//        matchName = (TextView) view.findViewById(R.id.matchName);
+//        matchPic = (ImageView) view.findViewById(R.id.matchPic);
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
