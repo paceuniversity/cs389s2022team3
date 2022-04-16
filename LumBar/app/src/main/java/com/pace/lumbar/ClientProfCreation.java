@@ -14,13 +14,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 public class ClientProfCreation extends AppCompatActivity {
 
     private EditText namePt;
-    private EditText agePicker;
+    private EditText phoneNumPt;
     private EditText cityPt;
     private Spinner stateSpinner;
     private Button profSelectBtn;
@@ -39,7 +36,7 @@ public class ClientProfCreation extends AppCompatActivity {
         getSupportActionBar().setTitle("Profile Creation");
 
         namePt = findViewById(R.id.etFname);
-        agePicker = findViewById(R.id.phone);
+        phoneNumPt = findViewById(R.id.phone);
         cityPt = findViewById(R.id.cityPlainText);
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
@@ -78,7 +75,7 @@ public class ClientProfCreation extends AppCompatActivity {
         createProfBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isNotEmpty(namePt) && isNotEmpty(agePicker) &&
+                if (isNotEmpty(namePt) && isNotEmpty(phoneNumPt) &&
                         isNotEmpty(cityPt) && stateSpinner.getSelectedItem() != null &&
                         isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
                     if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
@@ -87,18 +84,15 @@ public class ClientProfCreation extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         Client newUser = new Client(namePt.getText().toString(),
-                                Integer.parseInt(agePicker.getText().toString()),
+                                phoneNumPt.getText().toString(),
                                 cityPt.getText().toString(), stateSpinner.getSelectedItem().toString(),
                                 userPt.getText().toString(), pwdPtOne.getText().toString());
-                        CharSequence completeMsg = "Account creation succesful";
-                        Toast.makeText(getApplicationContext(), completeMsg,
-                                Toast.LENGTH_SHORT).show();
 
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef = database.getReference("client");
-                        myRef.setValue(newUser);
-
-                        openActivity2(userPt.getText().toString());
+//                        new user is not created until next screen is complete
+//                        CharSequence completeMsg = "Account creation succesful";
+//                        Toast.makeText(getApplicationContext(), completeMsg,
+//                                Toast.LENGTH_SHORT).show();
+                        openActivity2(userPt.getText().toString(), newUser);
 
                     }
                 } else{
@@ -147,9 +141,10 @@ public class ClientProfCreation extends AppCompatActivity {
             }
         }
     }
-    private void openActivity2(String username) {
+    private void openActivity2(String username, Client newUser) {
         Intent intent = new Intent(this, ClientCaseCreate.class);
         intent.putExtra("username", username);
+        intent.putExtra("client", newUser);
         startActivity(intent);
     }
 }

@@ -75,12 +75,8 @@ public class LawLogPg1 extends AppCompatActivity {
                     } else {
                         Lawyer newUser = new Lawyer(namePt.getText().toString(),
                                 Integer.parseInt(agePicker.getText().toString()),
-                                emailPt.getText().toString(), Integer.parseInt(phonePt.getText().toString()),
+                                emailPt.getText().toString(), phonePt.getText().toString(),
                                 userPt.getText().toString(), pwdPtOne.getText().toString());
-
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef = database.getReference("lawyer");
-                        myRef.setValue(newUser);
 
                         CharSequence incompleteMsg = "Credentials Correct!";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
@@ -89,6 +85,7 @@ public class LawLogPg1 extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(LawLogPg1.this, LawLogPg2.class);
+                                intent.putExtra("newUser", newUser);
                                 startActivity(intent);
                             }
                         });
