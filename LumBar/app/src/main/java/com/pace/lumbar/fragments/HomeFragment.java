@@ -1,41 +1,52 @@
 package com.pace.lumbar.fragments;
 
-import static android.content.ContentValues.TAG;
-
-import android.gesture.Gesture;
-import android.nfc.Tag;
+import android.content.Intent;
 import android.os.Bundle;
 
 
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
+
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ArrayAdapter;
 
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.pace.lumbar.HomePage;
+import com.pace.lumbar.LoginPage;
+import com.pace.lumbar.Matching;
 import com.pace.lumbar.R;
 
+import java.util.ArrayList;
 
-public class HomeFragment extends Fragment implements View.OnTouchListener, GestureDetector.OnGestureListener {
-    //widgets
-    private ImageView imageView;
 
-    //vars
-    private GestureDetector mGestureDetector;
+public class HomeFragment extends Fragment {
+
+    private Button matchingBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Crash occurs at these two lines
-        //imageView = (ImageView) getView().findViewById(R.id.img);
-        //imageView.setOnTouchListener(this);
 
-        mGestureDetector = new GestureDetector(this);
+        //matchingBtn = getView().findViewById(R.id.goTo_matching);
+        matchingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Matching.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -43,55 +54,9 @@ public class HomeFragment extends Fragment implements View.OnTouchListener, Gest
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        matchingBtn = view.findViewById(R.id.goTo_matching);
+        return view;
 
-    }
-
-//    private void setImage(){
-//        Glide.with(this).load(R.drawable.logo).into(imageView);
-//    }
-
-    @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        mGestureDetector.onTouchEvent(motionEvent);
-        return false;
-    }
-
-    /*
-    Gesture Detector
-     */
-    @Override
-    public boolean onDown(MotionEvent motionEvent) {
-        Log.d(TAG, "onDown: called");
-        return false;
-    }
-
-    @Override
-    public void onShowPress(MotionEvent motionEvent) {
-        Log.d(TAG, "onShowPress: called");
-    }
-
-    @Override
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        Log.d(TAG, "onSingleTapUp: called");
-        return false;
-    }
-
-    @Override
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
-        Log.d(TAG, "onScroll: called");
-        return false;
-    }
-
-    @Override
-    public void onLongPress(MotionEvent motionEvent) {
-        Log.d(TAG, "onLongPress: called");
-
-    }
-
-    @Override
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
-        Log.d(TAG, "onFling: called");
-        return false;
     }
 }
