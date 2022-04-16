@@ -1,35 +1,51 @@
 package com.pace.lumbar.fragments;
 
-import static android.content.ContentValues.TAG;
-
-import android.gesture.Gesture;
-import android.nfc.Tag;
+import android.content.Intent;
 import android.os.Bundle;
 
 
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
+
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ArrayAdapter;
 
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.pace.lumbar.HomePage;
+import com.pace.lumbar.LoginPage;
+import com.pace.lumbar.Matching;
 import com.pace.lumbar.R;
+
+import java.util.ArrayList;
 
 
 public class HomeFragment extends Fragment {
-    //widgets
-    private ImageView imageView;
 
-    //vars
-    private GestureDetector mGestureDetector;
+    private Button matchingBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        //matchingBtn = getView().findViewById(R.id.goTo_matching);
+        matchingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Matching.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -38,8 +54,9 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        matchingBtn = view.findViewById(R.id.goTo_matching);
+        return view;
 
     }
-
 }

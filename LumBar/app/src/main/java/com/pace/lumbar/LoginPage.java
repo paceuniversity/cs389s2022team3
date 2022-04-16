@@ -33,10 +33,9 @@ public class LoginPage extends AppCompatActivity {
         userName = findViewById(R.id.etUserName);
         password = findViewById(R.id.etPassword);
 
+        //Enter username and pass
         registerBtn = findViewById(R.id.login);
         registerBtn.setOnClickListener(new View.OnClickListener() {
-
-            //Enter username and pass
             @Override
             public void onClick(View v) {
                 if (!validateUsername() || !validatePassword()){
