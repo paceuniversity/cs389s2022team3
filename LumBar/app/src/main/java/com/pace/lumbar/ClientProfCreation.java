@@ -88,7 +88,7 @@ public class ClientProfCreation extends AppCompatActivity {
                         Client newUser = new Client(namePt.getText().toString(),
                                 phoneNumPt.getText().toString(),
                                 cityPt.getText().toString(), stateSpinner.getSelectedItem().toString(),
-                                userPt.getText().toString(), pwdPtOne.getText().toString());
+                                userPt.getText().toString(), pwdPtOne.getText().toString(), email.getText().toString());
 
 //                        new user is not created until next screen is complete
 //                        CharSequence completeMsg = "Account creation succesful";

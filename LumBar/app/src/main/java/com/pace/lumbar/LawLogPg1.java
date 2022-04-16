@@ -72,7 +72,7 @@ public class LawLogPg1 extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         Lawyer newUser = new Lawyer(namePt.getText().toString(),
-                                emailPt.getText().toString(), Integer.parseInt(phonePt.getText().toString()),
+                                emailPt.getText().toString(), phonePt.getText().toString(),
                                 userPt.getText().toString(), pwdPtOne.getText().toString());
 
                         CharSequence incompleteMsg = "Credentials Correct!";

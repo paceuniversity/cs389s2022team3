@@ -13,7 +13,7 @@ import com.pace.lumbar.fragments.ProfileFragment;
 
 public class SettingPage extends AppCompatActivity {
 
-    private Button signOut, aboutBtn, helpBtn;
+    private Button signOut, aboutBtn, helpBtn, editBtn;
     private ImageButton revertBtn;
 
     @Override
@@ -46,6 +46,15 @@ public class SettingPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SettingPage.this, ProfileFragment.class);
+                startActivity(intent);
+            }
+        });
+
+        editBtn = findViewById(R.id.edit);
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingPage.this, EditProfile.class);
                 startActivity(intent);
             }
         });
