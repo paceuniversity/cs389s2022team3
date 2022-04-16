@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ClientProfCreation extends AppCompatActivity {
 
     private EditText namePt;
+    private EditText email;
     private EditText phoneNumPt;
     private EditText cityPt;
     private Spinner stateSpinner;
@@ -36,6 +37,7 @@ public class ClientProfCreation extends AppCompatActivity {
         getSupportActionBar().setTitle("Profile Creation");
 
         namePt = findViewById(R.id.etFname);
+        email = findViewById(R.id.emailAddress);
         phoneNumPt = findViewById(R.id.phone);
         cityPt = findViewById(R.id.cityPlainText);
         profSelectBtn = findViewById(R.id.uploadImgBtn);
@@ -77,7 +79,7 @@ public class ClientProfCreation extends AppCompatActivity {
             public void onClick(View v) {
                 if (isNotEmpty(namePt) && isNotEmpty(phoneNumPt) &&
                         isNotEmpty(cityPt) && stateSpinner.getSelectedItem() != null &&
-                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
+                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo) && isNotEmpty(email)) {
                     if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
                         CharSequence incompleteMsg = "Creation failed: passwords must match";
                         Toast.makeText(getApplicationContext(), incompleteMsg,

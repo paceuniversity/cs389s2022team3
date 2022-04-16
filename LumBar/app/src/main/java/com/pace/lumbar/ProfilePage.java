@@ -1,31 +1,24 @@
-package com.pace.lumbar.fragments;
+package com.pace.lumbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.pace.lumbar.LoginPage;
-import com.pace.lumbar.ProfilePage;
-import com.pace.lumbar.R;
-import com.pace.lumbar.SettingPage;
 
+/* Reference: https://www.youtube.com/watch?v=GuMwCuvGWx4 */
 
-public class ProfileFragment extends Fragment {
-
+public class ProfilePage extends AppCompatActivity {
     private ImageButton menuBtn;
     private TextView nameTxt, topicTxt, emailTxt, phoneTxt, stateTxt, detailTxt;
     private ImageView profIMG, emailIMG, phoneIMG, addIMG, detailIMG;
@@ -39,35 +32,32 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+        setContentView(R.layout.fragment_profile);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("email");
 
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
-
-        menuBtn= view.findViewById(R.id.setting);
+        menuBtn= findViewById(R.id.setting);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getActivity(), SettingPage.class);
+                Intent intent = new Intent(ProfilePage.this, SettingPage.class);
                 startActivity(intent);
             }
         });
 
-        nameTxt = view.findViewById(R.id.profname);
-        topicTxt = view.findViewById(R.id.caseTopic);
-        emailTxt = view.findViewById(R.id.emailProf);
-        phoneTxt = view.findViewById(R.id.phoneProf);
-        stateTxt = view.findViewById(R.id.addrProf);
-        detailTxt = view.findViewById(R.id.topic);
+        nameTxt = findViewById(R.id.profname);
+        topicTxt = findViewById(R.id.caseTopic);
+        emailTxt = findViewById(R.id.emailProf);
+        phoneTxt = findViewById(R.id.phoneProf);
+        stateTxt = findViewById(R.id.addrProf);
+        detailTxt = findViewById(R.id.topic);
 
-        profIMG = view.findViewById(R.id.profileImgView);
-        emailIMG = view.findViewById(R.id.emailPic);
-        phoneIMG = view.findViewById(R.id.phonePic);
-        addIMG = view.findViewById(R.id.locatePic);
-        detailIMG = view.findViewById(R.id.topicPic);
+        profIMG = findViewById(R.id.profileImgView);
+        emailIMG = findViewById(R.id.emailPic);
+        phoneIMG = findViewById(R.id.phonePic);
+        addIMG = findViewById(R.id.locatePic);
+        detailIMG = findViewById(R.id.topicPic);
 
         database = FirebaseDatabase.getInstance();
         userRef = database.getReference(USER);
@@ -92,7 +82,5 @@ public class ProfileFragment extends Fragment {
 
             }
         });
-
-        return view;
     }
 }

@@ -38,17 +38,17 @@
             android:layout_marginBottom="16dp"
             android:text="Case Type"
             android:textColor="#654900"
-            android:textSize="23sp" />
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/caseSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/caseTypeTV"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginRight="302dp"
             android:minHeight="48dp"
             android:paddingTop="8dp" />
 
@@ -56,22 +56,22 @@
             android:id="@+id/caseDetailsTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/caseTypeTV"
+            android:layout_below="@+id/caseSpinner"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
             android:text="Case Details"
             android:textColor="#654900"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/caseDetailsMultiLine"
-            android:layout_width="379dp"
-            android:layout_height="324dp"
+            android:layout_width="367dp"
+            android:layout_height="234dp"
+            android:layout_above="@+id/createCaseButton"
             android:layout_below="@id/caseDetailsTV"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
             android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
             android:background="@drawable/edit_round"
             android:ems="10"
             android:gravity="start|top"
@@ -88,7 +88,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="137dp"
             android:layout_marginEnd="137dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="20dp"
             android:text="Create Case" />
     </RelativeLayout>
 

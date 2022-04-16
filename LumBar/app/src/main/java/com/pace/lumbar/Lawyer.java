@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class Lawyer implements Serializable {
     private String name;
-    private int age;
     private String email;
     private String phone;
     private String username;
@@ -12,10 +11,8 @@ public class Lawyer implements Serializable {
     private LawFirm firm;
     //TODO: profile pic
 
-    public Lawyer(String name, int age, String email, String phone, String username,
-                  String password) {
+    public Lawyer(String name, String email, int phone, String username, String password) {
         this.name = name;
-        this.age = age;
         this.email = email;
         this.phone = phone;
         this.username = username;
@@ -24,10 +21,6 @@ public class Lawyer implements Serializable {
 
     public String getName() {
         return name;
-    }
-
-    public int getAge() {
-        return age;
     }
 
     public String getEmail() {

@@ -88,7 +88,6 @@ public class LawLogPg2 extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     });
 
-
                     Intent intent = new Intent(LawLogPg2.this, HomePage.class);
                     startActivity(intent);
                 }

@@ -8,20 +8,20 @@ public class Client implements Serializable { //parent class for Client and Lawy
     private String phoneNumber;
     private String city;
     private String state;
+    private String email;
     private String username;
     private String password;
     //TODO: profile pic
-
-    public Client(){}
-
-    public Client(String realName, String phoneNumber, String city, String state, String username,
-                  String password) {
+  
+    public Client(String realName, int phoneNumber, String city, String state, String username,
+                  String password, String email) {
         this.realName = realName;
         this.phoneNumber = phoneNumber;
         this.city = city;
         this.state = state;
         this.username = username;
         this.password = password;
+        this.email = email;
     }
 
     public String getRealName() {
@@ -43,6 +43,8 @@ public class Client implements Serializable { //parent class for Client and Lawy
     public String getUsername() {
         return username;
     }
+
+    public String getEmail() { return email; }
 
     //for testing
     public String getPassword() {
