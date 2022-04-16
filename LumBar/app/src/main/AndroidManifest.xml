@@ -66,6 +66,13 @@ package="com.pace.lumbar">
             <action android:name="android.intent.action.DEFAULT" />
         </intent-filter>
     </activity>
+    <activity
+        android:name=".Matching"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.DEFAULT" />
+        </intent-filter>
+    </activity>
 </application>
 
 </manifest>

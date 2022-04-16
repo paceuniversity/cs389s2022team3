@@ -69,7 +69,7 @@ public class LawLogPg2 extends AppCompatActivity {
                     isNotEmpty(phoneNumText) && isNotEmpty(firmWebsiteText)
                     && isNotEmpty(caseWebsite) && stateSpinner.getSelectedItem() != null
                     && caseSpinner.getSelectedItem() != null) {
-                    CharSequence completeMsg = "Firm creation succesful";
+                    CharSequence completeMsg = "Firm creation successful";
                     Toast.makeText(getApplicationContext(), completeMsg,
                             Toast.LENGTH_SHORT).show();
 
@@ -91,6 +91,11 @@ public class LawLogPg2 extends AppCompatActivity {
 
                     Intent intent = new Intent(LawLogPg2.this, HomePage.class);
                     startActivity(intent);
+                }
+                else{
+                    CharSequence incompleteMsg = "Form is incomplete";
+                    Toast.makeText(getApplicationContext(), incompleteMsg,
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
