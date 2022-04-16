@@ -1,16 +1,20 @@
 package com.pace.lumbar;
 
-public class Client { //parent class for Client and Lawyer
+import java.io.Serializable;
+
+public class Client implements Serializable { //parent class for Client and Lawyer
 
     private String realName;
-    private int phoneNumber;
+    private String phoneNumber;
     private String city;
     private String state;
     private String username;
     private String password;
     //TODO: profile pic
 
-    public Client(String realName, int phoneNumber, String city, String state, String username,
+    public Client(){}
+
+    public Client(String realName, String phoneNumber, String city, String state, String username,
                   String password) {
         this.realName = realName;
         this.phoneNumber = phoneNumber;
@@ -24,7 +28,7 @@ public class Client { //parent class for Client and Lawyer
         return realName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 

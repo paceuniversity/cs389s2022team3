@@ -29,6 +29,8 @@ public class LawLogPg2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_law_log_pg2);
+        Intent intent = getIntent();
+        Lawyer lawyer = (Lawyer) intent.getExtras().getSerializable("newUser");
 
         lawFirmText = findViewById(R.id.Agency);
         addressText = findViewById(R.id.address);
@@ -78,9 +80,13 @@ public class LawLogPg2 extends AppCompatActivity {
                             firmWebsiteText.getText().toString(), caseSpinner.getSelectedItem().toString(),
                             caseWebsite.getText().toString());
 
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("lawfirm");
-                    myRef.setValue(firm);
+                    lawyer.setFirm(firm);
+                    DAOLawyer caseDao = new DAOLawyer();
+                    caseDao.add(lawyer).addOnSuccessListener(suc->{
+                        CharSequence caseCreateMsg = "New user and firm created";
+                        Toast.makeText(getApplicationContext(), caseCreateMsg,
+                                Toast.LENGTH_SHORT).show();
+                    });
 
 
                     Intent intent = new Intent(LawLogPg2.this, HomePage.class);
