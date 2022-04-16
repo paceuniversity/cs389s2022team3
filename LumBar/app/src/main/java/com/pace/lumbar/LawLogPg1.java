@@ -75,20 +75,21 @@ public class LawLogPg1 extends AppCompatActivity {
                                 emailPt.getText().toString(), Integer.parseInt(phonePt.getText().toString()),
                                 userPt.getText().toString(), pwdPtOne.getText().toString());
 
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef = database.getReference("lawyer");
-                        myRef.setValue(newUser);
-
                         CharSequence incompleteMsg = "Credentials Correct!";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
-
-                        Intent intent = new Intent(LawLogPg1.this, LawLogPg2.class);
-                        startActivity(intent);
+                        next.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(LawLogPg1.this, LawLogPg2.class);
+                                intent.putExtra("newUser", newUser);
+                                startActivity(intent);
+                            }
+                        });
 
                     }
                 } else{
-                    CharSequence incompleteMsg = "Profile info incomplete!";
+                    CharSequence incompleteMsg = "Form is incomplete";
                     Toast.makeText(getApplicationContext(), incompleteMsg,
                             Toast.LENGTH_SHORT).show();
                 }
