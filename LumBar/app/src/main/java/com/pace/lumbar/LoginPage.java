@@ -43,7 +43,10 @@ public class LoginPage extends AppCompatActivity {
                     return;
                 }
                 else{
-                    isUser();
+                    CharSequence completeMsg = "Login successful";
+                    Toast.makeText(getApplicationContext(), completeMsg, Toast.LENGTH_SHORT).show();
+                    openActivity2();
+                    //isUser();
                 }
             }
         });
