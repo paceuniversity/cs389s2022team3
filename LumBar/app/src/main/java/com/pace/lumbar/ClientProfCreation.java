@@ -20,7 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class ClientProfCreation extends AppCompatActivity {
 
     private EditText namePt;
-    private EditText agePicker;
+    private EditText phone;
+    private EditText email;
     private EditText cityPt;
     private Spinner stateSpinner;
     private Button profSelectBtn;
@@ -39,7 +40,8 @@ public class ClientProfCreation extends AppCompatActivity {
         getSupportActionBar().setTitle("Profile Creation");
 
         namePt = findViewById(R.id.etFname);
-        agePicker = findViewById(R.id.phone);
+        email = findViewById(R.id.emailAddress);
+        phone = findViewById(R.id.phone);
         cityPt = findViewById(R.id.cityPlainText);
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
@@ -78,18 +80,18 @@ public class ClientProfCreation extends AppCompatActivity {
         createProfBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isNotEmpty(namePt) && isNotEmpty(agePicker) &&
+                if (isNotEmpty(namePt) && isNotEmpty(phone) &&
                         isNotEmpty(cityPt) && stateSpinner.getSelectedItem() != null &&
-                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
+                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo) && isNotEmpty(email)) {
                     if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
                         CharSequence incompleteMsg = "Creation failed: passwords must match";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         Client newUser = new Client(namePt.getText().toString(),
-                                Integer.parseInt(agePicker.getText().toString()),
+                                Integer.parseInt(phone.getText().toString()),
                                 cityPt.getText().toString(), stateSpinner.getSelectedItem().toString(),
-                                userPt.getText().toString(), pwdPtOne.getText().toString());
+                                userPt.getText().toString(), pwdPtOne.getText().toString(), email.getText().toString());
                         CharSequence completeMsg = "Account creation succesful";
                         Toast.makeText(getApplicationContext(), completeMsg,
                                 Toast.LENGTH_SHORT).show();

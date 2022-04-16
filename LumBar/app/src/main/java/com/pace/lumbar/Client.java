@@ -6,18 +6,20 @@ public class Client { //parent class for Client and Lawyer
     private int phoneNumber;
     private String city;
     private String state;
+    private String email;
     private String username;
     private String password;
     //TODO: profile pic
 
     public Client(String realName, int phoneNumber, String city, String state, String username,
-                  String password) {
+                  String password, String email) {
         this.realName = realName;
         this.phoneNumber = phoneNumber;
         this.city = city;
         this.state = state;
         this.username = username;
         this.password = password;
+        this.email = email;
     }
 
     public String getRealName() {
@@ -39,6 +41,8 @@ public class Client { //parent class for Client and Lawyer
     public String getUsername() {
         return username;
     }
+
+    public String getEmail() { return email; }
 
     //for testing
     public String getPassword() {
