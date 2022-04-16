@@ -38,14 +38,7 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-        //matchingBtn = getView().findViewById(R.id.goTo_matching);
-        matchingBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Matching.class);
-                startActivity(intent);
-            }
-        });
+
 
     }
 
@@ -53,9 +46,16 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         matchingBtn = view.findViewById(R.id.goTo_matching);
+        matchingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Matching.class);
+                startActivity(intent);
+            }
+        });
+        // Inflate the layout for this fragment
         return view;
 
     }
