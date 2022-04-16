@@ -1,15 +1,18 @@
 package com.pace.lumbar;
 
-public class Lawyer {
+import java.io.Serializable;
+
+public class Lawyer implements Serializable {
     private String name;
     private int age;
     private String email;
-    private int phone;
+    private String phone;
     private String username;
     private String password;
+    private LawFirm firm;
     //TODO: profile pic
 
-    public Lawyer(String name, int age, String email, int phone, String username,
+    public Lawyer(String name, int age, String email, String phone, String username,
                   String password) {
         this.name = name;
         this.age = age;
@@ -31,7 +34,7 @@ public class Lawyer {
         return email;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
@@ -43,4 +46,10 @@ public class Lawyer {
     public String getPassword() {
         return password;
     }
+
+    public void setFirm(LawFirm firm){
+        this.firm = firm;
+    }
+
+    public LawFirm getFirm() {return firm;}
 }

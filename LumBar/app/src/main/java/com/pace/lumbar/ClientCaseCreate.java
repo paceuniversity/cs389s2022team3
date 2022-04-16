@@ -30,6 +30,7 @@ public class ClientCaseCreate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         String username = intent.getExtras().getString("username");
+        Client newUser = (Client) intent.getExtras().getSerializable("client");
         //setTheme(R.style.Theme_LumBar); no appbar for now
         setContentView(R.layout.client_case_create);
         RelativeLayout layout1 = new RelativeLayout(this);
@@ -52,13 +53,15 @@ public class ClientCaseCreate extends AppCompatActivity {
                     Case newCase = new Case(username, caseSpinner.getSelectedItem().toString(),
                             caseDetails.getText().toString());
 
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("case");
-                    myRef.setValue(newCase);
+                    DAOClient clientDao = new DAOClient();
+                    clientDao.add(newUser);
 
-                    CharSequence caseCreateMsg = "Case created";
-                    Toast.makeText(getApplicationContext(), caseCreateMsg,
-                            Toast.LENGTH_SHORT).show();
+                    DAOCase caseDao = new DAOCase();
+                    caseDao.add(newCase).addOnSuccessListener(suc->{
+                        CharSequence caseCreateMsg = "Case created";
+                        Toast.makeText(getApplicationContext(), caseCreateMsg,
+                                Toast.LENGTH_SHORT).show();
+                    });
 
                     Intent intent = new Intent(ClientCaseCreate.this, HomePage.class);
                     startActivity(intent);
