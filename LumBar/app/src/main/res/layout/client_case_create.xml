@@ -29,30 +29,28 @@
             android:id="@+id/caseTypeTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/stateTV"
-            android:layout_alignParentLeft="true"
-            android:layout_centerHorizontal="false"
+            android:layout_below="@id/stateSpinnerCase"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="false"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="false"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:padding="5dp"
             android:text="Case Type"
             android:textColor="#654900"
-            android:textSize="15sp"
-            android:padding="5dp"/>
+            android:textSize="15sp" />
 
         <Spinner
             android:id="@+id/caseSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/stateTV"
+            android:layout_below="@id/caseTypeTV"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="302dp"
+            android:layout_marginRight="16dp"
             android:minHeight="48dp"
-            android:paddingTop="8dp"
-            android:textAlignment="viewStart" />
+            android:paddingTop="8dp" />
 
         <Spinner
             android:id="@+id/stateSpinnerCase"
@@ -63,10 +61,8 @@
             android:layout_marginTop="0dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
             android:minHeight="48dp"
-            android:paddingTop="8dp"
-            android:textAlignment="viewStart" />
+            android:paddingTop="8dp" />
 
         <TextView
             android:id="@+id/caseDetailsTV"
@@ -75,10 +71,10 @@
             android:layout_below="@+id/caseSpinner"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
+            android:padding="5dp"
             android:text="Case Details"
             android:textColor="#654900"
-            android:textSize="15sp"
-            android:padding="5dp"/>
+            android:textSize="15sp" />
 
         <EditText
             android:id="@+id/caseDetailsMultiLine"

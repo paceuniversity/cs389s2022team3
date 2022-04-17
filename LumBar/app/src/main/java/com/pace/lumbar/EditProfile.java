@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -37,21 +38,22 @@ public class EditProfile extends AppCompatActivity {
     private DocumentReference documentReference;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String currentuid;
+    private ArrayAdapter<CharSequence> stateAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_profile);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        currentuid = user.getUid();
-        documentReference = db.collection("user").document(currentuid);
-
         nameTxt = findViewById(R.id.etFname);
         emailTxt = findViewById(R.id.emailAddress);
         phoneTxt = findViewById(R.id.phone);
         cityTxt = findViewById(R.id.cityPlainText);
         stateTxt = findViewById(R.id.stateSpinner);
+        stateAdapter = ArrayAdapter.createFromResource
+                (this, R.array.states, R.layout.spinner_item);
+        stateAdapter.setDropDownViewResource(R.layout.spinner_item);
+        stateTxt.setAdapter(stateAdapter);
 
         doneBtn = findViewById(R.id.done);
         doneBtn.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +67,9 @@ public class EditProfile extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        currentuid = user.getUid();
+        documentReference = db.collection("user").document(currentuid);
 
         documentReference.get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>(){
@@ -81,6 +86,8 @@ public class EditProfile extends AppCompatActivity {
                     emailTxt.setText(email);
                     phoneTxt.setText(phone);
                     cityTxt.setText(city);
+                    int spinnerPosition = stateAdapter.getPosition(state);
+                    stateTxt.setSelection(spinnerPosition);
                 }
                 else{
                     Toast.makeText(EditProfile.this, "No Profile", Toast.LENGTH_SHORT).show();
@@ -94,6 +101,7 @@ public class EditProfile extends AppCompatActivity {
         String email = emailTxt.getText().toString();
         String phone = phoneTxt.getText().toString();
         String city = cityTxt.getText().toString();
+        String state = stateTxt.getSelectedItem().toString();
 
         final DocumentReference dr = db.collection("user").document(currentuid);
         db.runTransaction(new Transaction.Function<Void>() {
@@ -105,6 +113,7 @@ public class EditProfile extends AppCompatActivity {
                 transaction.update(dr, "email", email);
                 transaction.update(dr, "phoneNumber", phone);
                 transaction.update(dr, "city", city);
+                transaction.update(dr, "city", state);
 
                 return null;
             }

@@ -1,7 +1,10 @@
 package com.pace.lumbar;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +30,8 @@ public class LoginPage extends AppCompatActivity {
 
     private Button registerBtn, clientbtn, lawyerbtn;
     private ImageButton aboutbtn;
-    private EditText userName, password;
+    private EditText email, password;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +39,9 @@ public class LoginPage extends AppCompatActivity {
         //setTheme(R.style.Theme_LumBar); no appbar for now
         setContentView(R.layout.login_page);
 
-        userName = findViewById(R.id.etUserName);
+        email = findViewById(R.id.etEmail);
         password = findViewById(R.id.etPassword);
+        mAuth = FirebaseAuth.getInstance();
 
         //Enter username and pass
         registerBtn = findViewById(R.id.login);
@@ -42,9 +52,26 @@ public class LoginPage extends AppCompatActivity {
                     return;
                 }
                 else{
-                    CharSequence completeMsg = "Login successful";
-                    Toast.makeText(getApplicationContext(), completeMsg, Toast.LENGTH_SHORT).show();
-                    openActivity2();
+                    mAuth.signInWithEmailAndPassword(email.getText().toString().trim(),
+                            password.getText().toString().trim())
+                            .addOnCompleteListener(LoginPage.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        // Sign in success, update UI with the signed-in user's information
+                                        Log.d(TAG, "signInWithEmail:success");
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        CharSequence completeMsg = "Login successful";
+                                        Toast.makeText(getApplicationContext(), completeMsg, Toast.LENGTH_SHORT).show();
+                                        openActivity2();
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                        Toast.makeText(getApplicationContext(), "Authentication failed.",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                     //isUser();
                 }
             }
@@ -83,7 +110,7 @@ public class LoginPage extends AppCompatActivity {
 
     //Verifies if user credential is in Firebase's Realtime Database
     private void isUser() {
-        final String userEnteredUsername = userName.getText().toString().trim();
+        final String userEnteredUsername = email.getText().toString().trim();
         final String userEnteredPassword = password.getText().toString().trim();
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("lawyer");
@@ -97,13 +124,13 @@ public class LoginPage extends AppCompatActivity {
                 //from Firebase and goes straight to the else-statement
                 if(snapshot.exists()){
 
-                    userName.setError(null);
+                    email.setError(null);
 
                     String pswdFromDB = snapshot.child(userEnteredUsername).child("password").getValue(String.class);
 
                     //Opens Home activity if password correct
                     if(pswdFromDB.equals(userEnteredPassword)){
-                        userName.setError(null);
+                        email.setError(null);
                         openActivity2();
                     }
                     else{
@@ -113,8 +140,8 @@ public class LoginPage extends AppCompatActivity {
                 }
 
                 else{
-                    userName.setError("No such User exists");
-                    userName.requestFocus();
+                    email.setError("No such User exists");
+                    email.requestFocus();
                 }
             }
 
@@ -127,14 +154,14 @@ public class LoginPage extends AppCompatActivity {
 
     //Checks if username field is empty
     private boolean validateUsername(){
-        String val = userName.getText().toString();
+        String val = email.getText().toString();
 
         if(val.isEmpty()){
-            userName.setError("Field cannot be empty");
+            email.setError("Field cannot be empty");
             return false;
         }
         else{
-            userName.setError(null);
+            email.setError(null);
             return true;
         }
     }
