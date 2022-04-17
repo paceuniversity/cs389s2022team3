@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ClientProfCreation extends AppCompatActivity {
 
     private EditText namePt;
+    private EditText email;
     private EditText phoneNumPt;
     private EditText emailPt;
     private Button profSelectBtn;
@@ -35,6 +36,7 @@ public class ClientProfCreation extends AppCompatActivity {
         getSupportActionBar().setTitle("Profile Creation");
 
         namePt = findViewById(R.id.etFname);
+        email = findViewById(R.id.emailAddress);
         phoneNumPt = findViewById(R.id.phone);
         emailPt = findViewById(R.id.emailAddress);
         profSelectBtn = findViewById(R.id.uploadImgBtn);
@@ -78,7 +80,6 @@ public class ClientProfCreation extends AppCompatActivity {
                         openActivity2(namePt.getText().toString(), phoneNumPt.getText().toString(),
                                 emailPt.getText().toString(), userPt.getText().toString(),
                                 pwdPtOne.getText().toString());
-
                     }
                 } else{
                     CharSequence incompleteMsg = "Creation failed: profile info incomplete";

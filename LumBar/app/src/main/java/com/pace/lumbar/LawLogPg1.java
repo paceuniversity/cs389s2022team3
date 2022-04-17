@@ -18,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class LawLogPg1 extends AppCompatActivity {
     private EditText namePt;
-    private EditText agePicker;
     private EditText emailPt;
     private EditText phonePt;
     private Button profSelectBtn;
@@ -36,7 +35,6 @@ public class LawLogPg1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_law_log_pg1);
         namePt = findViewById(R.id.etFname);
-        agePicker = findViewById(R.id.bday);
         emailPt = findViewById(R.id.emailAddress);
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
@@ -65,7 +63,7 @@ public class LawLogPg1 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isNotEmpty(namePt) && isNotEmpty(agePicker) &&
+                if (isNotEmpty(namePt) &&
                         isNotEmpty(emailPt) && isNotEmpty(phonePt) &&
                         isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
                     if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
@@ -74,7 +72,6 @@ public class LawLogPg1 extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         Lawyer newUser = new Lawyer(namePt.getText().toString(),
-                                Integer.parseInt(agePicker.getText().toString()),
                                 emailPt.getText().toString(), phonePt.getText().toString(),
                                 userPt.getText().toString(), pwdPtOne.getText().toString());
 
@@ -92,7 +89,7 @@ public class LawLogPg1 extends AppCompatActivity {
 
                     }
                 } else{
-                    CharSequence incompleteMsg = "Profile info incomplete!";
+                    CharSequence incompleteMsg = "Form is incomplete";
                     Toast.makeText(getApplicationContext(), incompleteMsg,
                             Toast.LENGTH_SHORT).show();
                 }

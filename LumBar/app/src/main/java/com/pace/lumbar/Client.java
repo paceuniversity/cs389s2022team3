@@ -9,6 +9,7 @@ public class Client implements Serializable { //parent class for Client and Lawy
     private String email;
     private String city;
     private String state;
+    private String email;
     private String username;
     private String password;
     //TODO: profile pic
@@ -24,6 +25,7 @@ public class Client implements Serializable { //parent class for Client and Lawy
         this.state = state;
         this.username = username;
         this.password = password;
+        this.email = email;
     }
 
     public String getRealName() {
@@ -45,6 +47,8 @@ public class Client implements Serializable { //parent class for Client and Lawy
     public String getUsername() {
         return username;
     }
+
+    public String getEmail() { return email; }
 
     //for testing
     public String getPassword() {
