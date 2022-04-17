@@ -18,8 +18,7 @@ public class ClientProfCreation extends AppCompatActivity {
 
     private EditText namePt;
     private EditText phoneNumPt;
-    private EditText cityPt;
-    private Spinner stateSpinner;
+    private EditText emailPt;
     private Button profSelectBtn;
     private ImageButton backbtn;
     private ImageView profImageView;
@@ -37,20 +36,13 @@ public class ClientProfCreation extends AppCompatActivity {
 
         namePt = findViewById(R.id.etFname);
         phoneNumPt = findViewById(R.id.phone);
-        cityPt = findViewById(R.id.cityPlainText);
+        emailPt = findViewById(R.id.emailAddress);
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
         createProfBtn = findViewById(R.id.createProfBtn);
         userPt = findViewById(R.id.etUsername);
         pwdPtOne = findViewById(R.id.etPassword);
         pwdPtTwo = findViewById(R.id.etconfirm);
-
-        //creates the state selection dropdown
-        stateSpinner = findViewById(R.id.stateSpinner);
-        ArrayAdapter<CharSequence>stateAdapter = ArrayAdapter.createFromResource
-                (this, R.array.states, R.layout.spinner_item);
-        stateAdapter.setDropDownViewResource(R.layout.spinner_item);
-        stateSpinner.setAdapter(stateAdapter);
 
         //allows for profile pic selection from Gallery
         profSelectBtn.setOnClickListener(new View.OnClickListener() {
@@ -76,23 +68,16 @@ public class ClientProfCreation extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isNotEmpty(namePt) && isNotEmpty(phoneNumPt) &&
-                        isNotEmpty(cityPt) && stateSpinner.getSelectedItem() != null &&
-                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
+                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo) &&
+                        isNotEmpty(emailPt) ) {
                     if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
                         CharSequence incompleteMsg = "Creation failed: passwords must match";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        Client newUser = new Client(namePt.getText().toString(),
-                                phoneNumPt.getText().toString(),
-                                cityPt.getText().toString(), stateSpinner.getSelectedItem().toString(),
-                                userPt.getText().toString(), pwdPtOne.getText().toString());
-
-//                        new user is not created until next screen is complete
-//                        CharSequence completeMsg = "Account creation succesful";
-//                        Toast.makeText(getApplicationContext(), completeMsg,
-//                                Toast.LENGTH_SHORT).show();
-                        openActivity2(userPt.getText().toString(), newUser);
+                        openActivity2(namePt.getText().toString(), phoneNumPt.getText().toString(),
+                                emailPt.getText().toString(), userPt.getText().toString(),
+                                pwdPtOne.getText().toString());
 
                     }
                 } else{
@@ -141,10 +126,14 @@ public class ClientProfCreation extends AppCompatActivity {
             }
         }
     }
-    private void openActivity2(String username, Client newUser) {
+    private void openActivity2(String name, String phoneNum, String email,
+                               String username, String password) {
         Intent intent = new Intent(this, ClientCaseCreate.class);
+        intent.putExtra("name", name);
+        intent.putExtra("phoneNum", phoneNum);
+        intent.putExtra("email", email);
         intent.putExtra("username", username);
-        intent.putExtra("client", newUser);
+        intent.putExtra("password", password);
         startActivity(intent);
     }
 }

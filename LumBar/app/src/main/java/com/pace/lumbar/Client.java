@@ -6,6 +6,7 @@ public class Client implements Serializable { //parent class for Client and Lawy
 
     private String realName;
     private String phoneNumber;
+    private String email;
     private String city;
     private String state;
     private String username;
@@ -14,10 +15,11 @@ public class Client implements Serializable { //parent class for Client and Lawy
 
     public Client(){}
 
-    public Client(String realName, String phoneNumber, String city, String state, String username,
+    public Client(String realName, String phoneNumber, String email, String city, String state, String username,
                   String password) {
         this.realName = realName;
         this.phoneNumber = phoneNumber;
+        this.email = email;
         this.city = city;
         this.state = state;
         this.username = username;
@@ -48,4 +50,6 @@ public class Client implements Serializable { //parent class for Client and Lawy
     public String getPassword() {
         return password;
     }
+
+    public String getEmail() {return email;}
 }

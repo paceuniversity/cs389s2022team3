@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="165dp"
+        android:layout_width="412dp"
+        android:layout_height="142dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -113,68 +113,6 @@
         app:layout_constraintStart_toEndOf="@+id/email"
         app:layout_constraintTop_toBottomOf="@+id/etFname" />
 
-    <TextView
-        android:id="@+id/cityTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:padding="5dp"
-        android:text="City: "
-        android:textColor="#654900"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phonenum" />
-
-    <EditText
-        android:id="@+id/cityPlainText"
-        android:layout_width="316dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/edit_round"
-        android:layout_marginTop="8dp"
-        android:ellipsize="start"
-        android:ems="10"
-        android:hint="Enter City"
-        android:inputType="text"
-        android:padding="5dp"
-        android:textColor="#7E000000"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/cityTextView"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
-
-    <TextView
-        android:id="@+id/stateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="State: "
-        android:padding="5dp"
-        android:textColor="#654900"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityTextView" />
-
-    <Spinner
-        android:id="@+id/stateSpinner"
-        style="@style/Widget.AppCompat.Spinner.Underlined"
-        android:layout_width="307dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:autofillHints="Select State"
-        android:contentDescription="@string/stateSelectorTxt"
-        android:ems="10"
-        android:padding="5dp"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/stateTextView"
-        app:layout_constraintTop_toBottomOf="@+id/cityPlainText" />
-
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="271dp"
@@ -182,7 +120,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edit_round"
         android:hint="Create Username"
         android:inputType="text"
@@ -193,7 +131,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/username"
-        app:layout_constraintTop_toBottomOf="@+id/stateSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -224,7 +162,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edit_round"
         android:hint="Confirm Password"
         android:inputType="textPassword"
@@ -261,7 +199,7 @@
         android:textColor="#654900"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stateTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/phonenum" />
 
     <TextView
         android:id="@+id/password"
