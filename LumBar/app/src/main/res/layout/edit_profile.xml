@@ -207,11 +207,11 @@
         android:id="@+id/profileImgView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="40dp"
         android:contentDescription="Profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.772"
+        app:layout_constraintHorizontal_bias="0.784"
         app:layout_constraintStart_toEndOf="@+id/uploadImgBtn"
         app:layout_constraintTop_toBottomOf="@+id/head"
         tools:ignore="ImageContrastCheck"
@@ -222,9 +222,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="80dp"
         android:text="Select Photo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/head" />
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/revertEdit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:background="#00FFFFFF"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@android:drawable/ic_menu_revert" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

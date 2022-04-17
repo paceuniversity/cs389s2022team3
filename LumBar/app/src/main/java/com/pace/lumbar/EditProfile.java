@@ -3,12 +3,14 @@ package com.pace.lumbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Transaction;
 import com.google.firebase.firestore.auth.User;
+import com.pace.lumbar.fragments.ProfileFragment;
 
 /* Reference: https://www.youtube.com/watch?v=CMAup2xxsJw */
 
@@ -33,6 +36,7 @@ public class EditProfile extends AppCompatActivity {
     private EditText nameTxt, emailTxt, phoneTxt, cityTxt;
     private Spinner stateTxt;
     private Button doneBtn;
+    private ImageButton revertBtn;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference reference;
     private DocumentReference documentReference;

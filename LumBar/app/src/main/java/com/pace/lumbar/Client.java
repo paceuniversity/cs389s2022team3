@@ -59,6 +59,30 @@ public class Client implements Serializable { //parent class for Client and Lawy
     }
 
     public Case getCase(){return myCase;}
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public void setMyCase(Case myCase) {
+        this.myCase = myCase;
+    }
 }
 
 

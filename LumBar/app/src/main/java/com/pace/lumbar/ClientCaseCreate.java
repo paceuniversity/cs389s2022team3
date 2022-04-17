@@ -89,7 +89,6 @@ public class ClientCaseCreate extends AppCompatActivity {
                     Intent intent = new Intent(ClientCaseCreate.this, HomePage.class);
                     startActivity(intent);
                 }
-
             }
         });
     }

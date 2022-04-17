@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class ClientProfCreation extends AppCompatActivity {
 
     private EditText namePt;
@@ -28,12 +30,15 @@ public class ClientProfCreation extends AppCompatActivity {
     private EditText pwdPtOne;
     private EditText pwdPtTwo;
     private int SELECT_PICTURE = 200;
+    private FirebaseAuth mauth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_profile_creation);
         getSupportActionBar().setTitle("Profile Creation");
+
+        mauth = FirebaseAuth.getInstance();
 
         namePt = findViewById(R.id.etFname);
         email = findViewById(R.id.emailAddress);
