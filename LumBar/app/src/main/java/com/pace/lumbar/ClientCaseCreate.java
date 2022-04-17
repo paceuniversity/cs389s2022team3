@@ -18,7 +18,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ClientCaseCreate extends AppCompatActivity {
     private Spinner caseSpinner;
+    private Spinner stateSpinner;
     private EditText caseDetails;
+    private EditText cityText;
     private Button createCaseBtn;
 
     private boolean isNotEmpty(EditText edTxt) {
@@ -29,8 +31,11 @@ public class ClientCaseCreate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
+        String name = intent.getExtras().getString("name");
+        String phoneNum = intent.getExtras().getString("phoneNum");
+        String email = intent.getExtras().getString("email");
         String username = intent.getExtras().getString("username");
-        Client newUser = (Client) intent.getExtras().getSerializable("client");
+        String password = intent.getExtras().getString("password");
         //setTheme(R.style.Theme_LumBar); no appbar for now
         setContentView(R.layout.client_case_create);
         RelativeLayout layout1 = new RelativeLayout(this);
@@ -42,6 +47,13 @@ public class ClientCaseCreate extends AppCompatActivity {
         caseAdapter.setDropDownViewResource(R.layout.spinner_item);
         caseSpinner.setAdapter(caseAdapter);
 
+        stateSpinner = findViewById(R.id.stateSpinnerCase);
+        ArrayAdapter<CharSequence>stateAdapter = ArrayAdapter.createFromResource
+                (this, R.array.states, R.layout.spinner_item);
+        stateAdapter.setDropDownViewResource(R.layout.spinner_item);
+        stateSpinner.setAdapter(stateAdapter);
+
+        cityText = findViewById(R.id.cityPT);
         caseDetails = findViewById(R.id.caseDetailsMultiLine);
 
         createCaseBtn = findViewById(R.id.createCaseButton);
@@ -52,6 +64,9 @@ public class ClientCaseCreate extends AppCompatActivity {
                         isNotEmpty(caseDetails)) {
                     Case newCase = new Case(username, caseSpinner.getSelectedItem().toString(),
                             caseDetails.getText().toString());
+
+                    Client newUser = new Client(name, phoneNum, email, cityText.getText().toString(),
+                            stateSpinner.getSelectedItem().toString(), username, password);
 
                     DAOClient clientDao = new DAOClient();
                     clientDao.add(newUser);
