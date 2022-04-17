@@ -1,11 +1,11 @@
 package com.pace.lumbar.fragments;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,28 +13,31 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.pace.lumbar.LoginPage;
-import com.pace.lumbar.ProfilePage;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.pace.lumbar.Case;
+import com.pace.lumbar.Client;
 import com.pace.lumbar.R;
 import com.pace.lumbar.SettingPage;
 
 
 public class ProfileFragment extends Fragment {
-
     private ImageButton menuBtn;
     private TextView nameTxt, topicTxt, emailTxt, phoneTxt, stateTxt, detailTxt;
-    private ImageView profIMG, emailIMG, phoneIMG, addIMG, detailIMG;
-    private String email, password;
-    private FirebaseDatabase database;
+    private ImageView avatar;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference userRef;
-    private static final String USER = "users";
-
-    TextView textView;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private String userID;
+    private Activity context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,34 +59,42 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        nameTxt = view.findViewById(R.id.profname);
-        topicTxt = view.findViewById(R.id.caseTopic);
-        emailTxt = view.findViewById(R.id.emailProf);
-        phoneTxt = view.findViewById(R.id.phoneProf);
-        stateTxt = view.findViewById(R.id.addrProf);
-        detailTxt = view.findViewById(R.id.topic);
+        context = getActivity();
+        return view;
+    }
 
-        profIMG = view.findViewById(R.id.profileImgView);
-        emailIMG = view.findViewById(R.id.emailPic);
-        phoneIMG = view.findViewById(R.id.phonePic);
-        addIMG = view.findViewById(R.id.locatePic);
-        detailIMG = view.findViewById(R.id.topicPic);
+    public void onStart(){
+        super.onStart();
+        data();
+    }
 
-        database = FirebaseDatabase.getInstance();
-        userRef = database.getReference(USER);
+    public void data(){
+        super.onStart();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        userRef = FirebaseDatabase.getInstance().getReference("Users");
+        userID = firebaseUser.getUid();
 
-        userRef.addValueEventListener(new ValueEventListener() {
+        nameTxt = context.findViewById(R.id.profname);
+        topicTxt = context.findViewById(R.id.caseTopic);
+        emailTxt = context.findViewById(R.id.emailProf);
+        phoneTxt = context.findViewById(R.id.phoneProf);
+        stateTxt = context.findViewById(R.id.addrProf);
+        detailTxt = context.findViewById(R.id.topic);
+        avatar = context.findViewById(R.id.profileImgView);
+
+        userRef.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot ds : snapshot.getChildren()){
-                    if(ds.child("email").getValue().equals(email)){
-                        nameTxt.setText((ds.child("realName").getValue(String.class)));
-                        topicTxt.setText((ds.child("caseType").getValue(String.class)));
-                        emailTxt.setText((ds.child("email").getValue(String.class)));
-                        phoneTxt.setText((ds.child("phoneNumber").getValue(String.class)));
-                        stateTxt.setText((ds.child("state").getValue(String.class)));
-                        detailTxt.setText((ds.child("caseDetails").getValue(String.class)));
-                    }
+                Client userProf = snapshot.getValue(Client.class);
+                Case userCase = snapshot.getValue(Case.class);
+
+                if(userProf!=null){
+                    nameTxt.setText((userProf.getRealName()));
+                    topicTxt.setText((userCase.getCaseType()));
+                    emailTxt.setText((userProf.getEmail()));
+                    phoneTxt.setText((userProf.getPhoneNumber()));
+                    stateTxt.setText((userProf.getState()));
+                    detailTxt.setText((userCase.getCaseDetails()));
                 }
             }
 
@@ -92,7 +103,5 @@ public class ProfileFragment extends Fragment {
 
             }
         });
-
-        return view;
     }
 }

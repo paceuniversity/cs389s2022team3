@@ -11,7 +11,7 @@ public class Lawyer implements Serializable {
     private LawFirm firm;
     //TODO: profile pic
 
-    public Lawyer(String name, String email, int phone, String username, String password) {
+    public Lawyer(String name, String email, String phone, String username, String password) {
         this.name = name;
         this.email = email;
         this.phone = phone;

@@ -13,7 +13,7 @@ public class Client implements Serializable { //parent class for Client and Lawy
     private String password;
     //TODO: profile pic
   
-    public Client(String realName, int phoneNumber, String city, String state, String username,
+    public Client(String realName, String phoneNumber, String city, String state, String username,
                   String password, String email) {
         this.realName = realName;
         this.phoneNumber = phoneNumber;

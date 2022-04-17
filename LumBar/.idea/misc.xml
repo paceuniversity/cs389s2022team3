@@ -23,6 +23,7 @@
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/HomePage/app/src/main/res/layout/fragment_profile.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2305" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.278" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.259" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2305" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.2305" />
@@ -36,15 +37,17 @@
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/drawable/login_bkg.xml" value="0.1895" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/drawable/prof_bkg.xml" value="0.2305" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/about_page.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_edit_profile.xml" value="0.18659420289855072" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_law_log_pg1.xml" value="0.1" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_law_log_pg2.xml" value="0.28489583333333335" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_main.xml" value="0.3223958333333333" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/chat_page.xml" value="0.1" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/client_case_create.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/client_profile_creation.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/client_profile_creation.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/edit_profile.xml" value="0.1" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.15501519756838905" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
-        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/setting_page.xml" value="0.5" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/setting_page.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/settings_activity.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/slide.xml" value="0.15678824721377912" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/xml/root_preferences.xml" value="0.22" />
