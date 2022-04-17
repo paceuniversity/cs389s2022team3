@@ -14,15 +14,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+<<<<<<< HEAD
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+=======
+import com.google.firebase.auth.FirebaseAuth;
+>>>>>>> f5219c121c8f71a4f4c517ce4ddd6370c3cd1011
 
 public class ClientProfCreation extends AppCompatActivity {
 
     private EditText namePt;
+    private EditText email;
     private EditText phoneNumPt;
-    private EditText cityPt;
-    private Spinner stateSpinner;
+    private EditText emailPt;
     private Button profSelectBtn;
     private ImageButton backbtn;
     private ImageView profImageView;
@@ -31,6 +35,7 @@ public class ClientProfCreation extends AppCompatActivity {
     private EditText pwdPtOne;
     private EditText pwdPtTwo;
     private int SELECT_PICTURE = 200;
+    private FirebaseAuth mauth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,22 +43,18 @@ public class ClientProfCreation extends AppCompatActivity {
         setContentView(R.layout.client_profile_creation);
         getSupportActionBar().setTitle("Profile Creation");
 
+        mauth = FirebaseAuth.getInstance();
+
         namePt = findViewById(R.id.etFname);
+        email = findViewById(R.id.emailAddress);
         phoneNumPt = findViewById(R.id.phone);
-        cityPt = findViewById(R.id.cityPlainText);
+        emailPt = findViewById(R.id.emailAddress);
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
         createProfBtn = findViewById(R.id.createProfBtn);
         userPt = findViewById(R.id.etUsername);
         pwdPtOne = findViewById(R.id.etPassword);
         pwdPtTwo = findViewById(R.id.etconfirm);
-
-        //creates the state selection dropdown
-        stateSpinner = findViewById(R.id.stateSpinner);
-        ArrayAdapter<CharSequence>stateAdapter = ArrayAdapter.createFromResource
-                (this, R.array.states, R.layout.spinner_item);
-        stateAdapter.setDropDownViewResource(R.layout.spinner_item);
-        stateSpinner.setAdapter(stateAdapter);
 
         //allows for profile pic selection from Gallery
         profSelectBtn.setOnClickListener(new View.OnClickListener() {
@@ -79,13 +80,14 @@ public class ClientProfCreation extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isNotEmpty(namePt) && isNotEmpty(phoneNumPt) &&
-                        isNotEmpty(cityPt) && stateSpinner.getSelectedItem() != null &&
-                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
+                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo) &&
+                        isNotEmpty(emailPt) ) {
                     if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
                         CharSequence incompleteMsg = "Creation failed: passwords must match";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
                     } else {
+<<<<<<< HEAD
                         Client newUser = new Client(namePt.getText().toString(),
                                 phoneNumPt.getText().toString(),
                                 cityPt.getText().toString(), stateSpinner.getSelectedItem().toString(),
@@ -101,6 +103,11 @@ public class ClientProfCreation extends AppCompatActivity {
 
                         openActivity2(userPt.getText().toString(), newUser);
 
+=======
+                        openActivity2(namePt.getText().toString(), phoneNumPt.getText().toString(),
+                                emailPt.getText().toString(), userPt.getText().toString(),
+                                pwdPtOne.getText().toString());
+>>>>>>> f5219c121c8f71a4f4c517ce4ddd6370c3cd1011
                     }
                 } else{
                     CharSequence incompleteMsg = "Creation failed: profile info incomplete";
@@ -148,11 +155,18 @@ public class ClientProfCreation extends AppCompatActivity {
             }
         }
     }
-    private void openActivity2(String username, Client newUser) {
+    private void openActivity2(String name, String phoneNum, String email,
+                               String username, String password) {
         Intent intent = new Intent(this, ClientCaseCreate.class);
+<<<<<<< HEAD
         //intent.putExtra("password", pwdPtOne);
+=======
+        intent.putExtra("name", name);
+        intent.putExtra("phoneNum", phoneNum);
+        intent.putExtra("email", email);
+>>>>>>> f5219c121c8f71a4f4c517ce4ddd6370c3cd1011
         intent.putExtra("username", username);
-        intent.putExtra("client", newUser);
+        intent.putExtra("password", password);
         startActivity(intent);
     }
 }

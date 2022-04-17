@@ -35,7 +35,7 @@
         android:textSize="35sp" />
 
     <EditText
-        android:id="@+id/etUserName"
+        android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/head"
@@ -43,7 +43,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/edit_round"
-        android:hint="Enter Username"
+        android:hint="Enter Email"
         android:minHeight="40dp"
         android:paddingLeft="20dp"
         android:textSize="20sp" />
@@ -52,7 +52,7 @@
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etUserName"
+        android:layout_below="@+id/etEmail"
         android:layout_marginStart="50dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="50dp"

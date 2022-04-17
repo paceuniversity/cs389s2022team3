@@ -12,6 +12,10 @@ public class Case {
         this.caseDetails = caseDetails;
     }
 
+    public Case() {
+
+    }
+
     public String getClientUsername() {
         return clientUsername;
     }
@@ -22,5 +26,13 @@ public class Case {
 
     public String getCaseDetails() {
         return caseDetails;
+    }
+
+    public void setCaseDetails(String caseDetails) {
+        this.caseDetails = caseDetails;
+    }
+
+    public void setCaseType(String caseType) {
+        this.caseType = caseType;
     }
 }

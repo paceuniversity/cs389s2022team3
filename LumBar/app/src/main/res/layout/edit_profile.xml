@@ -5,21 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F3E7"
-    tools:context=".ClientProfCreation">
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="412dp"
-        android:layout_height="142dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/appicon" />
+    tools:context=".EditProfile">
 
     <TextView
         android:id="@+id/head"
@@ -27,13 +13,16 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/etFname"
         android:layout_gravity="center"
-        android:text="Client Registry"
+        android:layout_marginTop="36dp"
+        android:text="Edit Profile"
         android:textAlignment="center"
         android:textColor="#654900"
         android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        tools:layout_editor_absoluteX="-16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/name"
@@ -42,13 +31,13 @@
         android:layout_below="@+id/head"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="64dp"
         android:padding="5dp"
         android:text="Name: "
         android:textColor="#654900"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head" />
+        app:layout_constraintTop_toBottomOf="@+id/uploadImgBtn" />
 
     <EditText
         android:id="@+id/etFname"
@@ -57,10 +46,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
+        android:layout_marginTop="32dp"
         android:background="@drawable/edit_round"
         android:hint="Enter Your Name"
         android:inputType="text"
-        android:layout_marginTop="20dp"
         android:minHeight="20dp"
         android:padding="5dp"
         android:textColor="#7E000000"
@@ -68,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/head"
+        app:layout_constraintTop_toBottomOf="@+id/profileImgView"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -113,121 +102,78 @@
         app:layout_constraintStart_toEndOf="@+id/email"
         app:layout_constraintTop_toBottomOf="@+id/etFname" />
 
-    <EditText
-        android:id="@+id/etUsername"
-        android:layout_width="271dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edit_round"
-        android:hint="Create Username"
-        android:inputType="text"
-        android:minHeight="20dp"
-        android:padding="5dp"
-        android:textColor="#7E000000"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/username"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="272dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edit_round"
-        android:ems="10"
-        android:hint="Create Password"
-        android:inputType="textPassword"
-        android:minHeight="20dp"
-        android:padding="5dp"
-        android:textColor="#7E000000"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-
-        app:layout_constraintStart_toEndOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
-
-    <EditText
-        android:id="@+id/etconfirm"
-        android:layout_width="215dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edit_round"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:minHeight="20dp"
-        android:padding="5dp"
-        android:textColor="#7E000000"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/conpass"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
-    <Button
-        android:id="@+id/createProfBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="16dp"
-        android:text="Create"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/cityTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/head"
-        android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:padding="5dp"
-        android:text="Username: "
+        android:text="City: "
         android:textColor="#654900"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phonenum" />
 
-    <TextView
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/cityPlainText"
+        android:layout_width="316dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/edit_round"
         android:layout_marginTop="8dp"
+        android:ellipsize="start"
+        android:ems="10"
+        android:hint="Enter City"
+        android:inputType="text"
         android:padding="5dp"
-        android:text="Password: "
-        android:textColor="#654900"
+        android:textColor="#7E000000"
         android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cityTextView"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
 
     <TextView
-        android:id="@+id/conpass"
+        android:id="@+id/stateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
+        android:text="State: "
         android:padding="5dp"
-        android:text="Confirm Password: "
         android:textColor="#654900"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/cityTextView" />
+
+    <Spinner
+        android:id="@+id/stateSpinner"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="307dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:autofillHints="Select State"
+        android:contentDescription="@string/stateSelectorTxt"
+        android:ems="10"
+        android:padding="5dp"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/stateTextView"
+        app:layout_constraintTop_toBottomOf="@+id/cityPlainText" />
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="36dp"
+        android:text="Save Profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/email"
@@ -261,13 +207,13 @@
         android:id="@+id/profileImgView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="40dp"
         android:contentDescription="Profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintHorizontal_bias="0.784"
         app:layout_constraintStart_toEndOf="@+id/uploadImgBtn"
-        app:layout_constraintTop_toBottomOf="@+id/etconfirm"
+        app:layout_constraintTop_toBottomOf="@+id/head"
         tools:ignore="ImageContrastCheck"
         tools:src="@tools:sample/avatars" />
 
@@ -275,21 +221,21 @@
         android:id="@+id/uploadImgBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="80dp"
         android:text="Select Photo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conpass" />
+        app:layout_constraintTop_toBottomOf="@+id/head" />
 
-    <ImageButton
-        android:id="@+id/revert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/revertEdit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:background="#00FFFFFF"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@android:drawable/ic_menu_revert" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

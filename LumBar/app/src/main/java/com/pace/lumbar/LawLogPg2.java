@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,6 +25,7 @@ public class LawLogPg2 extends AppCompatActivity {
     private EditText phoneNumText;
     private EditText firmWebsiteText;
     private EditText caseWebsite;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class LawLogPg2 extends AppCompatActivity {
         phoneNumText = findViewById(R.id.phonenum);
         firmWebsiteText = findViewById(R.id.website);
         caseWebsite = findViewById(R.id.caseWeb);
+        mAuth = FirebaseAuth.getInstance();
 
         stateSpinner = findViewById(R.id.stateSpinner);
         ArrayAdapter<CharSequence> stateAdapter = ArrayAdapter.createFromResource
@@ -81,13 +84,14 @@ public class LawLogPg2 extends AppCompatActivity {
                             caseWebsite.getText().toString());
 
                     lawyer.setFirm(firm);
-                    DAOLawyer caseDao = new DAOLawyer();
-                    caseDao.add(lawyer).addOnSuccessListener(suc->{
+                    DAOLawyer lawyerDao = new DAOLawyer();
+                    mAuth.createUserWithEmailAndPassword(lawyer.getEmail(), lawyer.getPassword());
+
+                    lawyerDao.add(lawyer).addOnSuccessListener(suc->{
                         CharSequence caseCreateMsg = "New user and firm created";
                         Toast.makeText(getApplicationContext(), caseCreateMsg,
                                 Toast.LENGTH_SHORT).show();
                     });
-
 
                     Intent intent = new Intent(LawLogPg2.this, HomePage.class);
                     startActivity(intent);

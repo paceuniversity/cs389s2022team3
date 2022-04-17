@@ -39,13 +39,15 @@
 * **Sprint 2**
   * [Sprint planning](https://docs.google.com/document/d/1tuJuhY_ypjMaqBIpk3ww0AFEHv7DvcIc9lOw7EFMcbs/edit?usp=sharing) | [backlog](https://docs.google.com/spreadsheets/d/135c6JsQN4UTsBRrBcKcYqUYMNWI__qDn9qXHS7ra_cc/edit#gid=1338829003)
   * [Scrums](https://docs.google.com/document/d/1nLpEYpNtR9cY3jH30ZV4HKVDrU-cDQxQGYDhpMh2J9k/edit?usp=sharing)
-  * Sprint demo - video and apk (or equivalent)
-  * Spring retrospective
+  * Sprint Video Demo
+  * Sprint APK
+  * [Spring retrospective](https://docs.google.com/document/d/1UlJ0wvdDWIiz8A1-S3ZL6HV5giNk1MtvNBMVhk0Z83c/edit?usp=sharing)
 
 * **Sprint 3** 
   * Sprint planning
   * Scrums
-  * Sprint demo - video and apk (or equivalent)
+  * Sprint Video Demo
+  * Sprint APK
   * Spring retrospective
 
 # **Final presentation**
