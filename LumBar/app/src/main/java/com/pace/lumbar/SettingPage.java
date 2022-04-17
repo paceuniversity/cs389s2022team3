@@ -40,6 +40,13 @@ public class SettingPage extends AppCompatActivity {
         });
 
         helpBtn = findViewById(R.id.help);
+        helpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingPage.this, HelpActivity.class);
+                startActivity(intent);
+            }
+        });
 
         revertBtn = findViewById(R.id.revertToProf);
         revertBtn.setOnClickListener(new View.OnClickListener() {
