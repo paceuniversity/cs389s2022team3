@@ -11,8 +11,12 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -22,6 +26,7 @@ public class ClientCaseCreate extends AppCompatActivity {
     private EditText caseDetails;
     private EditText cityText;
     private Button createCaseBtn;
+    private FirebaseAuth mAuth;
 
     private boolean isNotEmpty(EditText edTxt) {
         return edTxt.getText().toString().trim().length() > 0;
@@ -40,6 +45,7 @@ public class ClientCaseCreate extends AppCompatActivity {
         setContentView(R.layout.client_case_create);
         RelativeLayout layout1 = new RelativeLayout(this);
         layout1.setBackgroundColor(Color.parseColor("#F8F3E7"));
+        mAuth = FirebaseAuth.getInstance();
 
         caseSpinner = findViewById(R.id.caseSpinner);
         ArrayAdapter<CharSequence> caseAdapter = ArrayAdapter.createFromResource
@@ -66,10 +72,12 @@ public class ClientCaseCreate extends AppCompatActivity {
                             caseDetails.getText().toString());
 
                     Client newUser = new Client(name, phoneNum, email, cityText.getText().toString(),
-                            stateSpinner.getSelectedItem().toString(), username, password);
+                            stateSpinner.getSelectedItem().toString(), username, password, newCase);
 
                     DAOClient clientDao = new DAOClient();
                     clientDao.add(newUser);
+
+                    mAuth.createUserWithEmailAndPassword(email, password);
 
                     DAOCase caseDao = new DAOCase();
                     caseDao.add(newCase).addOnSuccessListener(suc->{
