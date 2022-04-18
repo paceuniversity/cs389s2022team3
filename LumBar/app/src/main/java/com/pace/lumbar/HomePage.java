@@ -39,14 +39,14 @@ public class HomePage extends AppCompatActivity {
         ViewPagerAdapter vpAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         vpAdapter.addFragment(new HomeFragment(), "");
         vpAdapter.addFragment(new MatchesFragment(), "");
-        vpAdapter.addFragment(new ExploreFragment(), "");
+        //vpAdapter.addFragment(new ExploreFragment(), "");
         vpAdapter.addFragment(new ProfileFragment(), "");
         viewPager.setAdapter(vpAdapter);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_home_24);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_favorite_border_24);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_search_24);
-        tabLayout.getTabAt(3).setIcon(R.drawable.ic_baseline_account_circle_24);
+        //tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_search_24);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_account_circle_24);
 
         viewPager.disableScroll(true);
     }

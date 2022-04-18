@@ -28,10 +28,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginPage extends AppCompatActivity {
 
-    private Button registerBtn, clientbtn, lawyerbtn;
+    private Button loginBtn, clientbtn, lawyerbtn;
     private ImageButton aboutbtn;
     private EditText email, password;
+
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +43,24 @@ public class LoginPage extends AppCompatActivity {
 
         email = findViewById(R.id.etEmail);
         password = findViewById(R.id.etPassword);
+
         mAuth = FirebaseAuth.getInstance();
+        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if(user != null){
+                    Intent intent = new Intent(LoginPage.this, HomePage.class);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+            }
+        };
 
         //Enter username and pass
-        registerBtn = findViewById(R.id.login);
-        registerBtn.setOnClickListener(new View.OnClickListener() {
+        loginBtn = findViewById(R.id.login);
+        loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!validateUsername() || !validatePassword()){
@@ -57,22 +72,22 @@ public class LoginPage extends AppCompatActivity {
                             .addOnCompleteListener(LoginPage.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
+                                    if (!task.isSuccessful()) {
+                                        // If sign in fails, display a message to the user.
+                                        Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                        Toast.makeText(getApplicationContext(), "Authentication failed.",
+                                                Toast.LENGTH_SHORT).show();
+                                    } else {
+
                                         // Sign in success, update UI with the signed-in user's information
                                         Log.d(TAG, "signInWithEmail:success");
                                         FirebaseUser user = mAuth.getCurrentUser();
                                         CharSequence completeMsg = "Login successful";
                                         Toast.makeText(getApplicationContext(), completeMsg, Toast.LENGTH_SHORT).show();
-                                        openActivity2();
-                                    } else {
-                                        // If sign in fails, display a message to the user.
-                                        Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                        Toast.makeText(getApplicationContext(), "Authentication failed.",
-                                                Toast.LENGTH_SHORT).show();
+                                        //openActivity2();
                                     }
                                 }
                             });
-                    //isUser();
                 }
             }
         });
@@ -108,49 +123,6 @@ public class LoginPage extends AppCompatActivity {
         });
     }
 
-    //Verifies if user credential is in Firebase's Realtime Database
-    private void isUser() {
-        final String userEnteredUsername = email.getText().toString().trim();
-        final String userEnteredPassword = password.getText().toString().trim();
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("lawyer");
-
-        Query checkUser = reference.orderByChild("username").equalTo(userEnteredUsername);
-
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //Method malfunctions somewhere here. It doesn't find the user and password
-                //from Firebase and goes straight to the else-statement
-                if(snapshot.exists()){
-
-                    email.setError(null);
-
-                    String pswdFromDB = snapshot.child(userEnteredUsername).child("password").getValue(String.class);
-
-                    //Opens Home activity if password correct
-                    if(pswdFromDB.equals(userEnteredPassword)){
-                        email.setError(null);
-                        openActivity2();
-                    }
-                    else{
-                        password.setError("Wrong Password");
-                        password.requestFocus();
-                    }
-                }
-
-                else{
-                    email.setError("No such User exists");
-                    email.requestFocus();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 
     //Checks if username field is empty
     private boolean validateUsername(){
@@ -182,6 +154,18 @@ public class LoginPage extends AppCompatActivity {
 
     private boolean isNotEmpty(EditText edTxt) {
         return edTxt.getText().toString().trim().length() == 0;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(firebaseAuthStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(firebaseAuthStateListener);
     }
 
     private void openActivity2() {

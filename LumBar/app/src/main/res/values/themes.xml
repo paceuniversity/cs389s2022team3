@@ -17,5 +17,11 @@
     <style name="CustomTabStyle" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">10sp</item>
     </style>
+    <style name="Theme.LumBar.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.LumBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.LumBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
