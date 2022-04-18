@@ -45,7 +45,7 @@
 
 * **Sprint 3** 
   * [Sprint planning](https://docs.google.com/document/d/17-lt3mgCHHbr3EXsBYjzqDFy-zIeAZJobvYVShG1qsA/edit?usp=sharing) | [backlog](https://docs.google.com/spreadsheets/d/135c6JsQN4UTsBRrBcKcYqUYMNWI__qDn9qXHS7ra_cc/edit#gid=1920406310)
-  * [Scrums](https://docs.google.com/document/d/17-lt3mgCHHbr3EXsBYjzqDFy-zIeAZJobvYVShG1qsA/edit?usp=sharing)
+  * [Scrums](https://docs.google.com/document/d/1VWi5AxpVP9JSTgsx6JaYVoLT8HNNQKlySfG8yHniVK8/edit)
   * Sprint Video Demo
   * Sprint APK
   * Spring retrospective
