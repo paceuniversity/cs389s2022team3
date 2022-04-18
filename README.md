@@ -45,7 +45,7 @@
 
 * **Sprint 3** 
   * Sprint planning
-  * Scrums
+  * [Scrums](https://docs.google.com/document/d/17-lt3mgCHHbr3EXsBYjzqDFy-zIeAZJobvYVShG1qsA/edit?usp=sharing)
   * Sprint Video Demo
   * Sprint APK
   * Spring retrospective
