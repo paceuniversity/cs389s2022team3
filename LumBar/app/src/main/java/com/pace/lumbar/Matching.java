@@ -53,12 +53,12 @@ public class Matching extends AppCompatActivity {
                 //Do something on the left!
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
-                makeToast(Matching.this, "Left!");
+                makeToast(Matching.this, "Dislike!");
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                makeToast(Matching.this, "Right!");
+                makeToast(Matching.this, "Matched!");
             }
 
             @Override

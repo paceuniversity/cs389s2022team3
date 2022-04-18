@@ -92,7 +92,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginBottom="171dp"
-
         android:layout_toEndOf="@+id/signoutpic"
         android:background="#00FFFFFF"
         android:text="Sign Out"
@@ -128,7 +127,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="90dp"
         android:layout_marginBottom="177dp"
-
         app:srcCompat="@drawable/ic_baseline_exit_to_app_24" />
 
     <ImageView

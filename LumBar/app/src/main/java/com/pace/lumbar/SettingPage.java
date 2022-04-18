@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.pace.lumbar.dupAboutPage.AboutPageDup;
 import com.pace.lumbar.fragments.ProfileFragment;
 
@@ -16,20 +15,16 @@ public class SettingPage extends AppCompatActivity {
 
     private Button signOut, aboutBtn, helpBtn, editBtn, privacyBtn;
     private ImageButton revertBtn;
-    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_page);
 
-        mAuth = FirebaseAuth.getInstance();
-
         signOut = findViewById(R.id.signout);
         signOut.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                mAuth.signOut();
                 Intent intent = new Intent(SettingPage.this, LoginPage.class);
                 startActivity(intent);
             }
