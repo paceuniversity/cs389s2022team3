@@ -14,14 +14,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-<<<<<<< HEAD
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-=======
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
->>>>>>> f5219c121c8f71a4f4c517ce4ddd6370c3cd1011
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,7 +28,6 @@ public class ClientCaseCreate extends AppCompatActivity {
     private Button createCaseBtn;
     private FirebaseAuth mAuth;
 
-
     private boolean isNotEmpty(EditText edTxt) {
         return edTxt.getText().toString().trim().length() > 0;
     }
@@ -41,7 +35,6 @@ public class ClientCaseCreate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Intent intent = getIntent();
         String name = intent.getExtras().getString("name");
         String phoneNum = intent.getExtras().getString("phoneNum");
@@ -73,8 +66,6 @@ public class ClientCaseCreate extends AppCompatActivity {
         createCaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 if (caseSpinner.getSelectedItem() != null &&
                         isNotEmpty(caseDetails)) {
                     Case newCase = new Case(username, caseSpinner.getSelectedItem().toString(),
@@ -95,10 +86,10 @@ public class ClientCaseCreate extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     });
 
-
+                    Intent intent = new Intent(ClientCaseCreate.this, HomePage.class);
+                    startActivity(intent);
                 }
             }
         });
     }
-
 }

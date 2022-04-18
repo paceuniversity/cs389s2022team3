@@ -14,12 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-<<<<<<< HEAD
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-=======
 import com.google.firebase.auth.FirebaseAuth;
->>>>>>> f5219c121c8f71a4f4c517ce4ddd6370c3cd1011
 
 public class ClientProfCreation extends AppCompatActivity {
 
@@ -87,27 +82,9 @@ public class ClientProfCreation extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
                     } else {
-<<<<<<< HEAD
-                        Client newUser = new Client(namePt.getText().toString(),
-                                phoneNumPt.getText().toString(),
-                                cityPt.getText().toString(), stateSpinner.getSelectedItem().toString(),
-                                userPt.getText().toString(), pwdPtOne.getText().toString());
-
-//                        new user is not created until next screen is complete
-//                        CharSequence completeMsg = "Account creation succesful";
-//                        Toast.makeText(getApplicationContext(), completeMsg,
-//                                Toast.LENGTH_SHORT).show();
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef = database.getReference("client");
-                        myRef.setValue(newUser);
-
-                        openActivity2(userPt.getText().toString(), newUser);
-
-=======
                         openActivity2(namePt.getText().toString(), phoneNumPt.getText().toString(),
                                 emailPt.getText().toString(), userPt.getText().toString(),
                                 pwdPtOne.getText().toString());
->>>>>>> f5219c121c8f71a4f4c517ce4ddd6370c3cd1011
                     }
                 } else{
                     CharSequence incompleteMsg = "Creation failed: profile info incomplete";
@@ -158,13 +135,9 @@ public class ClientProfCreation extends AppCompatActivity {
     private void openActivity2(String name, String phoneNum, String email,
                                String username, String password) {
         Intent intent = new Intent(this, ClientCaseCreate.class);
-<<<<<<< HEAD
-        //intent.putExtra("password", pwdPtOne);
-=======
         intent.putExtra("name", name);
         intent.putExtra("phoneNum", phoneNum);
         intent.putExtra("email", email);
->>>>>>> f5219c121c8f71a4f4c517ce4ddd6370c3cd1011
         intent.putExtra("username", username);
         intent.putExtra("password", password);
         startActivity(intent);

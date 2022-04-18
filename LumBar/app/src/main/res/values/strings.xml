@@ -124,5 +124,4 @@
         <item>Traffic</item>
         <item>Vandalism</item>
     </string-array>
-    <string name="title_activity_setting_page">SettingPage</string>
 </resources>

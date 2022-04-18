@@ -27,31 +27,27 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
-
     implementation platform('com.google.firebase:firebase-bom:29.2.1')
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-auth:21.0.1'
-
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-<<<<<<< HEAD
-
-=======
     implementation 'com.google.firebase:firebase-auth:21.0.1'
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'com.google.firebase:firebase-firestore:24.1.1'
->>>>>>> f5219c121c8f71a4f4c517ce4ddd6370c3cd1011
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.lorentzos.swipecards:library:1.0.9'
 
 }
