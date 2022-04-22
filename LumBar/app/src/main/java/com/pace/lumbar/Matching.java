@@ -138,7 +138,7 @@ public class Matching extends AppCompatActivity {
                     getOppositeUserTypes();
                 }
                 else{
-                    makeToast(Matching.this, "Lawyer not found!");
+                    //makeToast(Matching.this, "Lawyer not found!");
                 }
             }
 

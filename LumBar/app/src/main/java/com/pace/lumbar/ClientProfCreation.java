@@ -30,7 +30,7 @@ public class ClientProfCreation extends AppCompatActivity {
     private EditText pwdPtOne;
     private EditText pwdPtTwo;
     private int SELECT_PICTURE = 200;
-    private FirebaseAuth mauth;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class ClientProfCreation extends AppCompatActivity {
         setContentView(R.layout.client_profile_creation);
         getSupportActionBar().setTitle("Profile Creation");
 
-        mauth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         namePt = findViewById(R.id.etFname);
         email = findViewById(R.id.emailAddress);

@@ -18,7 +18,7 @@ public class Client implements Serializable { //parent class for Client and Lawy
     }
 
     public Client(String realName, String phoneNumber, String email, String city, String state, String username,
-                  String password, Case myCase) {
+                  String password) {
         this.realName = realName;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -27,7 +27,7 @@ public class Client implements Serializable { //parent class for Client and Lawy
         this.username = username;
         this.password = password;
         this.email = email;
-        this.myCase = myCase;
+        //this.myCase = myCase; (deleted case parameter)
     }
 
     public String getRealName() {

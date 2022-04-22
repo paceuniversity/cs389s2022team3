@@ -14,9 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,6 +29,7 @@ public class ClientCaseCreate extends AppCompatActivity {
     private EditText cityText;
     private Button createCaseBtn;
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
 
     private boolean isNotEmpty(EditText edTxt) {
         return edTxt.getText().toString().trim().length() > 0;
@@ -45,7 +48,20 @@ public class ClientCaseCreate extends AppCompatActivity {
         setContentView(R.layout.client_case_create);
         RelativeLayout layout1 = new RelativeLayout(this);
         layout1.setBackgroundColor(Color.parseColor("#F8F3E7"));
+
         mAuth = FirebaseAuth.getInstance();
+        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if(user != null){
+                    Intent intent = new Intent(ClientCaseCreate.this, HomePage.class);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+            }
+        };
 
         caseSpinner = findViewById(R.id.caseSpinner);
         ArrayAdapter<CharSequence> caseAdapter = ArrayAdapter.createFromResource
@@ -68,28 +84,64 @@ public class ClientCaseCreate extends AppCompatActivity {
             public void onClick(View v) {
                 if (caseSpinner.getSelectedItem() != null &&
                         isNotEmpty(caseDetails)) {
-                    Case newCase = new Case(username, caseSpinner.getSelectedItem().toString(),
-                            caseDetails.getText().toString());
 
-                    Client newUser = new Client(name, phoneNum, email, cityText.getText().toString(),
-                            stateSpinner.getSelectedItem().toString(), username, password, newCase);
+                    //ToDO: I commented some of the case-related lines to test the crashes.
+//                    Case newCase = new Case(username, caseSpinner.getSelectedItem().toString(),
+//                            caseDetails.getText().toString());
+//                    DAOClient clientDao = new DAOClient();
+//                    clientDao.add(newUser);
 
-                    DAOClient clientDao = new DAOClient();
-                    clientDao.add(newUser);
+                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                    mAuth.createUserWithEmailAndPassword(email, password);
+                            if(task.isSuccessful()){
 
-                    DAOCase caseDao = new DAOCase();
-                    caseDao.add(newCase).addOnSuccessListener(suc->{
-                        CharSequence caseCreateMsg = "Case created";
-                        Toast.makeText(getApplicationContext(), caseCreateMsg,
-                                Toast.LENGTH_SHORT).show();
+                                Client newUser = new Client(name, phoneNum, email, cityText.getText().toString(),
+                                        stateSpinner.getSelectedItem().toString(), username, password);
+
+                                FirebaseDatabase.getInstance().getReference("Client")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(newUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(ClientCaseCreate.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
+                                        }
+                                        else{
+                                            Toast.makeText(ClientCaseCreate.this, "Failed to Register. Try again!", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
+                            }
+                        }
                     });
+
+//                    DAOCase caseDao = new DAOCase();
+//                    caseDao.add(newCase).addOnSuccessListener(suc->{
+//                        CharSequence caseCreateMsg = "Case created";
+//                        Toast.makeText(getApplicationContext(), caseCreateMsg,
+//                                Toast.LENGTH_SHORT).show();
+//                    });
 
                     Intent intent = new Intent(ClientCaseCreate.this, HomePage.class);
                     startActivity(intent);
+                    finish();
+                    return;
                 }
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(firebaseAuthStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(firebaseAuthStateListener);
     }
 }
