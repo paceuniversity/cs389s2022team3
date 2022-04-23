@@ -100,7 +100,7 @@ public class Matching extends AppCompatActivity {
                 if(snapshot.getKey().equals(user.getUid())){
                     userType = "Client";
                     oppositeUserType = "Lawyer";
-                    makeToast(Matching.this, userType);
+                    //makeToast(Matching.this, userType);
                     getOppositeUserTypes();
                 }
                 else{
@@ -134,7 +134,7 @@ public class Matching extends AppCompatActivity {
                 if(snapshot.getKey().equals(user.getUid())){
                     userType = "Lawyer";
                     oppositeUserType = "Client";
-                    makeToast(Matching.this, userType);
+                    //makeToast(Matching.this, userType);
                     getOppositeUserTypes();
                 }
                 else{

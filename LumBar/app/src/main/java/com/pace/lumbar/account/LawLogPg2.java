@@ -1,4 +1,4 @@
-package com.pace.lumbar;
+package com.pace.lumbar.account;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.pace.lumbar.HomePage;
+import com.pace.lumbar.R;
 
 public class LawLogPg2 extends AppCompatActivity {
     private Button backbtn, donebtn;

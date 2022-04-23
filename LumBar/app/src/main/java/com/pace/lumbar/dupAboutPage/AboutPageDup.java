@@ -8,11 +8,9 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.pace.lumbar.LoginPage;
 import com.pace.lumbar.R;
 import com.pace.lumbar.SettingPage;
 import com.pace.lumbar.SlideAdapter;
-import com.pace.lumbar.fragments.ProfileFragment;
 
 public class AboutPageDup extends AppCompatActivity {
 

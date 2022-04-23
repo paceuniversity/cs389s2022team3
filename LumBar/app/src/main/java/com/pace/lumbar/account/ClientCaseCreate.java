@@ -1,4 +1,4 @@
-package com.pace.lumbar;
+package com.pace.lumbar.account;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,8 +19,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.pace.lumbar.HomePage;
+import com.pace.lumbar.R;
 
 public class ClientCaseCreate extends AppCompatActivity {
     private Spinner caseSpinner;
@@ -68,6 +69,7 @@ public class ClientCaseCreate extends AppCompatActivity {
                 (this, R.array.cases, R.layout.spinner_item);
         caseAdapter.setDropDownViewResource(R.layout.spinner_item);
         caseSpinner.setAdapter(caseAdapter);
+        String caseType = caseSpinner.getSelectedItem().toString();
 
         stateSpinner = findViewById(R.id.stateSpinnerCase);
         ArrayAdapter<CharSequence>stateAdapter = ArrayAdapter.createFromResource
@@ -77,6 +79,7 @@ public class ClientCaseCreate extends AppCompatActivity {
 
         cityText = findViewById(R.id.cityPT);
         caseDetails = findViewById(R.id.caseDetailsMultiLine);
+        String caseDet = caseDetails.getText().toString();
 
         createCaseBtn = findViewById(R.id.createCaseButton);
         createCaseBtn.setOnClickListener(new View.OnClickListener() {
@@ -85,9 +88,8 @@ public class ClientCaseCreate extends AppCompatActivity {
                 if (caseSpinner.getSelectedItem() != null &&
                         isNotEmpty(caseDetails)) {
 
-                    //ToDO: I commented some of the case-related lines to test the crashes.
-//                    Case newCase = new Case(username, caseSpinner.getSelectedItem().toString(),
-//                            caseDetails.getText().toString());
+                    Case newCase = new Case(username, caseSpinner.getSelectedItem().toString(),
+                            caseDetails.getText().toString());
 //                    DAOClient clientDao = new DAOClient();
 //                    clientDao.add(newUser);
 
@@ -98,7 +100,7 @@ public class ClientCaseCreate extends AppCompatActivity {
                             if(task.isSuccessful()){
 
                                 Client newUser = new Client(name, phoneNum, email, cityText.getText().toString(),
-                                        stateSpinner.getSelectedItem().toString(), username, password);
+                                        stateSpinner.getSelectedItem().toString(), username, password, caseType, caseDet);
 
                                 FirebaseDatabase.getInstance().getReference("Client")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -117,12 +119,12 @@ public class ClientCaseCreate extends AppCompatActivity {
                         }
                     });
 
-//                    DAOCase caseDao = new DAOCase();
-//                    caseDao.add(newCase).addOnSuccessListener(suc->{
-//                        CharSequence caseCreateMsg = "Case created";
-//                        Toast.makeText(getApplicationContext(), caseCreateMsg,
-//                                Toast.LENGTH_SHORT).show();
-//                    });
+                    DAOCase caseDao = new DAOCase();
+                    caseDao.add(newCase).addOnSuccessListener(suc->{
+                        CharSequence caseCreateMsg = "Case created";
+                        Toast.makeText(getApplicationContext(), caseCreateMsg,
+                                Toast.LENGTH_SHORT).show();
+                    });
 
                     Intent intent = new Intent(ClientCaseCreate.this, HomePage.class);
                     startActivity(intent);

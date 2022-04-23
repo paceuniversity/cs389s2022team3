@@ -1,4 +1,4 @@
-package com.pace.lumbar;
+package com.pace.lumbar.account;
 
 import java.io.Serializable;
 
@@ -11,14 +11,16 @@ public class Client implements Serializable { //parent class for Client and Lawy
     private String state;
     private String username;
     private String password;
-    private Case myCase;
+    private String caseType;
+    private String caseDetails;
+
     //TODO: profile pic
 
     public Client() {
     }
 
     public Client(String realName, String phoneNumber, String email, String city, String state, String username,
-                  String password) {
+                  String password, String caseType, String caseDetails) {
         this.realName = realName;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -27,7 +29,8 @@ public class Client implements Serializable { //parent class for Client and Lawy
         this.username = username;
         this.password = password;
         this.email = email;
-        //this.myCase = myCase; (deleted case parameter)
+        this.caseType = caseType;
+        this.caseDetails = caseDetails;
     }
 
     public String getRealName() {
@@ -58,7 +61,9 @@ public class Client implements Serializable { //parent class for Client and Lawy
         return password;
     }
 
-    public Case getCase(){return myCase;}
+//    public Case getCase(){
+//        return myCase;
+//    }
 
     public void setCity(String city) {
         this.city = city;
@@ -80,9 +85,17 @@ public class Client implements Serializable { //parent class for Client and Lawy
         this.realName = realName;
     }
 
-    public void setMyCase(Case myCase) {
-        this.myCase = myCase;
+    public String getCaseType() {
+        return caseType;
     }
+
+    public String getCaseDetails() {
+        return caseDetails;
+    }
+
+//    public void setMyCase(Case myCase) {
+//        this.myCase = myCase;
+//    }
 }
 
 

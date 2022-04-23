@@ -6,27 +6,15 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
-
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.lorentzos.flingswipe.SwipeFlingAdapterView;
-import com.pace.lumbar.HomePage;
-import com.pace.lumbar.LoginPage;
 import com.pace.lumbar.Matching;
 import com.pace.lumbar.R;
-
-import java.util.ArrayList;
 
 
 public class HomeFragment extends Fragment {

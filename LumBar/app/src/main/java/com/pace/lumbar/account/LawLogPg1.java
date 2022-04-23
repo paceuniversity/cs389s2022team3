@@ -1,4 +1,4 @@
-package com.pace.lumbar;
+package com.pace.lumbar.account;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,8 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.pace.lumbar.R;
 
 public class LawLogPg1 extends AppCompatActivity {
     private EditText namePt;

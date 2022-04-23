@@ -1,4 +1,4 @@
-package com.pace.lumbar;
+package com.pace.lumbar.account;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -6,17 +6,17 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class DAOClient {
+public class DAOLawyer {
 
     private DatabaseReference databaseReference;
 
-    public DAOClient(){
+    public DAOLawyer(){
         FirebaseDatabase db = FirebaseDatabase.getInstance();
-        databaseReference = db.getReference(Client.class.getSimpleName());
+        databaseReference = db.getReference(Lawyer.class.getSimpleName());
     };
 
-    public Task<Void> add(Client newClient){
-        return databaseReference.push().setValue(newClient);
+    public Task<Void> add(Lawyer newLawyer){
+        return databaseReference.push().setValue(newLawyer);
     }
 
     public Task<Void> update(String key, HashMap<String,Object> hashmap) {

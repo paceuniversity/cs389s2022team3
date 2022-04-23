@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.pace.lumbar.account.LoginPage;
 import com.pace.lumbar.dupAboutPage.AboutPageDup;
 import com.pace.lumbar.fragments.ProfileFragment;
 
