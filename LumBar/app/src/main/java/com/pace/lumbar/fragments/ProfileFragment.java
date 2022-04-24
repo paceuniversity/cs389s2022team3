@@ -3,12 +3,10 @@ package com.pace.lumbar.fragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,8 +14,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,12 +22,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.pace.lumbar.Case;
-import com.pace.lumbar.Client;
+import com.pace.lumbar.account.Case;
+import com.pace.lumbar.account.Client;
 import com.pace.lumbar.R;
 import com.pace.lumbar.SettingPage;
-
-import java.util.ArrayList;
 
 
 public class ProfileFragment extends Fragment {
@@ -115,9 +109,11 @@ public class ProfileFragment extends Fragment {
                     Log.d("userid", email);
                     String phone = userProfile.getPhoneNumber();
                     String address = userProfile.getState();
-                    Case clientCase = userProfile.getCase();
-                    String topic = clientCase.getCaseType();
-                    String detail = clientCase.getCaseDetails();
+
+
+//                    Case clientCase = userProfile.getCase();
+                    String topic = userProfile.getCaseType();
+                    String detail = userProfile.getCaseDetails();
 
                     nameTxt.setText(name);
                     emailTxt.setText(email);

@@ -20,35 +20,35 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginPage"
+            android:name=".account.LoginPage"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ClientProfCreation"
+            android:name=".account.ClientProfCreation"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ClientCaseCreate"
+            android:name=".account.ClientCaseCreate"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".LawLogPg1"
+            android:name=".account.LawLogPg1"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".LawLogPg2"
+            android:name=".account.LawLogPg2"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />

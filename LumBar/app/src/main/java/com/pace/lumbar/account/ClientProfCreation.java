@@ -1,20 +1,19 @@
-package com.pace.lumbar;
+package com.pace.lumbar.account;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.pace.lumbar.R;
 
 public class ClientProfCreation extends AppCompatActivity {
 
@@ -30,7 +29,7 @@ public class ClientProfCreation extends AppCompatActivity {
     private EditText pwdPtOne;
     private EditText pwdPtTwo;
     private int SELECT_PICTURE = 200;
-    private FirebaseAuth mauth;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,7 @@ public class ClientProfCreation extends AppCompatActivity {
         setContentView(R.layout.client_profile_creation);
         getSupportActionBar().setTitle("Profile Creation");
 
-        mauth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         namePt = findViewById(R.id.etFname);
         email = findViewById(R.id.emailAddress);
