@@ -47,6 +47,10 @@ public class Matching extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matching_system);
 
+        usersDB = FirebaseDatabase.getInstance().getReference().child("users");
+        mAuth = FirebaseAuth.getInstance();
+        currentUID = mAuth.getCurrentUser().getUid();
+
         checkUserType();
 
         rowItems = new ArrayList<Cards>();
@@ -54,7 +58,6 @@ public class Matching extends AppCompatActivity {
         arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
 
         SwipeFlingAdapterView flingContainer = findViewById(R.id.frame);
-
         flingContainer.setAdapter(arrayAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
@@ -186,7 +189,9 @@ public class Matching extends AppCompatActivity {
 
                 if(snapshot.exists()){
                     //al.add(snapshot.child("name").getValue().toString());
-                    Cards item = new Cards(snapshot.getKey(), snapshot.child("name").getValue().toString());
+                    Cards item = new Cards(snapshot.child("name").getValue().toString(), snapshot.child("lawFirm").getValue().toString(),
+                            snapshot.child("email").getValue().toString(), snapshot.child("phone").getValue().toString(), snapshot.child("address").getValue().toString(),
+                            snapshot.child("topic").getValue().toString(), snapshot.child("website").getValue().toString());
                     rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }

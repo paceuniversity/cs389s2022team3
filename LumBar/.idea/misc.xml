@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.15628166160081053" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.15628166160081053" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/item.xml" value="0.22" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/login_page.xml" value="0.15476190476190477" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/client_case_create.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.2760416666666667" />

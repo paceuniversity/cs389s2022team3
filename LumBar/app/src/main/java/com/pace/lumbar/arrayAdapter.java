@@ -1,4 +1,4 @@
-package com.pace.lumbar.fragments.adapters;
+package com.pace.lumbar;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,13 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.pace.lumbar.Cards;
-import com.pace.lumbar.R;
-
 import java.util.List;
 
-public class arrayAdapter extends android.widget.ArrayAdapter<Cards> {
-
+public class arrayAdapter extends ArrayAdapter<Cards> {
     Context context;
 
     public arrayAdapter(Context context, int resourceID, List<Cards> items){
