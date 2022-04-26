@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import com.pace.lumbar.fragments.adapters.arrayAdapter;
 
@@ -73,11 +74,19 @@ public class Matching extends AppCompatActivity {
                 //Do something on the left!
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
+
+                Cards obj = (Cards) dataObject;
+                String email = obj.getEmail();
+                usersDB.child(oppositeUserType).child(email).child("connections").child("no").child("currentUID").setValue(true);
                 makeToast(Matching.this, "Left!");
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
+                Cards obj = (Cards) dataObject;
+                String email = obj.getEmail();
+                usersDB.child(oppositeUserType).child(email).child("connections").child("yes").child("currentUID").setValue(true);
+                isConnectionMatch(email);
                 makeToast(Matching.this, "Right!");
             }
 
@@ -102,6 +111,24 @@ public class Matching extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void isConnectionMatch(String email) {
+        DatabaseReference currentUserConnectionDb = usersDB.child(oppositeUserType).child(currentUID).child("connections").child("yes").child(email);
+        currentUserConnectionDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    makeToast(Matching.this, "New Connection");
+                    usersDB.child(oppositeUserType).child(snapshot.getKey()).child("connections").child("matches").child(currentUID).setValue(true);
+                    usersDB.child(userType).child(currentUID).child("matches").child(snapshot.getKey()).setValue(true);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) { }
+        });
     }
 
 
@@ -187,7 +214,8 @@ public class Matching extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                if(snapshot.exists()){
+                if(snapshot.exists() && !snapshot.child("connections").child("no").hasChild(currentUID)
+                        && !snapshot.child("connections").child("yes").hasChild(currentUID)){
                     //al.add(snapshot.child("name").getValue().toString());
                     Cards item = new Cards(snapshot.child("name").getValue().toString(), snapshot.child("lawFirm").getValue().toString(),
                             snapshot.child("email").getValue().toString(), snapshot.child("phone").getValue().toString(), snapshot.child("address").getValue().toString(),
