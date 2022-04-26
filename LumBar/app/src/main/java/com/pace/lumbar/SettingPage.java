@@ -58,7 +58,7 @@ public class SettingPage extends AppCompatActivity {
         revertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SettingPage.this, ProfileFragment.class);
+                Intent intent = new Intent(SettingPage.this, HomePage.class);
                 startActivity(intent);
             }
         });
