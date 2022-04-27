@@ -1,9 +1,9 @@
 package com.pace.lumbar;
 
 public class Cards {
-    private String name, lawFirm, email, phone, address, topic, website;
+    private String name, lawFirm, email, phone, address, topic, website, profileIMGUri;
 
-    public Cards(String name, String lawFirm, String email, String phone, String address, String topic, String website ){
+    public Cards(String name, String lawFirm, String email, String phone, String address, String topic, String website, String profileIMGUri){
         this.email = email;
         this.name = name;
         this.lawFirm = lawFirm;
@@ -11,6 +11,15 @@ public class Cards {
         this.address = address;
         this.topic = topic;
         this.website = website;
+        this.profileIMGUri = profileIMGUri;
+    }
+
+    public String getProfileIMGUri() {
+        return profileIMGUri;
+    }
+
+    public void setProfileIMGUri(String profileIMGUri) {
+        this.profileIMGUri = profileIMGUri;
     }
 
     public void setPhone(String phone) {

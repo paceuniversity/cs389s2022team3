@@ -219,7 +219,7 @@ public class Matching extends AppCompatActivity {
                     //al.add(snapshot.child("name").getValue().toString());
                     Cards item = new Cards(snapshot.child("name").getValue().toString(), snapshot.child("lawFirm").getValue().toString(),
                             snapshot.child("email").getValue().toString(), snapshot.child("phone").getValue().toString(), snapshot.child("address").getValue().toString(),
-                            snapshot.child("topic").getValue().toString(), snapshot.child("website").getValue().toString());
+                            snapshot.child("topic").getValue().toString(), snapshot.child("website").getValue().toString(), snapshot.child("profileIMGUri").getValue().toString());
                     rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }

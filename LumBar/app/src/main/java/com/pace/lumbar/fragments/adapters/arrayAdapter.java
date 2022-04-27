@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.pace.lumbar.Cards;
 import com.pace.lumbar.R;
 
@@ -37,7 +38,7 @@ public class arrayAdapter extends android.widget.ArrayAdapter<Cards> {
         TextView topicTXT = (TextView) convertView.findViewById(R.id.TopicMatch);
         TextView webTXT = (TextView) convertView.findViewById(R.id.WebLinkMatch);
 
-        profMatch.setImageResource(R.mipmap.ic_launcher);
+        Glide.with(getContext()).load(card_item.getProfileIMGUri()).into(profMatch);
         nameTXT.setText(card_item.getName());
         firmTXT.setText(card_item.getLawFirm());
         emailTXT.setText(card_item.getEmail());
