@@ -4,12 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.pace.lumbar.Cards;
+import com.pace.lumbar.match.Cards;
 import com.pace.lumbar.R;
 
 import java.util.List;
@@ -38,7 +37,16 @@ public class arrayAdapter extends android.widget.ArrayAdapter<Cards> {
         TextView topicTXT = (TextView) convertView.findViewById(R.id.TopicMatch);
         TextView webTXT = (TextView) convertView.findViewById(R.id.WebLinkMatch);
 
-        Glide.with(getContext()).load(card_item.getProfileIMGUri()).into(profMatch);
+        switch(card_item.getProfileIMGUri()) {
+            case "default":
+                Glide.with(convertView.getContext()).load(R.mipmap.ic_launcher).into(profMatch);
+                break;
+            default:
+                Glide.with(convertView.getContext()).load(card_item.getProfileIMGUri()).into(profMatch);
+                break;
+
+        }
+
         nameTXT.setText(card_item.getName());
         firmTXT.setText(card_item.getLawFirm());
         emailTXT.setText(card_item.getEmail());

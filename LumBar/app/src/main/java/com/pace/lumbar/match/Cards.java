@@ -1,4 +1,4 @@
-package com.pace.lumbar;
+package com.pace.lumbar.match;
 
 public class Cards {
     private String name, lawFirm, email, phone, address, topic, website, profileIMGUri;

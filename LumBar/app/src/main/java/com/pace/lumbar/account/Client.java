@@ -4,41 +4,43 @@ import java.io.Serializable;
 
 public class Client implements Serializable { //parent class for Client and Lawyer
 
-    private String realName;
-    private String phoneNumber;
+    private String name;
+    private String phone;
     private String email;
     private String city;
     private String state;
-    private String username;
+    private String address;
     private String password;
-    private String caseType;
-    private String caseDetails;
+    private String topic;
+    private String detail;
+    private String profileIMGUri;
 
     //TODO: profile pic
 
     public Client() {
     }
 
-    public Client(String realName, String phoneNumber, String email, String city, String state, String username,
-                  String password, String caseType, String caseDetails) {
-        this.realName = realName;
-        this.phoneNumber = phoneNumber;
+    public Client(String realName, String phoneNumber, String email, String address, String city, String state,
+                  String password, String caseType, String caseDetails, String profile) {
+        this.name = realName;
+        this.phone = phoneNumber;
         this.email = email;
         this.city = city;
         this.state = state;
-        this.username = username;
+        this.address = address;
         this.password = password;
         this.email = email;
-        this.caseType = caseType;
-        this.caseDetails = caseDetails;
+        this.topic = caseType;
+        this.detail = caseDetails;
+        this.profileIMGUri = profile;
     }
 
     public String getRealName() {
-        return realName;
+        return name;
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return phone;
     }
 
     public String getCity() {
@@ -49,8 +51,8 @@ public class Client implements Serializable { //parent class for Client and Lawy
         return state;
     }
 
-    public String getUsername() {
-        return username;
+    public String getAddress() {
+        return address;
     }
 
     public String getEmail() {
@@ -74,7 +76,7 @@ public class Client implements Serializable { //parent class for Client and Lawy
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.phone = phoneNumber;
     }
 
     public void setState(String state) {
@@ -82,18 +84,34 @@ public class Client implements Serializable { //parent class for Client and Lawy
     }
 
     public void setRealName(String realName) {
-        this.realName = realName;
+        this.name = realName;
     }
 
     public String getCaseType() {
-        return caseType;
+        return topic;
     }
 
     public String getCaseDetails() {
-        return caseDetails;
+        return detail;
     }
 
-//    public void setMyCase(Case myCase) {
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setCaseType(String caseType) {
+        this.topic = caseType;
+    }
+
+    public void setCaseDetails(String caseDetails) {
+        this.detail = caseDetails;
+    }
+
+    //    public void setMyCase(Case myCase) {
 //        this.myCase = myCase;
 //    }
 }

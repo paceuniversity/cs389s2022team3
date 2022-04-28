@@ -3,12 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/about_page.xml" value="0.3223958333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_chat.xml" value="0.26132246376811596" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_help.xml" value="0.2078804347826087" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_law_log_pg1.xml" value="0.5" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_law_log_pg2.xml" value="0.6666666666666666" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_match.xml" value="0.18795289855072464" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.15628166160081053" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/client_case_create.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/client_profile_creation.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/edit_profile.xml" value="0.2676348547717842" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.15628166160081053" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/item.xml" value="0.22" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/login_page.xml" value="0.15476190476190477" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/matchesitems.xml" value="0.20205479452054795" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/client_case_create.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.2760416666666667" />

@@ -9,7 +9,7 @@ public class LawFirm {
     private String emailAddress;
     private String phoneNumber;
     private String website;
-    private String firmTopic;
+    private String topic;
     private String caseWebsite;
 
     public LawFirm(String firmName, String address,String city,
@@ -22,7 +22,7 @@ public class LawFirm {
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
         this.website = website;
-        this.firmTopic = firmTopic;
+        this.topic = firmTopic;
         this.caseWebsite = caseWebsite;
     }
 
@@ -30,16 +30,52 @@ public class LawFirm {
         return firmName;
     }
 
+    public void setFirmName(String firmName) {
+        this.firmName = firmName;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getCity() {
         return city;
     }
 
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public String getState() {
         return state;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setCaseWebsite(String caseWebsite) {
+        this.caseWebsite = caseWebsite;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getEmailAddress() {
@@ -55,7 +91,7 @@ public class LawFirm {
     }
 
     public String getFirmTopic() {
-        return firmTopic;
+        return topic;
     }
 
     public String getCaseWebsite() {

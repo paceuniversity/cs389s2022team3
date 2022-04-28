@@ -1,10 +1,9 @@
-package com.pace.lumbar;
+package com.pace.lumbar.match;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -21,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.pace.lumbar.R;
 import com.pace.lumbar.fragments.adapters.arrayAdapter;
 
 import java.util.ArrayList;
@@ -77,7 +77,7 @@ public class Matching extends AppCompatActivity {
 
                 Cards obj = (Cards) dataObject;
                 String email = obj.getEmail();
-                usersDB.child(oppositeUserType).child(email).child("connections").child("no").child("currentUID").setValue(true);
+                usersDB.child(email).child("connections").child("no").child("currentUID").setValue(true);
                 makeToast(Matching.this, "Left!");
             }
 
@@ -85,7 +85,7 @@ public class Matching extends AppCompatActivity {
             public void onRightCardExit(Object dataObject) {
                 Cards obj = (Cards) dataObject;
                 String email = obj.getEmail();
-                usersDB.child(oppositeUserType).child(email).child("connections").child("yes").child("currentUID").setValue(true);
+                usersDB.child(email).child("connections").child("yes").child("currentUID").setValue(true);
                 isConnectionMatch(email);
                 makeToast(Matching.this, "Right!");
             }
@@ -114,14 +114,14 @@ public class Matching extends AppCompatActivity {
     }
 
     private void isConnectionMatch(String email) {
-        DatabaseReference currentUserConnectionDb = usersDB.child(oppositeUserType).child(currentUID).child("connections").child("yes").child(email);
+        DatabaseReference currentUserConnectionDb = usersDB.child(currentUID).child("connections").child("yes").child(email);
         currentUserConnectionDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     makeToast(Matching.this, "New Connection");
-                    usersDB.child(oppositeUserType).child(snapshot.getKey()).child("connections").child("matches").child(currentUID).setValue(true);
-                    usersDB.child(userType).child(currentUID).child("matches").child(snapshot.getKey()).setValue(true);
+                    usersDB.child(snapshot.getKey()).child("connections").child("matches").child(currentUID).setValue(true);
+                    usersDB.child(currentUID).child("matches").child(snapshot.getKey()).setValue(true);
 
                 }
             }
@@ -136,16 +136,30 @@ public class Matching extends AppCompatActivity {
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         //Check Client
-        DatabaseReference clientDB = FirebaseDatabase.getInstance().getReference().child("Client");
-        clientDB.addChildEventListener(new ChildEventListener() {
+//        DatabaseReference clientDB = FirebaseDatabase.getInstance().getReference().child("users").child(user.getEmail());
+        DatabaseReference userDb = usersDB.child(user.getEmail());
+
+        userDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
                 if(snapshot.getKey().equals(user.getUid())){
-                    userType = "Client";
-                    oppositeUserType = "Lawyer";
+                    if(snapshot.exists()){
+                        if(snapshot.child("Client") != null){
+                            userType = snapshot.child("Client").getValue().toString();
+                            oppositeUserType = "Lawyer";
+                            switch(userType){
+                                case "Client":
+                                    oppositeUserType = "Lawyer";
+                                    break;
+                                case "Lawyer":
+                                    oppositeUserType = "Client";
+                                    break;
+                            }
+                            getOppositeUserTypes();
+                        }
+                    }
                     //makeToast(Matching.this, userType);
-                    getOppositeUserTypes();
                 }
                 else{
                     //makeToast(Matching.this, "Client not found!");
@@ -169,57 +183,66 @@ public class Matching extends AppCompatActivity {
             }
         });
 
-        //Check Lawyer
-        DatabaseReference lawyerDB = FirebaseDatabase.getInstance().getReference().child("Lawyer");
-        lawyerDB.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                if(snapshot.getKey().equals(user.getUid())){
-                    userType = "Lawyer";
-                    oppositeUserType = "Client";
-                    //makeToast(Matching.this, userType);
-                    getOppositeUserTypes();
-                }
-                else{
-                    //makeToast(Matching.this, "Lawyer not found!");
-                }
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        //Check Lawyer
+//        DatabaseReference lawyerDB = FirebaseDatabase.getInstance().getReference().child("Lawyer");
+//        lawyerDB.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//
+//                if(snapshot.getKey().equals(user.getUid())){
+//                    userType = "Lawyer";
+//                    oppositeUserType = "Client";
+//                    //makeToast(Matching.this, userType);
+//                    getOppositeUserTypes();
+//                }
+//                else{
+//                    //makeToast(Matching.this, "Lawyer not found!");
+//                }
+//            }
+//
+//            @Override
+//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
     }
 
     public void getOppositeUserTypes(){
-        DatabaseReference oppositeUserDB = FirebaseDatabase.getInstance().getReference().child(oppositeUserType);
-        oppositeUserDB.addChildEventListener(new ChildEventListener() {
+        usersDB.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
                 if(snapshot.exists() && !snapshot.child("connections").child("no").hasChild(currentUID)
-                        && !snapshot.child("connections").child("yes").hasChild(currentUID)){
+                        && !snapshot.child("connections").child("yes").hasChild(currentUID) && oppositeUserType.equals("Lawyer")){
                     //al.add(snapshot.child("name").getValue().toString());
                     Cards item = new Cards(snapshot.child("name").getValue().toString(), snapshot.child("lawFirm").getValue().toString(),
                             snapshot.child("email").getValue().toString(), snapshot.child("phone").getValue().toString(), snapshot.child("address").getValue().toString(),
                             snapshot.child("topic").getValue().toString(), snapshot.child("website").getValue().toString(), snapshot.child("profileIMGUri").getValue().toString());
+                    rowItems.add(item);
+                    arrayAdapter.notifyDataSetChanged();
+                }
+
+                if(snapshot.exists() && !snapshot.child("connections").child("no").hasChild(currentUID)
+                        && !snapshot.child("connections").child("yes").hasChild(currentUID) && oppositeUserType.equals("Client")){
+                    //al.add(snapshot.child("name").getValue().toString());
+                    Cards item = new Cards(snapshot.child("realName").getValue().toString(), snapshot.child("case").child("caseType").getValue().toString(),
+                            snapshot.child("email").getValue().toString(), snapshot.child("phoneNumber").getValue().toString(), snapshot.child("city").getValue().toString(),
+                            snapshot.child("state").getValue().toString(), snapshot.child("case").child("caseDetails").getValue().toString(), snapshot.child("profileIMGUri").getValue().toString());
                     rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }
