@@ -82,6 +82,7 @@ public class LawLogPg1 extends AppCompatActivity {
                             public void onClick(View v) {
                                 Intent intent = new Intent(LawLogPg1.this, LawLogPg2.class);
                                 intent.putExtra("newUser", newUser);
+                                intent.putExtra("email", newUser.getEmail());
                                 startActivity(intent);
                             }
                         });
