@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,16 +20,28 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.pace.lumbar.fragments.adapters.arrayAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Matching extends AppCompatActivity {
 
-    private ArrayList<String> al;
-    private ArrayAdapter<String> arrayAdapter;
+    private Cards cards_data[];
+    private com.pace.lumbar.fragments.adapters.arrayAdapter arrayAdapter;
     private int i;
+    private String userType;
+    private String oppositeUserType;
 
     private FirebaseAuth mAuth;
+
+    private String currentUID;
+
+    private DatabaseReference usersDB;
+    ListView listView;
+    List<Cards> rowItems;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +49,9 @@ public class Matching extends AppCompatActivity {
 
         checkUserType();
 
-        al = new ArrayList<>();
+        rowItems = new ArrayList<Cards>();
 
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.helloText, al );
+        arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
 
         SwipeFlingAdapterView flingContainer = findViewById(R.id.frame);
 
@@ -48,7 +61,7 @@ public class Matching extends AppCompatActivity {
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
                 Log.d("LIST", "removed object!");
-                al.remove(0);
+                rowItems.remove(0);
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -67,6 +80,8 @@ public class Matching extends AppCompatActivity {
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
+                //getOppositeUserTypes();
+
             }
 
             @Override
@@ -86,8 +101,7 @@ public class Matching extends AppCompatActivity {
 
     }
 
-    private String userType;
-    private String oppositeUserType;
+
     public void checkUserType(){
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -171,7 +185,9 @@ public class Matching extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
                 if(snapshot.exists()){
-                    al.add(snapshot.child("name").getValue().toString());
+                    //al.add(snapshot.child("name").getValue().toString());
+                    Cards item = new Cards(snapshot.getKey(), snapshot.child("name").getValue().toString());
+                    rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }
             }
