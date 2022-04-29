@@ -12,7 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.pace.lumbar.HomePage;
+import com.pace.lumbar.MainActivity;
+import com.pace.lumbar.Matching;
 import com.pace.lumbar.R;
 
 public class LawLogPg2 extends AppCompatActivity {
@@ -93,7 +94,7 @@ public class LawLogPg2 extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     });
 
-                    Intent intent = new Intent(LawLogPg2.this, HomePage.class);
+                    Intent intent = new Intent(LawLogPg2.this, Matching.class);
                     startActivity(intent);
                 }
                 else{

@@ -1,10 +1,11 @@
 package com.pace.lumbar;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -20,6 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.pace.lumbar.fragments.MatchesActivity;
+import com.pace.lumbar.fragments.ProfileActivity;
 import com.pace.lumbar.fragments.adapters.arrayAdapter;
 
 import java.util.ArrayList;
@@ -46,6 +50,38 @@ public class Matching extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matching_system);
+
+        //Initialize and Assign Variable
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //Set Home selected
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
+        //Perform Item selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch(item.getItemId()){
+                    case R.id.match:
+                        startActivity(new Intent(getApplicationContext(),
+                                MatchesActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+
+                    case R.id.home:
+                        return true;
+
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(),
+                                ProfileActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+
+                return false;
+            }
+        });
 
         checkUserType();
 

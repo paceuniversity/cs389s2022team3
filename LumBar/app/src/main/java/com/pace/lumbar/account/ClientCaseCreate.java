@@ -20,7 +20,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-import com.pace.lumbar.HomePage;
+import com.pace.lumbar.MainActivity;
+import com.pace.lumbar.Matching;
 import com.pace.lumbar.R;
 
 public class ClientCaseCreate extends AppCompatActivity {
@@ -56,7 +57,7 @@ public class ClientCaseCreate extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if(user != null){
-                    Intent intent = new Intent(ClientCaseCreate.this, HomePage.class);
+                    Intent intent = new Intent(ClientCaseCreate.this, Matching.class);
                     startActivity(intent);
                     finish();
                     return;
@@ -126,7 +127,7 @@ public class ClientCaseCreate extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     });
 
-                    Intent intent = new Intent(ClientCaseCreate.this, HomePage.class);
+                    Intent intent = new Intent(ClientCaseCreate.this, Matching.class);
                     startActivity(intent);
                     finish();
                     return;
