@@ -10,10 +10,11 @@ public class LawFirm {
     private String phoneNumber;
     private String website;
     private String topic;
+    private String budget;
 
     public LawFirm(String firmName, String address,String city,
                    String state, String emailAddress, String phoneNumber,
-                   String website, String firmTopic) {
+                   String website, String firmTopic, String budget) {
         this.firmName = firmName;
         this.address = address;
         this.city = city;
@@ -22,6 +23,15 @@ public class LawFirm {
         this.phoneNumber = phoneNumber;
         this.website = website;
         this.topic = firmTopic;
+        this.budget = budget;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setBudget(String budget) {
+        this.budget = budget;
     }
 
     public String getFirmName() {

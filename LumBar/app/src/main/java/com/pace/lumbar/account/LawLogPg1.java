@@ -86,7 +86,7 @@ public class LawLogPg1 extends AppCompatActivity {
                         });
 
                     }
-                } else{
+                } else {
                     CharSequence incompleteMsg = "Form is incomplete";
                     Toast.makeText(getApplicationContext(), incompleteMsg,
                             Toast.LENGTH_SHORT).show();

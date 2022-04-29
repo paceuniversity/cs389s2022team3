@@ -8,7 +8,7 @@ public class Lawyer implements Serializable {
     private String phone;
     private String password;
     private LawFirm firm;
-    private String imgURI;
+    private String profileIMGUri;
     //TODO: profile pic
 
     public Lawyer(String name, String email, String phone, String password, String imgUri) {
@@ -16,15 +16,15 @@ public class Lawyer implements Serializable {
         this.email = email;
         this.phone = phone;
         this.password = password;
-        this.imgURI = imgUri;
+        this.profileIMGUri = imgUri;
     }
 
-    public String getImgURI() {
-        return imgURI;
+    public String getProfileIMGUri() {
+        return profileIMGUri;
     }
 
-    public void setImgURI(String imgURI) {
-        this.imgURI = imgURI;
+    public void setProfileIMGUri(String imgURI) {
+        this.profileIMGUri = imgURI;
     }
 
     public String getName() {

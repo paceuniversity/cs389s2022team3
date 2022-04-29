@@ -9,12 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.pace.lumbar.R;
 
 public class ClientProfCreation extends AppCompatActivity {
@@ -32,8 +27,6 @@ public class ClientProfCreation extends AppCompatActivity {
     private EditText pwdPtTwo;
     private String imgUri;
     private int SELECT_PICTURE = 200;
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

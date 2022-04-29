@@ -35,7 +35,6 @@ public class LoginPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setTheme(R.style.Theme_LumBar); no appbar for now
         setContentView(R.layout.login_page);
 
         email = findViewById(R.id.etEmail);

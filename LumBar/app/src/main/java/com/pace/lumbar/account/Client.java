@@ -67,11 +67,11 @@ public class Client implements Serializable { //parent class for Client and Lawy
         this.detail = detail;
     }
 
-    public String getRealName() {
+    public String getName() {
         return name;
     }
 
-    public String getPhoneNumber() {
+    public String getPhone() {
         return phone;
     }
 
@@ -142,12 +142,4 @@ public class Client implements Serializable { //parent class for Client and Lawy
     public void setCaseDetails(String caseDetails) {
         this.detail = caseDetails;
     }
-
-    //    public void setMyCase(Case myCase) {
-//        this.myCase = myCase;
-//    }
 }
-
-
-
-

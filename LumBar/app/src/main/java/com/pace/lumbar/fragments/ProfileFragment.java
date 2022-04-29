@@ -23,7 +23,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.pace.lumbar.account.Case;
 import com.pace.lumbar.account.Client;
 import com.pace.lumbar.R;
 import com.pace.lumbar.SettingPage;
@@ -49,7 +48,7 @@ public class ProfileFragment extends Fragment {
     private String imagePath = "";
     Activity context;
     private FirebaseUser user;
-    private String userID;
+    private String userID, userType ="";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,8 +84,9 @@ public class ProfileFragment extends Fragment {
     public void data(){
         super.onStart();
         user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("Client");
-        if(user != null){
+        reference = FirebaseDatabase.getInstance().getReference().child("users");
+        Log.d("userid", userType);
+        if(user != null) {
             userID = user.getUid();
             Log.d("userid", userID);
         }
@@ -102,39 +102,41 @@ public class ProfileFragment extends Fragment {
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Client userProfile = snapshot.getValue(Client.class);
+                    Client userProfile = snapshot.getValue(Client.class);
+                    Lawyer userProf = snapshot.getValue(Lawyer.class);
 
-                if(userProfile!=null){
-                    String name = userProfile.getRealName();
-                    Log.d("userid1", name);
-                    String email = userProfile.getEmail();
-                    Log.d("userid1", email);
-                    String phone = userProfile.getPhoneNumber();
-                    String address = userProfile.getAddress();
-                    String prof = userProfile.getProfileIMGUri();
+                    if(userProfile!=null) {
+                        String name = userProfile.getName();
+                        Log.d("userid1", name);
+                        String email = userProfile.getEmail();
+                        Log.d("userid1", email);
+                        String phone = userProfile.getPhone();
+                        String address = userProfile.getAddress();
+                        String prof = userProfile.getProfileIMGUri();
 
 
 //                    Case clientCase = userProfile.getCase();
-                    String topic = userProfile.getTopic();
-                    String detail = userProfile.getDetail();
+                        String topic = userProfile.getTopic();
+                        String detail = userProfile.getDetail();
 
-                    nameTxt.setText(name);
-                    emailTxt.setText(email);
-                    phoneTxt.setText(phone);
-                    stateTxt.setText(address);
-                    avatar.setImageURI(Uri.parse(prof));
-                    detailTxt.setText(detail);
-                    topicTxt.setText(topic);
-                }
-                else{
+                        Log.d("userid1", detail);
+
+                        nameTxt.setText(name);
+                        emailTxt.setText(email);
+                        phoneTxt.setText(phone);
+                        stateTxt.setText(address);
+                        avatar.setImageURI(Uri.parse(prof));
+                        detailTxt.setText(detail);
+                        topicTxt.setText(topic);
+                    }
+
                     Log.d("userid", "not Client");
-                    Lawyer userProf = snapshot.getValue(Lawyer.class);
                     if(userProf != null){
                         String name = userProf.getName();
                         String email = userProf.getEmail();
                         String phone = userProf.getPhone();
                         String address = userProf.getFirm().getAddress();
-                        String prof = userProf.getImgURI();
+                        String prof = userProf.getProfileIMGUri();
 
                         String topic = userProf.getFirm().getFirmName();
                         String detail = userProf.getFirm().getWebsite();
@@ -146,8 +148,6 @@ public class ProfileFragment extends Fragment {
                         avatar.setImageURI(Uri.parse(prof));
                         detailTxt.setText(detail);
                         topicTxt.setText(topic);
-                    }
-
                 }
             }
 

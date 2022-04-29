@@ -9,9 +9,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.pace.lumbar.HomePage;
 import com.pace.lumbar.R;
 
@@ -24,7 +30,9 @@ public class LawLogPg2 extends AppCompatActivity {
     private EditText emailText;
     private EditText phoneNumText;
     private EditText firmWebsiteText;
+    private EditText budgetTxt;
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +47,7 @@ public class LawLogPg2 extends AppCompatActivity {
         emailText = findViewById(R.id.emailAddress);
         phoneNumText = findViewById(R.id.phonenum);
         firmWebsiteText = findViewById(R.id.website);
-        mAuth = FirebaseAuth.getInstance();
+        budgetTxt = findViewById(R.id.budgetEDIT);
 
         stateSpinner = findViewById(R.id.stateSpinner);
         ArrayAdapter<CharSequence> stateAdapter = ArrayAdapter.createFromResource
@@ -52,6 +60,8 @@ public class LawLogPg2 extends AppCompatActivity {
                 (this, R.array.cases, R.layout.spinner_item);
         stateAdapter.setDropDownViewResource(R.layout.spinner_item);
         caseSpinner.setAdapter(caseAdapter);
+
+        mAuth = FirebaseAuth.getInstance();
 
         backbtn = (Button)findViewById(R.id.prevbutton);
         backbtn.setOnClickListener(new View.OnClickListener(){
@@ -66,31 +76,36 @@ public class LawLogPg2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (isNotEmpty(lawFirmText) && isNotEmpty(addressText) &&
-                    isNotEmpty(cityEditText) && isNotEmpty(emailText) &&
-                    isNotEmpty(phoneNumText) && isNotEmpty(firmWebsiteText)
-                    && stateSpinner.getSelectedItem() != null
-                    && caseSpinner.getSelectedItem() != null) {
-                    CharSequence completeMsg = "Firm creation successful";
-                    Toast.makeText(getApplicationContext(), completeMsg,
-                            Toast.LENGTH_SHORT).show();
+                        isNotEmpty(cityEditText) && isNotEmpty(emailText) &&
+                        isNotEmpty(phoneNumText) && isNotEmpty(firmWebsiteText)
+                        && stateSpinner.getSelectedItem() != null
+                        && caseSpinner.getSelectedItem() != null && isNotEmpty(budgetTxt)) {
 
                     LawFirm firm = new LawFirm(lawFirmText.getText().toString(),
                             addressText.getText().toString(), cityEditText.getText().toString(),
                             stateSpinner.getSelectedItem().toString(),
                             emailText.getText().toString(), phoneNumText.getText().toString(),
-                            firmWebsiteText.getText().toString(), caseSpinner.getSelectedItem().toString());
+                            firmWebsiteText.getText().toString(), caseSpinner.getSelectedItem().toString(), budgetTxt.getText().toString());
 
                     lawyer.setFirm(firm);
-                    DAOLawyer lawyerDao = new DAOLawyer();
-                    mAuth.createUserWithEmailAndPassword(lawyer.getEmail(), lawyer.getPassword());
 
-                    lawyerDao.add(lawyer).addOnSuccessListener(suc->{
-                        CharSequence caseCreateMsg = "New user and firm created";
-                        Toast.makeText(getApplicationContext(), caseCreateMsg,
-                                Toast.LENGTH_SHORT).show();
+                    mAuth.createUserWithEmailAndPassword(lawyer.getEmail(), lawyer.getPassword()).addOnCompleteListener(LawLogPg2.this, task -> {
+                        if(!task.isSuccessful()){
+                            CharSequence completeMsg = "Failed to Connect to Database";
+                            Toast.makeText(getApplicationContext(), completeMsg,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            String userId = mAuth.getCurrentUser().getUid();
+                            DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReference().child("users").child("lawyer").child(userId);
+                            currentUserDb.setValue(lawyer);
+                            CharSequence caseCreateMsg = "New user and firm created";
+                            Toast.makeText(getApplicationContext(), caseCreateMsg,
+                                    Toast.LENGTH_SHORT).show();
+                        }
                     });
 
-                    Intent intent = new Intent(LawLogPg2.this, HomePage.class);
+                    Intent intent = new Intent(LawLogPg2.this, LoginPage.class);
                     startActivity(intent);
                 }
                 else{
