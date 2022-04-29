@@ -6,17 +6,15 @@ public class Lawyer implements Serializable {
     private String name;
     private String email;
     private String phone;
-    private String address;
     private String password;
     private LawFirm firm;
     private String imgURI;
     //TODO: profile pic
 
-    public Lawyer(String name, String email, String phone, String address, String password, String imgUri) {
+    public Lawyer(String name, String email, String phone, String password, String imgUri) {
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.address = address;
         this.password = password;
         this.imgURI = imgUri;
     }
@@ -51,14 +49,6 @@ public class Lawyer implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     //for testing

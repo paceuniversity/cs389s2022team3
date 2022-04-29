@@ -141,7 +141,8 @@ public class Matching extends AppCompatActivity {
 
         //Check Client
 //        DatabaseReference clientDB = FirebaseDatabase.getInstance().getReference().child("users").child(user.getEmail());
-        DatabaseReference userDb = usersDB.child(user.getEmail());
+        String userID = user.getUid();
+        DatabaseReference userDb = usersDB.child(userID);
 
         userDb.addChildEventListener(new ChildEventListener() {
             @Override

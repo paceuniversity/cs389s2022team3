@@ -35,6 +35,38 @@ public class Client implements Serializable { //parent class for Client and Lawy
         this.profileIMGUri = profile;
     }
 
+    public String getProfileIMGUri() {
+        return profileIMGUri;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setProfileIMGUri(String profileIMGUri) {
+        this.profileIMGUri = profileIMGUri;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
     public String getRealName() {
         return name;
     }

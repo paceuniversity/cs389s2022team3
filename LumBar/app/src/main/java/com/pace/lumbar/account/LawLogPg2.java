@@ -24,7 +24,6 @@ public class LawLogPg2 extends AppCompatActivity {
     private EditText emailText;
     private EditText phoneNumText;
     private EditText firmWebsiteText;
-    private EditText caseWebsite;
     private FirebaseAuth mAuth;
 
     @Override
@@ -40,7 +39,6 @@ public class LawLogPg2 extends AppCompatActivity {
         emailText = findViewById(R.id.emailAddress);
         phoneNumText = findViewById(R.id.phonenum);
         firmWebsiteText = findViewById(R.id.website);
-        caseWebsite = findViewById(R.id.caseWeb);
         mAuth = FirebaseAuth.getInstance();
 
         stateSpinner = findViewById(R.id.stateSpinner);
@@ -70,7 +68,7 @@ public class LawLogPg2 extends AppCompatActivity {
                 if (isNotEmpty(lawFirmText) && isNotEmpty(addressText) &&
                     isNotEmpty(cityEditText) && isNotEmpty(emailText) &&
                     isNotEmpty(phoneNumText) && isNotEmpty(firmWebsiteText)
-                    && isNotEmpty(caseWebsite) && stateSpinner.getSelectedItem() != null
+                    && stateSpinner.getSelectedItem() != null
                     && caseSpinner.getSelectedItem() != null) {
                     CharSequence completeMsg = "Firm creation successful";
                     Toast.makeText(getApplicationContext(), completeMsg,
@@ -80,8 +78,7 @@ public class LawLogPg2 extends AppCompatActivity {
                             addressText.getText().toString(), cityEditText.getText().toString(),
                             stateSpinner.getSelectedItem().toString(),
                             emailText.getText().toString(), phoneNumText.getText().toString(),
-                            firmWebsiteText.getText().toString(), caseSpinner.getSelectedItem().toString(),
-                            caseWebsite.getText().toString());
+                            firmWebsiteText.getText().toString(), caseSpinner.getSelectedItem().toString());
 
                     lawyer.setFirm(firm);
                     DAOLawyer lawyerDao = new DAOLawyer();
@@ -111,6 +108,6 @@ public class LawLogPg2 extends AppCompatActivity {
     }
 
     private boolean isNotEmpty(EditText edTxt) {
-        return edTxt.getText().toString().trim().length() > 0;
+        return edTxt.getText().toString().length() > 0;
     }
 }

@@ -2,6 +2,7 @@ package com.pace.lumbar.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ import com.pace.lumbar.account.Case;
 import com.pace.lumbar.account.Client;
 import com.pace.lumbar.R;
 import com.pace.lumbar.SettingPage;
+import com.pace.lumbar.account.Lawyer;
 
 
 public class ProfileFragment extends Fragment {
@@ -104,23 +106,48 @@ public class ProfileFragment extends Fragment {
 
                 if(userProfile!=null){
                     String name = userProfile.getRealName();
-                    Log.d("userid", name);
+                    Log.d("userid1", name);
                     String email = userProfile.getEmail();
-                    Log.d("userid", email);
+                    Log.d("userid1", email);
                     String phone = userProfile.getPhoneNumber();
-                    String address = userProfile.getState();
+                    String address = userProfile.getAddress();
+                    String prof = userProfile.getProfileIMGUri();
 
 
 //                    Case clientCase = userProfile.getCase();
-                    String topic = userProfile.getCaseType();
-                    String detail = userProfile.getCaseDetails();
+                    String topic = userProfile.getTopic();
+                    String detail = userProfile.getDetail();
 
                     nameTxt.setText(name);
                     emailTxt.setText(email);
                     phoneTxt.setText(phone);
                     stateTxt.setText(address);
+                    avatar.setImageURI(Uri.parse(prof));
                     detailTxt.setText(detail);
                     topicTxt.setText(topic);
+                }
+                else{
+                    Log.d("userid", "not Client");
+                    Lawyer userProf = snapshot.getValue(Lawyer.class);
+                    if(userProf != null){
+                        String name = userProf.getName();
+                        String email = userProf.getEmail();
+                        String phone = userProf.getPhone();
+                        String address = userProf.getFirm().getAddress();
+                        String prof = userProf.getImgURI();
+
+                        String topic = userProf.getFirm().getFirmName();
+                        String detail = userProf.getFirm().getWebsite();
+
+                        nameTxt.setText(name);
+                        emailTxt.setText(email);
+                        phoneTxt.setText(phone);
+                        stateTxt.setText(address);
+                        avatar.setImageURI(Uri.parse(prof));
+                        detailTxt.setText(detail);
+                        topicTxt.setText(topic);
+                    }
+
                 }
             }
 

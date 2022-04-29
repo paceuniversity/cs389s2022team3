@@ -38,7 +38,6 @@ public class LawLogPg1 extends AppCompatActivity {
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
         phonePt = findViewById(R.id.phone);
-        userPt = findViewById(R.id.etUsername);
         pwdPtOne = findViewById(R.id.etPassword);
         pwdPtTwo = findViewById(R.id.etconfirm);
         next = findViewById(R.id.next);
@@ -63,8 +62,8 @@ public class LawLogPg1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isNotEmpty(namePt) &&
-                        isNotEmpty(emailPt) && isNotEmpty(phonePt) &&
-                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
+                        isNotEmpty(emailPt) && isNotEmpty(phonePt)
+                        && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
                     if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
                         CharSequence incompleteMsg = "Passwords does not match!";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
@@ -72,7 +71,7 @@ public class LawLogPg1 extends AppCompatActivity {
                     } else {
                         Lawyer newUser = new Lawyer(namePt.getText().toString(),
                                 emailPt.getText().toString(), phonePt.getText().toString(),
-                                userPt.getText().toString(), pwdPtOne.getText().toString(), imageUri.toString());
+                                pwdPtOne.getText().toString(), imageUri.toString());
 
                         CharSequence incompleteMsg = "Credentials Correct!";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
@@ -97,7 +96,7 @@ public class LawLogPg1 extends AppCompatActivity {
     }
 
     private boolean isNotEmpty(EditText edTxt) {
-        return edTxt.getText().toString().trim().length() > 0;
+        return edTxt.getText().toString().length() > 0;
     }
 
     //image selection code adapted from GeeksForGeeks:
