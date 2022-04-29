@@ -9,11 +9,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.pace.lumbar.MainActivity;
-import com.pace.lumbar.Matching;
+
+import com.pace.lumbar.fragments.Matching;
+
+import com.google.firebase.database.FirebaseDatabase;
 import com.pace.lumbar.R;
 
 public class LawLogPg2 extends AppCompatActivity {
@@ -85,13 +91,26 @@ public class LawLogPg2 extends AppCompatActivity {
                             caseWebsite.getText().toString());
 
                     lawyer.setFirm(firm);
-                    DAOLawyer lawyerDao = new DAOLawyer();
-                    mAuth.createUserWithEmailAndPassword(lawyer.getEmail(), lawyer.getPassword());
+                    mAuth.createUserWithEmailAndPassword(lawyer.getEmail(), lawyer.getPassword()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                    lawyerDao.add(lawyer).addOnSuccessListener(suc->{
-                        CharSequence caseCreateMsg = "New user and firm created";
-                        Toast.makeText(getApplicationContext(), caseCreateMsg,
-                                Toast.LENGTH_SHORT).show();
+                            if(task.isSuccessful()){
+                                FirebaseDatabase.getInstance().getReference("Lawyer")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(lawyer).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(LawLogPg2.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
+                                        }
+                                        else{
+                                            Toast.makeText(LawLogPg2.this, "Failed to Register. Try again!", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
+                            }
+                        }
                     });
 
                     Intent intent = new Intent(LawLogPg2.this, Matching.class);

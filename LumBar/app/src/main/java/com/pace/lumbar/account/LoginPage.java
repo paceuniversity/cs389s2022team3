@@ -20,7 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.pace.lumbar.AboutPage;
-import com.pace.lumbar.Matching;
+import com.pace.lumbar.fragments.Matching;
 import com.pace.lumbar.R;
 
 public class LoginPage extends AppCompatActivity {

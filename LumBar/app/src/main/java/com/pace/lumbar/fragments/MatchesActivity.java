@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.pace.lumbar.Matching;
 import com.pace.lumbar.R;
 
 public class MatchesActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.pace.lumbar;
+package com.pace.lumbar.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,8 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
-import com.pace.lumbar.fragments.MatchesActivity;
-import com.pace.lumbar.fragments.ProfileActivity;
+import com.pace.lumbar.Cards;
+import com.pace.lumbar.R;
 import com.pace.lumbar.fragments.adapters.arrayAdapter;
 
 import java.util.ArrayList;

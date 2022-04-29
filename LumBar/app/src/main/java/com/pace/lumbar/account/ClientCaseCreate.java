@@ -20,8 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-import com.pace.lumbar.MainActivity;
-import com.pace.lumbar.Matching;
+import com.pace.lumbar.fragments.Matching;
 import com.pace.lumbar.R;
 
 public class ClientCaseCreate extends AppCompatActivity {
@@ -70,7 +69,6 @@ public class ClientCaseCreate extends AppCompatActivity {
                 (this, R.array.cases, R.layout.spinner_item);
         caseAdapter.setDropDownViewResource(R.layout.spinner_item);
         caseSpinner.setAdapter(caseAdapter);
-        String caseType = caseSpinner.getSelectedItem().toString();
 
         stateSpinner = findViewById(R.id.stateSpinnerCase);
         ArrayAdapter<CharSequence>stateAdapter = ArrayAdapter.createFromResource
@@ -80,7 +78,6 @@ public class ClientCaseCreate extends AppCompatActivity {
 
         cityText = findViewById(R.id.cityPT);
         caseDetails = findViewById(R.id.caseDetailsMultiLine);
-        String caseDet = caseDetails.getText().toString();
 
         createCaseBtn = findViewById(R.id.createCaseButton);
         createCaseBtn.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +96,8 @@ public class ClientCaseCreate extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if(task.isSuccessful()){
-
+                                String caseType = caseSpinner.getSelectedItem().toString();
+                                String caseDet = caseDetails.getText().toString();
                                 Client newUser = new Client(name, phoneNum, email, cityText.getText().toString(),
                                         stateSpinner.getSelectedItem().toString(), username, password, caseType, caseDet);
 
