@@ -19,8 +19,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.pace.lumbar.AboutPage;
-import com.pace.lumbar.fragments.Matching;
+import com.pace.lumbar.setting.AboutPage;
+import com.pace.lumbar.match.Matching;
 import com.pace.lumbar.R;
 
 public class LoginPage extends AppCompatActivity {

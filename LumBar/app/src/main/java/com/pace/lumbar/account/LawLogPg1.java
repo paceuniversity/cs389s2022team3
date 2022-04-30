@@ -21,7 +21,6 @@ public class LawLogPg1 extends AppCompatActivity {
     private EditText phonePt;
     private Button profSelectBtn;
     private ImageView profImageView;
-    private EditText userPt;
     private EditText pwdPtOne;
     private EditText pwdPtTwo;
     private final int SELECT_PICTURE = 200;
@@ -38,7 +37,6 @@ public class LawLogPg1 extends AppCompatActivity {
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
         phonePt = findViewById(R.id.phone);
-        userPt = findViewById(R.id.etUsername);
         pwdPtOne = findViewById(R.id.etPassword);
         pwdPtTwo = findViewById(R.id.etconfirm);
         next = findViewById(R.id.next);
@@ -64,16 +62,12 @@ public class LawLogPg1 extends AppCompatActivity {
             public void onClick(View v) {
                 if (isNotEmpty(namePt) &&
                         isNotEmpty(emailPt) && isNotEmpty(phonePt) &&
-                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
+                        isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
                     if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
                         CharSequence incompleteMsg = "Passwords does not match!";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        Lawyer newUser = new Lawyer(namePt.getText().toString(),
-                                emailPt.getText().toString(), phonePt.getText().toString(),
-                                userPt.getText().toString(), pwdPtOne.getText().toString());
-
                         CharSequence incompleteMsg = "Credentials Correct!";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
@@ -81,12 +75,14 @@ public class LawLogPg1 extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(LawLogPg1.this, LawLogPg2.class);
-                                intent.putExtra("newUser", newUser);
-                                intent.putExtra("email", newUser.getEmail());
+                                intent.putExtra("name", namePt.getText().toString());
+                                intent.putExtra("phoneNum", emailPt.getText().toString());
+                                intent.putExtra("email", phonePt.getText()).toString();
+                                intent.putExtra("password", pwdPtOne.getText().toString());
+                                intent.putExtra("profImgUri", imageUri);
                                 startActivity(intent);
                             }
                         });
-
                     }
                 } else{
                     CharSequence incompleteMsg = "Form is incomplete";

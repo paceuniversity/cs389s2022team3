@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
-import com.pace.lumbar.fragments.adapters.CustomViewPager;
+import com.pace.lumbar.adapters.CustomViewPager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 //                switch(item.getItemId()){
 //                    case R.id.match:
 //                        startActivity(new Intent(getApplicationContext(),
-//                                MatchesActivity.class));
+//                                ChatActivity.class));
 //                        overridePendingTransition(0, 0);
 //                        return true;
 //

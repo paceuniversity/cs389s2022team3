@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F8F3E7"
     android:layout_gravity="center"
-    tools:context=".SettingPage">
+    tools:context=".setting.SettingPage">
 
     <TextView
         android:id="@+id/head"

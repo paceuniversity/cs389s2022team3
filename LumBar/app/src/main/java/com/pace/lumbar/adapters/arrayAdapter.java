@@ -1,14 +1,13 @@
-package com.pace.lumbar.fragments.adapters;
+package com.pace.lumbar.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.pace.lumbar.Cards;
+import com.pace.lumbar.match.Cards;
 import com.pace.lumbar.R;
 
 import java.util.List;

@@ -9,7 +9,7 @@
     tools:context=".account.LawLogPg1">
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/LAWLOGO"
         android:layout_width="match_parent"
         android:layout_height="165dp"
         android:layout_alignParentStart="true"
@@ -33,7 +33,7 @@
         android:textAlignment="center"
         android:textColor="#654900"
         android:textSize="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/LAWLOGO"
         tools:layout_editor_absoluteX="-16dp" />
 
     <TextView
@@ -114,47 +114,6 @@
         app:layout_constraintStart_toEndOf="@+id/email"
         app:layout_constraintTop_toBottomOf="@+id/etFname" />
 
-<!--    <EditText-->
-<!--        android:id="@+id/bday"-->
-<!--        android:layout_width="284dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:background="@drawable/edit_round"-->
-<!--        android:ems="10"-->
-<!--        android:hint="Enter Your Birthday"-->
-<!--        android:inputType="date"-->
-<!--        android:minHeight="20dp"-->
-<!--        android:padding="5dp"-->
-<!--        android:textColor="#7E000000"-->
-<!--        android:textSize="15dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/birth"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/phone" />-->
-
-    <EditText
-        android:id="@+id/etUsername"
-        android:layout_width="271dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edit_round"
-        android:hint="Create Username"
-        android:inputType="text"
-        android:minHeight="20dp"
-        android:padding="5dp"
-        android:textColor="#7E000000"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/username"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
-
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="272dp"
@@ -172,10 +131,10 @@
         android:textColor="#7E000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
 
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
 
     <EditText
         android:id="@+id/etconfirm"
@@ -209,21 +168,6 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/head"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:padding="5dp"
-        android:text="Username: "
-        android:textColor="#654900"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phonenum" />
-
-    <TextView
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -235,7 +179,7 @@
         android:textColor="#654900"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/phonenum" />
 
     <TextView
         android:id="@+id/conpass"
@@ -278,20 +222,6 @@
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
-
-<!--    <TextView-->
-<!--        android:id="@+id/birth"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentStart="true"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:padding="5dp"-->
-<!--        android:text="Birthday: "-->
-<!--        android:textColor="#654900"-->
-<!--        android:textSize="15dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/phonenum" />-->
 
     <ImageView
         android:id="@+id/profileImgView"

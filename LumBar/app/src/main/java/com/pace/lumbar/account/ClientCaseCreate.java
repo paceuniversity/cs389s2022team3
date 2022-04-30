@@ -2,6 +2,7 @@ package com.pace.lumbar.account;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -20,7 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-import com.pace.lumbar.fragments.Matching;
+import com.pace.lumbar.match.Matching;
 import com.pace.lumbar.R;
 
 public class ClientCaseCreate extends AppCompatActivity {
@@ -41,14 +42,13 @@ public class ClientCaseCreate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         String name = intent.getExtras().getString("name");
-        String phoneNum = intent.getExtras().getString("phoneNum");
+        String phone = intent.getExtras().getString("phoneNum");
         String email = intent.getExtras().getString("email");
-        String username = intent.getExtras().getString("username");
+        String address = intent.getExtras().getString("address");
         String password = intent.getExtras().getString("password");
-        //setTheme(R.style.Theme_LumBar); no appbar for now
+        String imageUri = intent.getExtras().getString("imageUri");
+
         setContentView(R.layout.client_case_create);
-        RelativeLayout layout1 = new RelativeLayout(this);
-        layout1.setBackgroundColor(Color.parseColor("#F8F3E7"));
 
         mAuth = FirebaseAuth.getInstance();
         firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
@@ -83,24 +83,19 @@ public class ClientCaseCreate extends AppCompatActivity {
         createCaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (caseSpinner.getSelectedItem() != null &&
-                        isNotEmpty(caseDetails)) {
+                if (caseSpinner.getSelectedItem() != null && isNotEmpty(caseDetails) &&
+                        isNotEmpty(cityText) && stateSpinner.getSelectedItem() != null) {
 
-                    Case newCase = new Case(username, caseSpinner.getSelectedItem().toString(),
-                            caseDetails.getText().toString());
-//                    DAOClient clientDao = new DAOClient();
-//                    clientDao.add(newUser);
+                    String caseType = caseSpinner.getSelectedItem().toString();
+                    String caseDet = caseDetails.getText().toString();
+                    Client newUser = new Client(name, phone, email, address, cityText.getText().toString(),
+                            stateSpinner.getSelectedItem().toString(), password, caseType, caseDet, imageUri);
 
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if(task.isSuccessful()){
-                                String caseType = caseSpinner.getSelectedItem().toString();
-                                String caseDet = caseDetails.getText().toString();
-                                Client newUser = new Client(name, phoneNum, email, cityText.getText().toString(),
-                                        stateSpinner.getSelectedItem().toString(), username, password, caseType, caseDet);
-
                                 FirebaseDatabase.getInstance().getReference("Client")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(newUser).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -116,13 +111,6 @@ public class ClientCaseCreate extends AppCompatActivity {
                                 });
                             }
                         }
-                    });
-
-                    DAOCase caseDao = new DAOCase();
-                    caseDao.add(newCase).addOnSuccessListener(suc->{
-                        CharSequence caseCreateMsg = "Case created";
-                        Toast.makeText(getApplicationContext(), caseCreateMsg,
-                                Toast.LENGTH_SHORT).show();
                     });
 
                     Intent intent = new Intent(ClientCaseCreate.this, Matching.class);

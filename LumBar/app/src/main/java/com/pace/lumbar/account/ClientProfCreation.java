@@ -25,9 +25,10 @@ public class ClientProfCreation extends AppCompatActivity {
     private ImageButton backbtn;
     private ImageView profImageView;
     private Button createProfBtn;
-    private EditText userPt;
+    private EditText address;
     private EditText pwdPtOne;
     private EditText pwdPtTwo;
+    private Uri imageUri;
     private int SELECT_PICTURE = 200;
     private FirebaseAuth mAuth;
 
@@ -46,7 +47,7 @@ public class ClientProfCreation extends AppCompatActivity {
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
         createProfBtn = findViewById(R.id.createProfBtn);
-        userPt = findViewById(R.id.etUsername);
+        address = findViewById(R.id.etAddressClient);
         pwdPtOne = findViewById(R.id.etPassword);
         pwdPtTwo = findViewById(R.id.etconfirm);
 
@@ -74,16 +75,16 @@ public class ClientProfCreation extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isNotEmpty(namePt) && isNotEmpty(phoneNumPt) &&
-                        isNotEmpty(userPt) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo) &&
+                        isNotEmpty(address) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo) &&
                         isNotEmpty(emailPt) ) {
-                    if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
+                    if (!pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString())) {
                         CharSequence incompleteMsg = "Creation failed: passwords must match";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         openActivity2(namePt.getText().toString(), phoneNumPt.getText().toString(),
-                                emailPt.getText().toString(), userPt.getText().toString(),
-                                pwdPtOne.getText().toString());
+                                emailPt.getText().toString(), address.getText().toString(),
+                                pwdPtOne.getText().toString(), imageUri);
                     }
                 } else{
                     CharSequence incompleteMsg = "Creation failed: profile info incomplete";
@@ -123,22 +124,24 @@ public class ClientProfCreation extends AppCompatActivity {
             // SELECT_PICTURE constant
             if (requestCode == SELECT_PICTURE) {
                 // Get the url of the image from data
-                Uri selectedImageUri = data.getData();
-                if (null != selectedImageUri) {
+                imageUri = data.getData();
+                if (null != imageUri) {
                     // update the preview image in the layout
-                    profImageView.setImageURI(selectedImageUri);
+                    profImageView.setImageURI(imageUri);
                 }
             }
         }
     }
-    private void openActivity2(String name, String phoneNum, String email,
-                               String username, String password) {
+    private void openActivity2(String name, String phone, String email,
+                               String address, String password, Uri imageUri) {
         Intent intent = new Intent(this, ClientCaseCreate.class);
         intent.putExtra("name", name);
-        intent.putExtra("phoneNum", phoneNum);
+        intent.putExtra("phone", phone);
         intent.putExtra("email", email);
-        intent.putExtra("username", username);
+        intent.putExtra("address", address);
         intent.putExtra("password", password);
+        intent.putExtra("imageUri", imageUri);
+
         startActivity(intent);
     }
 }

@@ -1,7 +1,8 @@
-package com.pace.lumbar.fragments;
+package com.pace.lumbar;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -23,9 +24,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pace.lumbar.account.Client;
-import com.pace.lumbar.R;
-import com.pace.lumbar.SettingPage;
+import com.pace.lumbar.chat.ChatActivity;
+import com.pace.lumbar.match.Matching;
+import com.pace.lumbar.setting.SettingPage;
 
+/* Reference: https://www.youtube.com/watch?v=GuMwCuvGWx4 */
 
 public class ProfileActivity extends AppCompatActivity {
     private ImageButton menuBtn;
@@ -65,7 +68,7 @@ public class ProfileActivity extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.match:
                         startActivity(new Intent(getApplicationContext(),
-                                MatchesActivity.class));
+                                ChatActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
 
@@ -121,17 +124,24 @@ public class ProfileActivity extends AppCompatActivity {
                 Client userProfile = snapshot.getValue(Client.class);
 
                 if(userProfile!=null){
-                    String name = userProfile.getRealName();
+                    String name = snapshot.child("name").getValue().toString();
                     Log.d("userid", name);
-                    String email = userProfile.getEmail();
+                    String email = snapshot.child("email").getValue().toString();
                     Log.d("userid", email);
-                    String phone = userProfile.getPhoneNumber();
-                    String address = userProfile.getState();
-
+                    String phone = snapshot.child("phone").getValue().toString();
+                    String address = snapshot.child("address").getValue().toString();
+                    String imgUri = snapshot.child("profileIMGUri").getValue().toString();
 
 //                    Case clientCase = userProfile.getCase();
-                    String topic = userProfile.getCaseType();
-                    String detail = userProfile.getCaseDetails();
+                    String topic = snapshot.child("address").getValue().toString();
+                    String detail = "";
+
+                    if(snapshot.child("firmName").exists()) {
+                        detail = snapshot.child("website").getValue().toString();
+                    }
+                    else {
+                        detail = snapshot.child("detail").getValue().toString();
+                    }
 
                     nameTxt.setText(name);
                     emailTxt.setText(email);
@@ -139,6 +149,7 @@ public class ProfileActivity extends AppCompatActivity {
                     stateTxt.setText(address);
                     detailTxt.setText(detail);
                     topicTxt.setText(topic);
+                    avatar.setImageURI(Uri.parse(imgUri));
                 }
             }
 
