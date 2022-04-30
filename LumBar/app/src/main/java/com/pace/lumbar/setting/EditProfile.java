@@ -1,11 +1,9 @@
-package com.pace.lumbar;
+package com.pace.lumbar.setting;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -27,8 +25,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Transaction;
-import com.google.firebase.firestore.auth.User;
-import com.pace.lumbar.fragments.ProfileFragment;
+import com.pace.lumbar.R;
 
 /* Reference: https://www.youtube.com/watch?v=CMAup2xxsJw */
 

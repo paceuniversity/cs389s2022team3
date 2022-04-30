@@ -1,6 +1,7 @@
 package com.pace.lumbar.account;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,12 +14,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.pace.lumbar.match.Matching;
+
 import com.google.firebase.database.FirebaseDatabase;
-import com.pace.lumbar.HomePage;
 import com.pace.lumbar.R;
 
 public class LawLogPg2 extends AppCompatActivity {
@@ -30,7 +34,7 @@ public class LawLogPg2 extends AppCompatActivity {
     private EditText emailText;
     private EditText phoneNumText;
     private EditText firmWebsiteText;
-    private EditText budgetTxt;
+    private EditText budget;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
 
@@ -39,7 +43,12 @@ public class LawLogPg2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_law_log_pg2);
         Intent intent = getIntent();
-        Lawyer lawyer = (Lawyer) intent.getExtras().getSerializable("newUser");
+
+        String name = intent.getExtras().getString("name");
+        String phone = intent.getExtras().getString("phone");
+        String email = intent.getExtras().getString("email");
+        String password = intent.getExtras().getString("password");
+        String imageUri = intent.getExtras().getString("imageUri");
 
         lawFirmText = findViewById(R.id.Agency);
         addressText = findViewById(R.id.address);
@@ -47,7 +56,7 @@ public class LawLogPg2 extends AppCompatActivity {
         emailText = findViewById(R.id.emailAddress);
         phoneNumText = findViewById(R.id.phonenum);
         firmWebsiteText = findViewById(R.id.website);
-        budgetTxt = findViewById(R.id.budgetEDIT);
+        budget = findViewById(R.id.budgetEDIT);
 
         stateSpinner = findViewById(R.id.stateSpinner);
         ArrayAdapter<CharSequence> stateAdapter = ArrayAdapter.createFromResource
@@ -62,6 +71,18 @@ public class LawLogPg2 extends AppCompatActivity {
         caseSpinner.setAdapter(caseAdapter);
 
         mAuth = FirebaseAuth.getInstance();
+        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if(user != null){
+                    Intent intent = new Intent(LawLogPg2.this, Matching.class);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+            }
+        };
 
         backbtn = (Button)findViewById(R.id.prevbutton);
         backbtn.setOnClickListener(new View.OnClickListener(){
@@ -76,42 +97,44 @@ public class LawLogPg2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (isNotEmpty(lawFirmText) && isNotEmpty(addressText) &&
-                        isNotEmpty(cityEditText) && isNotEmpty(emailText) &&
-                        isNotEmpty(phoneNumText) && isNotEmpty(firmWebsiteText)
-                        && stateSpinner.getSelectedItem() != null
-                        && caseSpinner.getSelectedItem() != null && isNotEmpty(budgetTxt)) {
+                    isNotEmpty(cityEditText) && isNotEmpty(emailText) &&
+                    isNotEmpty(phoneNumText) && isNotEmpty(firmWebsiteText)
+                    && isNotEmpty(budget) && stateSpinner.getSelectedItem() != null
+                    && caseSpinner.getSelectedItem() != null) {
 
-                    LawFirm firm = new LawFirm(lawFirmText.getText().toString(),
+                    Lawyer lawyer = new Lawyer(name, email, phone, password, imageUri, lawFirmText.getText().toString(),
                             addressText.getText().toString(), cityEditText.getText().toString(),
                             stateSpinner.getSelectedItem().toString(),
                             emailText.getText().toString(), phoneNumText.getText().toString(),
-                            firmWebsiteText.getText().toString(), caseSpinner.getSelectedItem().toString(), budgetTxt.getText().toString());
+                            firmWebsiteText.getText().toString(), caseSpinner.getSelectedItem().toString(),
+                            budget.getText().toString());
 
-                    lawyer.setFirm(firm);
+                    mAuth.createUserWithEmailAndPassword(lawyer.getEmail(), lawyer.getPassword()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                    mAuth.createUserWithEmailAndPassword(lawyer.getEmail(), lawyer.getPassword()).addOnCompleteListener(LawLogPg2.this, task -> {
-                        if(!task.isSuccessful()){
-                            CharSequence completeMsg = "Failed to Connect to Database";
-                            Toast.makeText(getApplicationContext(), completeMsg,
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            String userId = mAuth.getCurrentUser().getUid();
-                            DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReference().child("users").child("lawyer").child(userId);
-                            currentUserDb.setValue(lawyer);
-                            CharSequence caseCreateMsg = "New user and firm created";
-                            Toast.makeText(getApplicationContext(), caseCreateMsg,
-                                    Toast.LENGTH_SHORT).show();
+                            if(task.isSuccessful()){
+                                FirebaseDatabase.getInstance().getReference("Lawyer")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(lawyer).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(LawLogPg2.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
+                                        }
+                                        else{
+                                            Toast.makeText(LawLogPg2.this, "Failed to Register. Try again!", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
+                            }
                         }
                     });
 
-                    Intent intent = new Intent(LawLogPg2.this, LoginPage.class);
+                    Intent intent = new Intent(LawLogPg2.this, Matching.class);
                     startActivity(intent);
-                }
-                else{
-                    CharSequence incompleteMsg = "Form is incomplete";
-                    Toast.makeText(getApplicationContext(), incompleteMsg,
-                            Toast.LENGTH_SHORT).show();
+                    finish();
+                    return;
                 }
             }
         });
@@ -123,6 +146,18 @@ public class LawLogPg2 extends AppCompatActivity {
     }
 
     private boolean isNotEmpty(EditText edTxt) {
-        return edTxt.getText().toString().length() > 0;
+        return edTxt.getText().toString().trim().length() > 0;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(firebaseAuthStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(firebaseAuthStateListener);
     }
 }

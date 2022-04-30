@@ -11,12 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/senLayout">
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylcleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/recylcleView"
-            android:scrollbars="vertical">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout

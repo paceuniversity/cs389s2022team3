@@ -1,20 +1,20 @@
-package com.pace.lumbar.fragments;
+package com.pace.lumbar;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,16 +24,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pace.lumbar.account.Client;
-import com.pace.lumbar.R;
-import com.pace.lumbar.SettingPage;
-import com.pace.lumbar.account.Lawyer;
+import com.pace.lumbar.chat.ChatActivity;
+import com.pace.lumbar.match.Matching;
+import com.pace.lumbar.setting.SettingPage;
 
+/* Reference: https://www.youtube.com/watch?v=GuMwCuvGWx4 */
 
-public class ProfileFragment extends Fragment {
+public class ProfileActivity extends AppCompatActivity {
     private ImageButton menuBtn;
     private TextView nameTxt, topicTxt, emailTxt, phoneTxt, stateTxt, detailTxt;
     private ImageView avatar;
-//    private FirebaseUser firebaseUser;
+    //    private FirebaseUser firebaseUser;
 //    private FirebaseDatabase database = FirebaseDatabase.getInstance();
 //    private DatabaseReference userRef;
 //    private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -48,32 +49,51 @@ public class ProfileFragment extends Fragment {
     private String imagePath = "";
     Activity context;
     private FirebaseUser user;
-    private String userID, userType ="";
+    private String userID;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+        setContentView(R.layout.fragment_profile);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+        //Initialize and Assign Variable
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        bottomNavigationView.setSelectedItemId(R.id.profile);
 
-        menuBtn= view.findViewById(R.id.setting);
-        menuBtn.setOnClickListener(new View.OnClickListener(){
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getActivity(), SettingPage.class);
-                startActivity(intent);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch(item.getItemId()){
+                    case R.id.match:
+                        startActivity(new Intent(getApplicationContext(),
+                                ChatActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(),
+                                Matching.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+
+                    case R.id.profile:
+                        return true;
+                }
+
+                return false;
             }
         });
 
-        context = getActivity();
-//        setupFirebaseAuth();
-
-        return view;
+        menuBtn = findViewById(R.id.setting);
+        menuBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(ProfileActivity.this, SettingPage.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onStart(){
@@ -84,70 +104,52 @@ public class ProfileFragment extends Fragment {
     public void data(){
         super.onStart();
         user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference().child("users");
-        Log.d("userid", userType);
-        if(user != null) {
+        reference = FirebaseDatabase.getInstance().getReference("Client");
+        if(user != null){
             userID = user.getUid();
             Log.d("userid", userID);
         }
 
-        nameTxt = context.findViewById(R.id.profname);
-        topicTxt = context.findViewById(R.id.caseTopic);
-        emailTxt = context.findViewById(R.id.emailProf);
-        phoneTxt = context.findViewById(R.id.phoneProf);
-        stateTxt = context.findViewById(R.id.addrProf);
-        detailTxt = context.findViewById(R.id.topic);
-        avatar = context.findViewById(R.id.profileImgView);
+        nameTxt = findViewById(R.id.profname);
+        topicTxt = findViewById(R.id.caseTopic);
+        emailTxt = findViewById(R.id.emailProf);
+        phoneTxt = findViewById(R.id.phoneProf);
+        stateTxt = findViewById(R.id.addrProf);
+        detailTxt = findViewById(R.id.topic);
+        avatar = findViewById(R.id.profileImgView);
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    Client userProfile = snapshot.getValue(Client.class);
-                    Lawyer userProf = snapshot.getValue(Lawyer.class);
+                Client userProfile = snapshot.getValue(Client.class);
 
-                    if(userProfile!=null) {
-                        String name = userProfile.getName();
-                        Log.d("userid1", name);
-                        String email = userProfile.getEmail();
-                        Log.d("userid1", email);
-                        String phone = userProfile.getPhone();
-                        String address = userProfile.getAddress();
-                        String prof = userProfile.getProfileIMGUri();
-
+                if(userProfile!=null){
+                    String name = snapshot.child("name").getValue().toString();
+                    Log.d("userid", name);
+                    String email = snapshot.child("email").getValue().toString();
+                    Log.d("userid", email);
+                    String phone = snapshot.child("phone").getValue().toString();
+                    String address = snapshot.child("address").getValue().toString();
+                    String imgUri = snapshot.child("profileIMGUri").getValue().toString();
 
 //                    Case clientCase = userProfile.getCase();
-                        String topic = userProfile.getTopic();
-                        String detail = userProfile.getDetail();
+                    String topic = snapshot.child("address").getValue().toString();
+                    String detail = "";
 
-                        Log.d("userid1", detail);
-
-                        nameTxt.setText(name);
-                        emailTxt.setText(email);
-                        phoneTxt.setText(phone);
-                        stateTxt.setText(address);
-                        avatar.setImageURI(Uri.parse(prof));
-                        detailTxt.setText(detail);
-                        topicTxt.setText(topic);
+                    if(snapshot.child("firmName").exists()) {
+                        detail = snapshot.child("website").getValue().toString();
+                    }
+                    else {
+                        detail = snapshot.child("detail").getValue().toString();
                     }
 
-                    Log.d("userid", "not Client");
-                    if(userProf != null){
-                        String name = userProf.getName();
-                        String email = userProf.getEmail();
-                        String phone = userProf.getPhone();
-                        String address = userProf.getFirm().getAddress();
-                        String prof = userProf.getProfileIMGUri();
-
-                        String topic = userProf.getFirm().getFirmName();
-                        String detail = userProf.getFirm().getWebsite();
-
-                        nameTxt.setText(name);
-                        emailTxt.setText(email);
-                        phoneTxt.setText(phone);
-                        stateTxt.setText(address);
-                        avatar.setImageURI(Uri.parse(prof));
-                        detailTxt.setText(detail);
-                        topicTxt.setText(topic);
+                    nameTxt.setText(name);
+                    emailTxt.setText(email);
+                    phoneTxt.setText(phone);
+                    stateTxt.setText(address);
+                    detailTxt.setText(detail);
+                    topicTxt.setText(topic);
+                    avatar.setImageURI(Uri.parse(imgUri));
                 }
             }
 

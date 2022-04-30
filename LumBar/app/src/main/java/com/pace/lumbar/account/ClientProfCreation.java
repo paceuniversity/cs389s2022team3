@@ -9,7 +9,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.pace.lumbar.R;
 
 public class ClientProfCreation extends AppCompatActivity {
@@ -25,14 +28,17 @@ public class ClientProfCreation extends AppCompatActivity {
     private EditText address;
     private EditText pwdPtOne;
     private EditText pwdPtTwo;
-    private String imgUri;
+    private Uri imageUri;
     private int SELECT_PICTURE = 200;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_profile_creation);
         getSupportActionBar().setTitle("Profile Creation");
+
+        mAuth = FirebaseAuth.getInstance();
 
         namePt = findViewById(R.id.etFname);
         email = findViewById(R.id.emailAddress);
@@ -78,7 +84,7 @@ public class ClientProfCreation extends AppCompatActivity {
                     } else {
                         openActivity2(namePt.getText().toString(), phoneNumPt.getText().toString(),
                                 emailPt.getText().toString(), address.getText().toString(),
-                                pwdPtOne.getText().toString());
+                                pwdPtOne.getText().toString(), imageUri);
                     }
                 } else{
                     CharSequence incompleteMsg = "Creation failed: profile info incomplete";
@@ -118,24 +124,24 @@ public class ClientProfCreation extends AppCompatActivity {
             // SELECT_PICTURE constant
             if (requestCode == SELECT_PICTURE) {
                 // Get the url of the image from data
-                Uri selectedImageUri = data.getData();
-                if (null != selectedImageUri) {
+                imageUri = data.getData();
+                if (null != imageUri) {
                     // update the preview image in the layout
-                    profImageView.setImageURI(selectedImageUri);
-                    imgUri = selectedImageUri.toString();
+                    profImageView.setImageURI(imageUri);
                 }
             }
         }
     }
-    private void openActivity2(String name, String phoneNum, String email,
-                               String address, String password) {
+    private void openActivity2(String name, String phone, String email,
+                               String address, String password, Uri imageUri) {
         Intent intent = new Intent(this, ClientCaseCreate.class);
         intent.putExtra("name", name);
-        intent.putExtra("phoneNum", phoneNum);
+        intent.putExtra("phone", phone);
         intent.putExtra("email", email);
         intent.putExtra("address", address);
         intent.putExtra("password", password);
-        intent.putExtra("profileIMGUri", imgUri);
+        intent.putExtra("imageUri", imageUri);
+
         startActivity(intent);
     }
 }

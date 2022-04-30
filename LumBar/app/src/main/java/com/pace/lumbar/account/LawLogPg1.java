@@ -21,7 +21,6 @@ public class LawLogPg1 extends AppCompatActivity {
     private EditText phonePt;
     private Button profSelectBtn;
     private ImageView profImageView;
-    private EditText userPt;
     private EditText pwdPtOne;
     private EditText pwdPtTwo;
     private final int SELECT_PICTURE = 200;
@@ -62,17 +61,13 @@ public class LawLogPg1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isNotEmpty(namePt) &&
-                        isNotEmpty(emailPt) && isNotEmpty(phonePt)
-                        && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
+                        isNotEmpty(emailPt) && isNotEmpty(phonePt) &&
+                        isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo)) {
                     if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
                         CharSequence incompleteMsg = "Passwords does not match!";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        Lawyer newUser = new Lawyer(namePt.getText().toString(),
-                                emailPt.getText().toString(), phonePt.getText().toString(),
-                                pwdPtOne.getText().toString(), imageUri.toString());
-
                         CharSequence incompleteMsg = "Credentials Correct!";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
@@ -80,13 +75,16 @@ public class LawLogPg1 extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(LawLogPg1.this, LawLogPg2.class);
-                                intent.putExtra("newUser", newUser);
+                                intent.putExtra("name", namePt.getText().toString());
+                                intent.putExtra("phoneNum", emailPt.getText().toString());
+                                intent.putExtra("email", phonePt.getText()).toString();
+                                intent.putExtra("password", pwdPtOne.getText().toString());
+                                intent.putExtra("profImgUri", imageUri);
                                 startActivity(intent);
                             }
                         });
-
                     }
-                } else {
+                } else{
                     CharSequence incompleteMsg = "Form is incomplete";
                     Toast.makeText(getApplicationContext(), incompleteMsg,
                             Toast.LENGTH_SHORT).show();
@@ -96,7 +94,7 @@ public class LawLogPg1 extends AppCompatActivity {
     }
 
     private boolean isNotEmpty(EditText edTxt) {
-        return edTxt.getText().toString().length() > 0;
+        return edTxt.getText().toString().trim().length() > 0;
     }
 
     //image selection code adapted from GeeksForGeeks:

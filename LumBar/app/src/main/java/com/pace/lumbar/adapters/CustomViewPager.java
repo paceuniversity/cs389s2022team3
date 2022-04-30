@@ -1,4 +1,4 @@
-package com.pace.lumbar.fragments.adapters;
+package com.pace.lumbar.adapters;
 
 import android.content.Context;
 import android.util.AttributeSet;

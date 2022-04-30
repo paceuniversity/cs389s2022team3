@@ -1,12 +1,11 @@
 package com.pace.lumbar.match;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.provider.ContactsContract;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -31,7 +30,7 @@ public class MatchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
 
-        currentUserID = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         mRecylerView = (RecyclerView) findViewById(R.id.recylcleView);
         mRecylerView.setNestedScrollingEnabled(false);

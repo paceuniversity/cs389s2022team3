@@ -1,4 +1,4 @@
-package com.pace.lumbar.fragments.adapters;
+package com.pace.lumbar.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

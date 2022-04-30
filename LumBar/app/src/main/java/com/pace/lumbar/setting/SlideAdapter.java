@@ -1,4 +1,4 @@
-package com.pace.lumbar;
+package com.pace.lumbar.setting;
 
 import android.content.Context;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.pace.lumbar;
+package com.pace.lumbar.setting;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.pace.lumbar.R;
 import com.pace.lumbar.account.LoginPage;
 
 public class AboutPage extends AppCompatActivity {

@@ -7,35 +7,17 @@
     android:background="#F8F3E7"
     tools:context=".match.Matching">
 
-    <Button
-        android:id="@+id/button_dislike"
-        android:layout_width="wrap_content"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
-        android:onClick="dislikePressed"
-        android:text="@string/button_label_dislike"
+        app:itemBackground="@color/purple_700"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="TextContrastCheck,UsingOnClickInXml" />
+        app:menu="@menu/menu_navigation" />
 
-    <Button
-        android:id="@+id/button_like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="133dp"
-        android:layout_marginBottom="50dp"
-        android:layout_toStartOf="@+id/button_dislike"
-        android:onClick="likePressed"
-        android:text="@string/button_label_like"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TextContrastCheck,UsingOnClickInXml" />
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"

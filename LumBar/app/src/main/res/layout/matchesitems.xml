@@ -27,10 +27,10 @@
             android:id="@+id/MatchName"/>
 
         <TextView
+            android:id="@+id/MatchID"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Match's ID"
+            android:layout_height="31dp"
             android:layout_gravity="center"
-            android:id="@+id/MatchID"/>
+            android:text="Match's ID" />
     </LinearLayout>
 </LinearLayout>
