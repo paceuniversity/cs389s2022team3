@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/drawable/selector.xml" value="0.177" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_main.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_matches.xml" value="0.24351851851851852" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_profile.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/fragment_home.xml" value="0.2717948717948718" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.2717948717948718" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/setting_page.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/menu/menu_navigation.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/drawable/selector.xml" value="0.1965" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/client_case_create.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.2760416666666667" />

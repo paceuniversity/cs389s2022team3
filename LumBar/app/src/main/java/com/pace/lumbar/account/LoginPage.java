@@ -20,7 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.pace.lumbar.AboutPage;
-import com.pace.lumbar.HomePage;
+import com.pace.lumbar.fragments.Matching;
 import com.pace.lumbar.R;
 
 public class LoginPage extends AppCompatActivity {
@@ -47,7 +47,7 @@ public class LoginPage extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if(user != null){
-                    Intent intent = new Intent(LoginPage.this, HomePage.class);
+                    Intent intent = new Intent(LoginPage.this, Matching.class);
                     startActivity(intent);
                     finish();
                     return;
@@ -81,7 +81,7 @@ public class LoginPage extends AppCompatActivity {
                                         FirebaseUser user = mAuth.getCurrentUser();
                                         CharSequence completeMsg = "Login successful";
                                         Toast.makeText(getApplicationContext(), completeMsg, Toast.LENGTH_SHORT).show();
-                                        //openActivity2();
+                                        openActivity2();
                                     }
                                 }
                             });
@@ -166,7 +166,7 @@ public class LoginPage extends AppCompatActivity {
     }
 
     private void openActivity2() {
-        Intent intent = new Intent(LoginPage.this, HomePage.class);
+        Intent intent = new Intent(LoginPage.this, Matching.class);
         startActivity(intent);
     }
 }

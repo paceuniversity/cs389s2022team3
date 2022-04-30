@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.pace.lumbar.account.LoginPage;
 import com.pace.lumbar.dupAboutPage.AboutPageDup;
-import com.pace.lumbar.fragments.ProfileFragment;
+import com.pace.lumbar.fragments.ProfileActivity;
 
 public class SettingPage extends AppCompatActivity {
 
@@ -58,7 +58,7 @@ public class SettingPage extends AppCompatActivity {
         revertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SettingPage.this, HomePage.class);
+                Intent intent = new Intent(SettingPage.this, ProfileActivity.class);
                 startActivity(intent);
             }
         });

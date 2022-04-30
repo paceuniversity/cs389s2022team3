@@ -16,8 +16,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import com.pace.lumbar.fragments.Matching;
+
 import com.google.firebase.database.FirebaseDatabase;
-import com.pace.lumbar.HomePage;
 import com.pace.lumbar.R;
 
 public class LawLogPg2 extends AppCompatActivity {
@@ -111,7 +113,7 @@ public class LawLogPg2 extends AppCompatActivity {
                         }
                     });
 
-                    Intent intent = new Intent(LawLogPg2.this, HomePage.class);
+                    Intent intent = new Intent(LawLogPg2.this, Matching.class);
                     startActivity(intent);
                 }
                 else{
