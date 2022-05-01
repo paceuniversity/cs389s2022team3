@@ -121,26 +121,35 @@ public class ProfileActivity extends AppCompatActivity {
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Client userProfile = snapshot.getValue(Client.class);
+                Log.d("enter", "enter");
 
-                if(userProfile!=null){
+                if(snapshot.exists()){
+                    Log.d("userExist", "exist");
                     String name = snapshot.child("name").getValue().toString();
                     Log.d("userid", name);
                     String email = snapshot.child("email").getValue().toString();
                     Log.d("userid", email);
                     String phone = snapshot.child("phone").getValue().toString();
                     String address = snapshot.child("address").getValue().toString();
-                    String imgUri = snapshot.child("profileIMGUri").getValue().toString();
+
+                    if(snapshot.child("profileIMGUri").getValue()!=null && snapshot.child("profileIMGUri").getValue().toString().length() > 0){
+                        String imgUri = snapshot.child("profileIMGUri").getValue().toString();
+                        avatar.setImageURI(Uri.parse(imgUri));
+                    }
+                    else{
+                        avatar.setImageResource(R.mipmap.ic_launcher);
+                    }
 
 //                    Case clientCase = userProfile.getCase();
-                    String topic = snapshot.child("address").getValue().toString();
-                    String detail = "";
+                    String topic = "", detail = "";
 
                     if(snapshot.child("firmName").exists()) {
                         detail = snapshot.child("website").getValue().toString();
+                        topic = snapshot.child("firmName").getValue().toString();
                     }
                     else {
                         detail = snapshot.child("detail").getValue().toString();
+                        topic = snapshot.child("topic").getValue().toString();
                     }
 
                     nameTxt.setText(name);
@@ -149,7 +158,6 @@ public class ProfileActivity extends AppCompatActivity {
                     stateTxt.setText(address);
                     detailTxt.setText(detail);
                     topicTxt.setText(topic);
-                    avatar.setImageURI(Uri.parse(imgUri));
                 }
             }
 

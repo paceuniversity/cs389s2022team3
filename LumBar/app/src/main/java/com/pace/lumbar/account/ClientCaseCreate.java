@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.pace.lumbar.match.Matching;
 import com.pace.lumbar.R;
@@ -91,25 +92,43 @@ public class ClientCaseCreate extends AppCompatActivity {
                     Client newUser = new Client(name, phone, email, address, cityText.getText().toString(),
                             stateSpinner.getSelectedItem().toString(), password, caseType, caseDet, imageUri);
 
-                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
+//                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<AuthResult> task) {
+//
+//                            if(task.isSuccessful()){
+//                                FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("Client")
+//                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+//                                        .setValue(newUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull Task<Void> task) {
+//                                        if(task.isSuccessful()){
+//                                            Toast.makeText(ClientCaseCreate.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
+//                                        }
+//                                        else{
+//                                            Toast.makeText(ClientCaseCreate.this, "Failed to Register. Try again!", Toast.LENGTH_LONG).show();
+//                                        }
+//                                    }
+//                                });
+//                            }
+//                        }
+//                    });
 
-                            if(task.isSuccessful()){
-                                FirebaseDatabase.getInstance().getReference("Client")
-                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(newUser).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if(task.isSuccessful()){
-                                            Toast.makeText(ClientCaseCreate.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
-                                        }
-                                        else{
-                                            Toast.makeText(ClientCaseCreate.this, "Failed to Register. Try again!", Toast.LENGTH_LONG).show();
-                                        }
-                                    }
-                                });
-                            }
+                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(ClientCaseCreate.this, task -> {
+                        if(!task.isSuccessful()){
+                            CharSequence completeMsg = "Failed to Connect to Database";
+                            Toast.makeText(getApplicationContext(), completeMsg,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            String userId = mAuth.getCurrentUser().getUid();
+                            DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("Client").child(userId);
+                            currentUserDb.setValue(newUser);
+                            CharSequence caseCreateMsg = "Case created";
+                            Toast.makeText(getApplicationContext(), caseCreateMsg,
+                                    Toast.LENGTH_SHORT).show();
+
+
                         }
                     });
 
