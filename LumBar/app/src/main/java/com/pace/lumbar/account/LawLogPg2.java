@@ -1,9 +1,7 @@
 package com.pace.lumbar.account;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,17 +12,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.pace.lumbar.match.Matching;
-
 import com.google.firebase.database.FirebaseDatabase;
 import com.pace.lumbar.R;
+import com.pace.lumbar.match.Matching;
 
 public class LawLogPg2 extends AppCompatActivity {
     private Button backbtn, donebtn;
@@ -104,15 +97,6 @@ public class LawLogPg2 extends AppCompatActivity {
                     && caseSpinner.getSelectedItem() != null) {
 
                     String caseType = caseSpinner.getSelectedItem().toString();
-
-                    Lawyer lawyer = new Lawyer(name, email, phone, password, imageUri, lawFirmText.getText().toString(),
-                            addressText.getText().toString(), cityEditText.getText().toString(),
-                            stateSpinner.getSelectedItem().toString(),
-                            emailText.getText().toString(), phoneNumText.getText().toString(),
-                            firmWebsiteText.getText().toString(), caseType, budget.getText().toString());
-
-//                    Log.d("email", email);
-//                    Log.d("password", password);
 
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(LawLogPg2.this, task -> {
                         if(!task.isSuccessful()){

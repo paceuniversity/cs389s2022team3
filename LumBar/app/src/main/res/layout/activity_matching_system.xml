@@ -18,7 +18,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_navigation" />
 
-
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"
         android:background="#ffeee9e2"

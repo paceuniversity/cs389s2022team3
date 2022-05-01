@@ -5,18 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,9 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
-import com.pace.lumbar.R;
 import com.pace.lumbar.chat.ChatActivity;
-import com.pace.lumbar.ProfileActivity;
+import com.pace.lumbar.fragments.ProfileActivity;
+import com.pace.lumbar.R;
 import com.pace.lumbar.adapters.arrayAdapter;
 
 import java.util.ArrayList;
@@ -169,7 +166,7 @@ public class Matching extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 if(snapshot.exists() && !snapshot.child("connections").child("no").hasChild(currentUID)
                         && !snapshot.child("connections").child("yes").hasChild(currentUID)){
-                    //al.add(snapshot.child("name").getValue().toString());
+
                     Cards item = new Cards(snapshot.child("uid").getValue().toString(), snapshot.child("name").getValue().toString(), snapshot.child("firmName").getValue().toString(),
                             snapshot.child("email").getValue().toString(), snapshot.child("phone").getValue().toString(), snapshot.child("address").getValue().toString(),
                             snapshot.child("topic").getValue().toString(), snapshot.child("website").getValue().toString(), snapshot.child("profileIMGUri").getValue().toString());

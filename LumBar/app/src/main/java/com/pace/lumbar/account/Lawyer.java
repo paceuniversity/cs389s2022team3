@@ -1,7 +1,5 @@
 package com.pace.lumbar.account;
 
-import android.net.Uri;
-
 import java.io.Serializable;
 
 public class Lawyer implements Serializable {
