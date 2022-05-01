@@ -19,14 +19,39 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_navigation" />
 
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Matches"
-        android:textColor="@color/black"
-        android:textSize="40sp" />
+        android:layout_above="@+id/senLayout">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylcleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"/>
 
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/senLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Message"
+            android:id="@+id/message"/>
+
+        <Button
+            android:layout_weight="0.2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:id="@+id/send"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
