@@ -5,6 +5,7 @@ import android.net.Uri;
 import java.io.Serializable;
 
 public class Lawyer implements Serializable {
+    private String uid;
     private String name;
     private String email;
     private String phone;
@@ -21,10 +22,11 @@ public class Lawyer implements Serializable {
     private String topic;
     private String budget;
 
-    public Lawyer(String name, String email, String phone, String password, String imgUri,
+    public Lawyer(String uid, String name, String email, String phone, String password, String imgUri,
                   String firmName, String address,String city,
                   String state, String emailAddress, String phoneNumber,
                   String website, String firmTopic, String budget) {
+        this.uid = uid;
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -39,6 +41,14 @@ public class Lawyer implements Serializable {
         this.website = website;
         this.topic = firmTopic;
         this.budget = budget;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getWebsite() {

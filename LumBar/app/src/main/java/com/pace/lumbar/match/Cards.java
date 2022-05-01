@@ -1,10 +1,10 @@
 package com.pace.lumbar.match;
 
 public class Cards {
-    private String name, lawFirm, email, phone, address, topic, website, profileIMGUri;
+    private String uid, name, lawFirm, email, phone, address, topic, website, profileIMGUri;
 
-    public Cards(String name, String lawFirm, String email, String phone, String address, String topic, String website, String profileIMGUri){
-//        this.uid = uid;
+    public Cards(String uid, String name, String lawFirm, String email, String phone, String address, String topic, String website, String profileIMGUri){
+        this.uid = uid;
         this.email = email;
         this.name = name;
         this.lawFirm = lawFirm;
@@ -15,13 +15,13 @@ public class Cards {
         this.profileIMGUri = profileIMGUri;
     }
 
-//    public String getUid() {
-//        return uid;
-//    }
-//
-//    public void setUid(String uid) {
-//        this.uid = uid;
-//    }
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public String getProfileIMGUri() {
         return profileIMGUri;
