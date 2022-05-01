@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Client implements Serializable { //parent class for Client and Lawyer
 
+    private String uid;
     private String name;
     private String phone;
     private String email;
@@ -15,8 +16,9 @@ public class Client implements Serializable { //parent class for Client and Lawy
     private String detail;
     private String profImageUri;
 
-    public Client(String name, String phoneNumber, String email, String address, String city, String state,
+    public Client(String uid, String name, String phoneNumber, String email, String address, String city, String state,
                   String password, String caseType, String caseDetails, String profImageUri) {
+        this.uid = uid;
         this.name = name;
         this.phone = phoneNumber;
         this.email = email;
@@ -28,6 +30,14 @@ public class Client implements Serializable { //parent class for Client and Lawy
         this.topic = caseType;
         this.detail = caseDetails;
         this.profImageUri = profImageUri;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getProfImageUri() {

@@ -89,30 +89,6 @@ public class ClientCaseCreate extends AppCompatActivity {
 
                     String caseType = caseSpinner.getSelectedItem().toString();
                     String caseDet = caseDetails.getText().toString();
-                    Client newUser = new Client(name, phone, email, address, cityText.getText().toString(),
-                            stateSpinner.getSelectedItem().toString(), password, caseType, caseDet, imageUri);
-
-//                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<AuthResult> task) {
-//
-//                            if(task.isSuccessful()){
-//                                FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("Client")
-//                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-//                                        .setValue(newUser).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                    @Override
-//                                    public void onComplete(@NonNull Task<Void> task) {
-//                                        if(task.isSuccessful()){
-//                                            Toast.makeText(ClientCaseCreate.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
-//                                        }
-//                                        else{
-//                                            Toast.makeText(ClientCaseCreate.this, "Failed to Register. Try again!", Toast.LENGTH_LONG).show();
-//                                        }
-//                                    }
-//                                });
-//                            }
-//                        }
-//                    });
 
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(ClientCaseCreate.this, task -> {
                         if(!task.isSuccessful()){
@@ -123,6 +99,10 @@ public class ClientCaseCreate extends AppCompatActivity {
                         else{
                             String userId = mAuth.getCurrentUser().getUid();
                             DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("Client").child(userId);
+
+                            Client newUser = new Client(userId, name, phone, email, address, cityText.getText().toString(),
+                                    stateSpinner.getSelectedItem().toString(), password, caseType, caseDet, imageUri);
+
                             currentUserDb.setValue(newUser);
                             CharSequence caseCreateMsg = "Case created";
                             Toast.makeText(getApplicationContext(), caseCreateMsg,
