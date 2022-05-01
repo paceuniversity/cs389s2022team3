@@ -38,7 +38,7 @@ public class LawLogPg1 extends AppCompatActivity {
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
         phonePt = findViewById(R.id.phone);
-        userPt = findViewById(R.id.etUsername);
+        userPt = findViewById(R.id.etAddress);
         pwdPtOne = findViewById(R.id.etPassword);
         pwdPtTwo = findViewById(R.id.etconfirm);
         next = findViewById(R.id.next);

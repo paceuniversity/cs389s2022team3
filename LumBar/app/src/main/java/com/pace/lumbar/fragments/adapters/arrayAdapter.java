@@ -29,9 +29,11 @@ public class arrayAdapter extends android.widget.ArrayAdapter<Cards> {
         }
 
         TextView name = (TextView) convertView.findViewById(R.id.name);
+        TextView firmName = (TextView) convertView.findViewById(R.id.firm);
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
 
         name.setText(card_item.getName());
+        firmName.setText(card_item.getFirmName());
         image.setImageResource(R.mipmap.ic_launcher);
 
         return convertView;

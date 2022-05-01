@@ -26,9 +26,9 @@
             android:layout_height="550dp">
 
             <ImageView
+                android:id="@+id/image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/image"/>
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/name"
@@ -36,10 +36,21 @@
                 android:textColor="@android:color/black"
                 android:gravity="bottom"
                 android:paddingLeft="40sp"
-                android:paddingBottom="40sp"
-                tools:text="Hello"
+                android:paddingBottom="65sp"
+                tools:text="Lawyer Name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/firm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:paddingLeft="40sp"
+                android:paddingBottom="40sp"
+                android:text="Firm Name"
+                android:textColor="#333333"
+                android:textSize="25sp" />
 
         </FrameLayout>
     </androidx.cardview.widget.CardView>

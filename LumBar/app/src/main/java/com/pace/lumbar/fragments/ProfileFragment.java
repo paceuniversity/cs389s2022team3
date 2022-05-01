@@ -121,7 +121,7 @@ public class ProfileFragment extends AppCompatActivity {
                 Client userProfile = snapshot.getValue(Client.class);
 
                 if(userProfile!=null){
-                    String name = userProfile.getRealName();
+                    String name = userProfile.getName();
                     Log.d("userid", name);
                     String email = userProfile.getEmail();
                     Log.d("userid", email);

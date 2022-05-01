@@ -221,9 +221,18 @@ public class Matching extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
                 if(snapshot.exists()){
-                    //al.add(snapshot.child("name").getValue().toString());
+
                     Cards item = new Cards(snapshot.getKey(), snapshot.child("name").getValue().toString());
                     rowItems.add(item);
+//                    if(oppositeUserType.equals("Lawyer")){
+//                        Cards item = new Cards(snapshot.getKey(), snapshot.child("name").getValue().toString(),
+//                                snapshot.getchild("firmName").getValue().toString());
+//                        rowItems.add(item);
+//                    }
+//                    else {
+//                        Cards item = new Cards(snapshot.getKey(), snapshot.child("name").getValue().toString());
+//                        rowItems.add(item);
+//                    }
                     arrayAdapter.notifyDataSetChanged();
                 }
             }

@@ -121,22 +121,19 @@ public class ProfileActivity extends AppCompatActivity {
                 Client userProfile = snapshot.getValue(Client.class);
 
                 if(userProfile!=null){
-                    String name = userProfile.getRealName();
+                    String name = userProfile.getName();
                     Log.d("userid", name);
                     String email = userProfile.getEmail();
                     Log.d("userid", email);
                     String phone = userProfile.getPhoneNumber();
-                    String address = userProfile.getState();
-
-
-//                    Case clientCase = userProfile.getCase();
+                    String state = userProfile.getState();
                     String topic = userProfile.getCaseType();
                     String detail = userProfile.getCaseDetails();
 
                     nameTxt.setText(name);
                     emailTxt.setText(email);
                     phoneTxt.setText(phone);
-                    stateTxt.setText(address);
+                    stateTxt.setText(state);
                     detailTxt.setText(detail);
                     topicTxt.setText(topic);
                 }

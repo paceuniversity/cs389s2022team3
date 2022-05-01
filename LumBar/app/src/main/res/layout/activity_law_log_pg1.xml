@@ -136,7 +136,7 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/phone" />-->
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etAddress"
         android:layout_width="271dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -152,7 +152,7 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/username"
+        app:layout_constraintStart_toEndOf="@+id/addrClient"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
 
     <EditText
@@ -175,7 +175,7 @@
         app:layout_constraintHorizontal_bias="0.0"
 
         app:layout_constraintStart_toEndOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/etAddress" />
 
     <EditText
         android:id="@+id/etconfirm"
@@ -209,7 +209,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/addrClient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/head"
@@ -235,7 +235,7 @@
         android:textColor="#654900"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/addrClient" />
 
     <TextView
         android:id="@+id/conpass"

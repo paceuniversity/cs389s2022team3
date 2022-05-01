@@ -2,12 +2,12 @@ package com.pace.lumbar.account;
 
 public class Case {
 
-    private String clientUsername;
+    private String clientEmail;
     private String caseType;
     private String caseDetails;
 
-    public Case(String username, String caseType, String caseDetails) {
-        this.clientUsername = username;
+    public Case(String clientEmail, String caseType, String caseDetails) {
+        this.clientEmail = clientEmail;
         this.caseType = caseType;
         this.caseDetails = caseDetails;
     }
@@ -16,8 +16,8 @@ public class Case {
 
     }
 
-    public String getClientUsername() {
-        return clientUsername;
+    public String getClientEmail() {
+        return clientEmail;
     }
 
     public String getCaseType() {

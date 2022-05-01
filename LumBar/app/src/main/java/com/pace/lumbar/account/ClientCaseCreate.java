@@ -43,7 +43,7 @@ public class ClientCaseCreate extends AppCompatActivity {
         String name = intent.getExtras().getString("name");
         String phoneNum = intent.getExtras().getString("phoneNum");
         String email = intent.getExtras().getString("email");
-        String username = intent.getExtras().getString("username");
+        String address = intent.getExtras().getString("address");
         String password = intent.getExtras().getString("password");
         //setTheme(R.style.Theme_LumBar); no appbar for now
         setContentView(R.layout.client_case_create);
@@ -86,10 +86,8 @@ public class ClientCaseCreate extends AppCompatActivity {
                 if (caseSpinner.getSelectedItem() != null &&
                         isNotEmpty(caseDetails)) {
 
-                    Case newCase = new Case(username, caseSpinner.getSelectedItem().toString(),
+                    Case newCase = new Case(email, caseSpinner.getSelectedItem().toString(),
                             caseDetails.getText().toString());
-//                    DAOClient clientDao = new DAOClient();
-//                    clientDao.add(newUser);
 
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -99,7 +97,7 @@ public class ClientCaseCreate extends AppCompatActivity {
                                 String caseType = caseSpinner.getSelectedItem().toString();
                                 String caseDet = caseDetails.getText().toString();
                                 Client newUser = new Client(name, phoneNum, email, cityText.getText().toString(),
-                                        stateSpinner.getSelectedItem().toString(), username, password, caseType, caseDet);
+                                        stateSpinner.getSelectedItem().toString(), address, password, caseType, caseDet);
 
                                 FirebaseDatabase.getInstance().getReference("Client")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

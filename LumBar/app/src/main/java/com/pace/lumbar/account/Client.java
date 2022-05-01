@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class Client implements Serializable { //parent class for Client and Lawyer
 
-    private String realName;
-    private String phoneNumber;
+    private String name;
+    private String phone;
     private String email;
     private String city;
     private String state;
@@ -13,32 +13,33 @@ public class Client implements Serializable { //parent class for Client and Lawy
     private String password;
     private String caseType;
     private String caseDetails;
+    private String address;
 
     //TODO: profile pic
 
     public Client() {
     }
 
-    public Client(String realName, String phoneNumber, String email, String city, String state, String username,
+    public Client(String name, String phone, String email, String city, String state, String address,
                   String password, String caseType, String caseDetails) {
-        this.realName = realName;
-        this.phoneNumber = phoneNumber;
+        this.name = name;
+        this.phone = phone;
         this.email = email;
         this.city = city;
         this.state = state;
-        this.username = username;
+        this.address = address;
         this.password = password;
         this.email = email;
         this.caseType = caseType;
         this.caseDetails = caseDetails;
     }
 
-    public String getRealName() {
-        return realName;
+    public String getName() {
+        return name;
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return phone;
     }
 
     public String getCity() {
@@ -74,15 +75,15 @@ public class Client implements Serializable { //parent class for Client and Lawy
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.phone = phoneNumber;
     }
 
     public void setState(String state) {
         this.state = state;
     }
 
-    public void setRealName(String realName) {
-        this.realName = realName;
+    public void setName(String name) {
+        this.name = this.name;
     }
 
     public String getCaseType() {
