@@ -91,10 +91,10 @@ public class Matching extends AppCompatActivity {
             Log.d("userID", currentUID);
         }
 
-        getOppositeUserTypes();
-
         rowItems = new ArrayList<Cards>();
         arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
+
+        getOppositeUserTypes();
 
         SwipeFlingAdapterView flingContainer = findViewById(R.id.frame);
         flingContainer.setAdapter(arrayAdapter);
@@ -113,17 +113,17 @@ public class Matching extends AppCompatActivity {
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
                 Cards obj = (Cards) dataObject;
-                String name = obj.getName();
-                usersDB.child(name).child("connections").child("no").child("currentUID").setValue(true);
+                String uid = obj.getUid();
+                usersDB.child(uid).child("connections").child("no").child("currentUID").setValue(true);
                 makeToast(Matching.this, "Left!");
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
                 Cards obj = (Cards) dataObject;
-                String name = obj.getName();
-                usersDB.child(name).child("connections").child("yes").child("currentUID").setValue(true);
-                isConnectionMatch(name);
+                String uid = obj.getUid();
+                usersDB.child(uid).child("connections").child("yes").child("currentUID").setValue(true);
+                isConnectionMatch(uid);
                 makeToast(Matching.this, "Right!");
             }
 
@@ -170,7 +170,7 @@ public class Matching extends AppCompatActivity {
                 if(snapshot.exists() && !snapshot.child("connections").child("no").hasChild(currentUID)
                         && !snapshot.child("connections").child("yes").hasChild(currentUID)){
                     //al.add(snapshot.child("name").getValue().toString());
-                    Cards item = new Cards(snapshot.child("name").getValue().toString(), snapshot.child("firmName").getValue().toString(),
+                    Cards item = new Cards(snapshot.child("uid").getValue().toString(), snapshot.child("name").getValue().toString(), snapshot.child("firmName").getValue().toString(),
                             snapshot.child("email").getValue().toString(), snapshot.child("phone").getValue().toString(), snapshot.child("address").getValue().toString(),
                             snapshot.child("topic").getValue().toString(), snapshot.child("website").getValue().toString(), snapshot.child("profileIMGUri").getValue().toString());
                     rowItems.add(item);

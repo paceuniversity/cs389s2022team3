@@ -105,38 +105,10 @@ public class LawLogPg2 extends AppCompatActivity {
 
                     String caseType = caseSpinner.getSelectedItem().toString();
 
-                    Lawyer lawyer = new Lawyer(name, email, phone, password, imageUri, lawFirmText.getText().toString(),
-                            addressText.getText().toString(), cityEditText.getText().toString(),
-                            stateSpinner.getSelectedItem().toString(),
-                            emailText.getText().toString(), phoneNumText.getText().toString(),
-                            firmWebsiteText.getText().toString(), caseType, budget.getText().toString());
-
                     Log.d("email", email);
                     Log.d("password", password);
 
-//                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<AuthResult> task) {
-//
-//                            if(task.isSuccessful()){
-//                                FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("Lawyer")
-//                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-//                                        .setValue(lawyer).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                    @Override
-//                                    public void onComplete(@NonNull Task<Void> task) {
-//                                        if(task.isSuccessful()){
-//                                            Toast.makeText(LawLogPg2.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
-//                                        }
-//                                        else{
-//                                            Toast.makeText(LawLogPg2.this, "Failed to Register. Try again!", Toast.LENGTH_LONG).show();
-//                                        }
-//                                    }
-//                                });
-//                            }
-//                        }
-//                    });
-
-                    mAuth.createUserWithEmailAndPassword(lawyer.getEmail(), lawyer.getPassword()).addOnCompleteListener(LawLogPg2.this, task -> {
+                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(LawLogPg2.this, task -> {
                         if(!task.isSuccessful()){
                             CharSequence completeMsg = "Failed to Connect to Database";
                             Toast.makeText(getApplicationContext(), completeMsg,
@@ -145,6 +117,13 @@ public class LawLogPg2 extends AppCompatActivity {
                         else{
                             String userId = mAuth.getCurrentUser().getUid();
                             DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("Lawyer").child(userId);
+
+                            Lawyer lawyer = new Lawyer(userId, name, email, phone, password, imageUri, lawFirmText.getText().toString(),
+                                    addressText.getText().toString(), cityEditText.getText().toString(),
+                                    stateSpinner.getSelectedItem().toString(),
+                                    emailText.getText().toString(), phoneNumText.getText().toString(),
+                                    firmWebsiteText.getText().toString(), caseType, budget.getText().toString());
+
                             currentUserDb.setValue(lawyer);
                             CharSequence caseCreateMsg = "New user and firm created";
                             Toast.makeText(getApplicationContext(), caseCreateMsg,

@@ -38,7 +38,8 @@ public class arrayAdapter extends android.widget.ArrayAdapter<Cards> {
         TextView webTXT = (TextView) convertView.findViewById(R.id.WebLinkMatch);
 
         switch(card_item.getProfileIMGUri()) {
-            case "default":
+            case "":
+            case "null":
                 Glide.with(convertView.getContext()).load(R.mipmap.ic_launcher).into(profMatch);
                 break;
             default:
