@@ -76,8 +76,8 @@ public class LawLogPg1 extends AppCompatActivity {
                             public void onClick(View v) {
                                 Intent intent = new Intent(LawLogPg1.this, LawLogPg2.class);
                                 intent.putExtra("name", namePt.getText().toString());
-                                intent.putExtra("phoneNum", emailPt.getText().toString());
-                                intent.putExtra("email", phonePt.getText()).toString();
+                                intent.putExtra("email", emailPt.getText().toString());
+                                intent.putExtra("phoneNum", phonePt.getText().toString());
                                 intent.putExtra("password", pwdPtOne.getText().toString());
                                 intent.putExtra("profImgUri", imageUri);
                                 startActivity(intent);

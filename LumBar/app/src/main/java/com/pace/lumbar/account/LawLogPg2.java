@@ -46,7 +46,7 @@ public class LawLogPg2 extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getExtras().getString("name");
-        String phone = intent.getExtras().getString("phone");
+        String phone = intent.getExtras().getString("phoneNum");
         String email = intent.getExtras().getString("email");
         String password = intent.getExtras().getString("password");
         String imageUri = intent.getExtras().getString("imageUri");
@@ -111,8 +111,8 @@ public class LawLogPg2 extends AppCompatActivity {
                             emailText.getText().toString(), phoneNumText.getText().toString(),
                             firmWebsiteText.getText().toString(), caseType, budget.getText().toString());
 
-                    Log.d("email", email);
-                    Log.d("password", password);
+//                    Log.d("email", email);
+//                    Log.d("password", password);
 
 //                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 //                        @Override
