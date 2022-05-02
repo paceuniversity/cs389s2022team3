@@ -1,6 +1,7 @@
 package com.pace.lumbar.account;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -92,7 +93,7 @@ public class ClientCaseCreate extends AppCompatActivity {
                         }
                         else{
                             String userId = mAuth.getCurrentUser().getUid();
-                            DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("Client").child(userId);
+                            DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("User").child(userId);
 
                             Client newUser = new Client(userId, name, phone, email, address, cityText.getText().toString(),
                                     stateSpinner.getSelectedItem().toString(), password, caseType, caseDet, imageUri);

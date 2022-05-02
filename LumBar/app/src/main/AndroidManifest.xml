@@ -10,12 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LumBar">
         <activity
-            android:name=".fragments.ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".chat.ChatActivity"
-            android:exported="false" />
-        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -110,6 +104,20 @@
         </activity>
         <activity
             android:name=".setting.TermsPrivacy"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".chat.ChatActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".match.MatchActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />

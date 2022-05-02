@@ -1,16 +1,19 @@
 package com.pace.lumbar.match;
 
+import android.net.Uri;
+
 public class MatchesObject {
 
-    private String email, name, profileIMGUri;
+    private String email, name;
+    private Uri profileIMGUri;
 
-    public MatchesObject(String email, String name, String profileIMGUri){
+    public MatchesObject(String email, String name, Uri profileIMGUri){
         this.email = email;
         this.name = name;
         this.profileIMGUri = profileIMGUri;
     }
 
-    public String getProfileIMGUri() {
+    public Uri getProfileIMGUri() {
         return profileIMGUri;
     }
 
@@ -22,7 +25,7 @@ public class MatchesObject {
         this.name = name;
     }
 
-    public void setProfileIMGUri(String profileIMGUri) {
+    public void setProfileIMGUri(Uri profileIMGUri) {
         this.profileIMGUri = profileIMGUri;
     }
 
