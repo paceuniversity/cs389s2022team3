@@ -119,11 +119,13 @@ public class Matching extends AppCompatActivity {
             public void onRightCardExit(Object dataObject) {
                 Cards obj = (Cards) dataObject;
                 String uid = obj.getUid();
-                usersDB.child(uid).child("connections").child("yes").child(currentUID).setValue(true);
-                currentUserDB.child(currentUID).child("connections").child("yes").child(uid).setValue(true);
-
                 usersDB.child(uid).child("connections").child("matches").child(currentUID).setValue(true);
                 currentUserDB.child(currentUID).child("connections").child("matches").child(uid).setValue(true);
+
+                String key = FirebaseDatabase.getInstance().getReference().child("Chat").push().getKey();
+
+                usersDB.child(uid).child("connections").child("matches").child(currentUID).child("ChatId").setValue(key);
+                currentUserDB.child(currentUID).child("connections").child("matches").child(uid).child("ChatId").setValue(key);
                 makeToast(Matching.this, "Right!");
             }
 
