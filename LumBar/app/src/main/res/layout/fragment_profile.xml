@@ -37,7 +37,10 @@ tools:context=".fragments.ProfileActivity">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
+        android:fontFamily="@font/chivo_black"
         android:text="TextView"
+        android:textSize="24sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +82,10 @@ tools:context=".fragments.ProfileActivity">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/chivo_bold"
         android:text="TextView"
+        android:textSize="20sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -110,7 +116,10 @@ tools:context=".fragments.ProfileActivity">
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="25dp"
+            android:fontFamily="@font/chivo"
             android:text="TextView"
+            android:textSize="16sp"
+
             app:layout_constraintStart_toEndOf="@+id/emailPic"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
@@ -140,7 +149,10 @@ tools:context=".fragments.ProfileActivity">
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="25dp"
+            android:fontFamily="@font/chivo"
             android:text="TextView"
+            android:textSize="16sp"
+
             app:layout_constraintStart_toEndOf="@+id/phonePic"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
@@ -170,7 +182,9 @@ tools:context=".fragments.ProfileActivity">
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="25dp"
+            android:fontFamily="@font/chivo"
             android:text="TextView"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/locatePic"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
@@ -200,7 +214,10 @@ tools:context=".fragments.ProfileActivity">
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="25dp"
+            android:fontFamily="@font/chivo"
             android:text="TextView"
+            android:textSize="16sp"
+
             app:layout_constraintStart_toEndOf="@+id/topicPic"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>

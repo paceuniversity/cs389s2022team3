@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.pace.lumbar.R;
+
 import com.pace.lumbar.fragments.ProfileActivity;
 
 import java.util.ArrayList;
@@ -30,12 +31,14 @@ public class MatchActivity extends AppCompatActivity {
     private RecyclerView.Adapter mMatchesAdapter;
     private RecyclerView.LayoutManager mMatchesLayoutManager;
     private String currentUserID;
+
     private FirebaseUser userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matches);
+
 
         //Initialize and Assign Variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -78,14 +81,11 @@ public class MatchActivity extends AppCompatActivity {
         mRecylerView.setAdapter(mMatchesAdapter);
 
         getUserMatchID();
+
     }
 
     private void getUserMatchID() {
-        DatabaseReference matchDb = FirebaseDatabase.getInstance().getReference().child("Client").child(currentUserID).child("connections").child("matches");
-
-        if(matchDb.child("name") == null){
-            FirebaseDatabase.getInstance().getReference().child("Lawyer").child(currentUserID).child("connections").child("matches");
-        }
+        DatabaseReference matchDb = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserID).child("connections").child("matches");
 
         matchDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -105,6 +105,7 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     private void FetchMatchInformation(String key) {
+
         DatabaseReference userDb = FirebaseDatabase.getInstance().getReference().child("Client").child(key);
 
         if(userDb.child("name") == null){
@@ -117,12 +118,12 @@ public class MatchActivity extends AppCompatActivity {
                 if(snapshot.exists()){
                     String userId = snapshot.getKey();
                     String name = "";
-                    Uri profileIMGUri = null;
+                    String profileIMGUri = "";
                     if(snapshot.child("name").getValue() != null){
                         name = snapshot.child("name").getValue().toString();
                     }
-                    if(snapshot.child("profileIMGUri").getValue() != null || !snapshot.child("profileIMGUri").getValue().toString().equals("")){
-                        profileIMGUri = (Uri) snapshot.child("profileIMGUri").getValue();
+                    if(snapshot.child("profileIMGUri").getValue() != null){
+                        profileIMGUri = snapshot.child("profileIMGUri").getValue().toString();
                     }
 
                     MatchesObject obj = new MatchesObject(userId, name, profileIMGUri);

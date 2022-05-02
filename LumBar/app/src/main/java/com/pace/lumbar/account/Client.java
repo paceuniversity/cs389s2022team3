@@ -16,7 +16,6 @@ public class Client implements Serializable { //parent class for Client and Lawy
     private String detail;
     private String profImageUri;
 
-
     public Client(String uid, String name, String phoneNumber, String email, String address, String city, String state,
                   String password, String caseType, String caseDetails, String profImageUri) {
         this.uid = uid;
@@ -52,7 +51,7 @@ public class Client implements Serializable { //parent class for Client and Lawy
     public String getName() {
         return name;
     }
-
+  
     public String getPhone() {
         return phone;
     }

@@ -20,7 +20,6 @@
 <!--        app:menu="@menu/menu_navigation" />-->
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/senLayout">
@@ -29,7 +28,7 @@
             android:id="@+id/recylcleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="vertical" />
+            android:scrollbars="vertical"/>
 
     </androidx.core.widget.NestedScrollView>
 
@@ -38,22 +37,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/message"
+            android:layout_weight="0.8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8"
-            android:hint="Message" />
+            android:hint="Message"
+            android:id="@+id/message"/>
 
         <Button
-            android:id="@+id/send"
+            android:layout_weight="0.2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
-            android:text="Send" />
+            android:text="Send"
+            android:id="@+id/send"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
