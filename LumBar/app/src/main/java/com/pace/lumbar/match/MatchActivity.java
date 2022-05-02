@@ -36,6 +36,7 @@ public class MatchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matches);
 
+
         //Initialize and Assign Variable
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -77,6 +78,7 @@ public class MatchActivity extends AppCompatActivity {
         mRecylerView.setAdapter(mMatchesAdapter);
 
         getUserMatchID();
+
     }
 
     private void getUserMatchID() {

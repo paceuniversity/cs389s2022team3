@@ -93,8 +93,9 @@ public class ClientCaseCreate extends AppCompatActivity {
                         }
                         else{
                             String userId = mAuth.getCurrentUser().getUid();
-                            DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("User").child(userId);
-
+                          
+                            DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("Client").child(userId);
+                          
                             Client newUser = new Client(userId, name, phone, email, address, cityText.getText().toString(),
                                     stateSpinner.getSelectedItem().toString(), password, caseType, caseDet, imageUri);
 

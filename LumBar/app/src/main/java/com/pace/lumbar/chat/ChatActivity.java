@@ -1,6 +1,7 @@
 package com.pace.lumbar.chat;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.pace.lumbar.R;
+
+public class ChatActivity extends AppCompatActivity {
 
 import java.util.ArrayList;
 import java.util.HashMap;
