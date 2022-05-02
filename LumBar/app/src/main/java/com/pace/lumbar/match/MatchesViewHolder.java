@@ -29,7 +29,8 @@ public class MatchesViewHolder extends RecyclerView.ViewHolder implements View.O
     public void onClick(View view) {
         Intent intent = new Intent(view.getContext(), ChatActivity.class);
         Bundle b = new Bundle();
-        b.putString("MatchID", mMatchId.getText().toString());
+        String match = mMatchId.getText().toString();
+        b.putString("matchId", match);
         intent.putExtras(b);
         view.getContext().startActivity(intent);
     }

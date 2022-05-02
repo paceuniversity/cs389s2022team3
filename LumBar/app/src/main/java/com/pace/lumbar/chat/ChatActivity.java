@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,62 +30,26 @@ public class ChatActivity extends AppCompatActivity {
     private RecyclerView mRecylerView;
     private RecyclerView.Adapter mChatAdapter;
     private RecyclerView.LayoutManager mChatLayoutManager;
-    private String currentUserID, matchID, chatID;
+    private String currentUserID, matchID, chatID, userType;
 
     private EditText mSendEditText;
     private Button mSendButton;
 
-    private DatabaseReference mDatabaseUser, mDatabaseChat;
+    private DatabaseReference mDatabaseUser, mDatabaseChat, mDatabaseUser2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_matches);
+        setContentView(R.layout.activity_chat);
 
-//        //Initialize and Assign Variable
-//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-//
-//        bottomNavigationView.setSelectedItemId(R.id.match);
-//
-//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//
-//                switch(item.getItemId()){
-//                    case R.id.match:
-//                        return true;
-//
-//                    case R.id.home:
-//                        startActivity(new Intent(getApplicationContext(),
-//                                Matching.class));
-//                        overridePendingTransition(0, 0);
-//                        return true;
-//
-//                    case R.id.profile:
-//                        startActivity(new Intent(getApplicationContext(),
-//                                ProfileActivity.class));
-//                        overridePendingTransition(0, 0);
-//                        return true;
-//                }
-//
-//                return false;
-//            }
-//        });
+        matchID = getIntent().getExtras().getString("matchId");
+        currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        matchID = getIntent().getExtras().getString("MatchID");
-        mSendEditText = (EditText) findViewById(R.id.message);
-        mSendButton = (Button) findViewById(R.id.send);
-        mSendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendMessage();
-            }
-        });
+        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Client").child(currentUserID).child("connections").child("matches").child(matchID).child("ChatID");
+        mDatabaseUser2 = FirebaseDatabase.getInstance().getReference().child("Lawyer").child(currentUserID).child("connections").child("matches").child(matchID).child("ChatID");
+//        mDatabaseChat = FirebaseDatabase.getInstance().getReference().child("Chat");
 
-        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child(currentUserID).child("connections").child("matches").child("ChatID");
-        mDatabaseChat = FirebaseDatabase.getInstance().getReference().child("Chat");
-
-        getChatID();
+//        getChatID();
 
         mRecylerView = (RecyclerView) findViewById(R.id.recylcleView);
         mRecylerView.setNestedScrollingEnabled(false);
@@ -93,6 +58,16 @@ public class ChatActivity extends AppCompatActivity {
         mRecylerView.setLayoutManager(mChatLayoutManager);
         mChatAdapter = new ChatAdapter(getDataSetMatches(), ChatActivity.this);
         mRecylerView.setAdapter(mChatAdapter);
+
+        mSendEditText = (EditText) findViewById(R.id.message);
+        mSendButton = (Button) findViewById(R.id.send);
+
+        mSendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendMessage();
+            }
+        });
     }
 
     private void sendMessage() {
@@ -102,7 +77,7 @@ public class ChatActivity extends AppCompatActivity {
             DatabaseReference newMsgDB = mDatabaseChat.push();
 
             Map newMSG = new HashMap();
-            newMSG.put("CreatedByUser", currentUserID);
+            newMSG.put("createdByUser", currentUserID);
             newMSG.put("text", sentMSG);
 
             newMsgDB.setValue(newMSG);
@@ -117,6 +92,24 @@ public class ChatActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     chatID = snapshot.getValue().toString();
+                    userType="Client";
+                    mDatabaseChat = mDatabaseChat.child(chatID);
+                    getChatMessage();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        mDatabaseUser2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    chatID = snapshot.getValue().toString();
+                    userType="Lawyer";
                     mDatabaseChat = mDatabaseChat.child(chatID);
                     getChatMessage();
                 }

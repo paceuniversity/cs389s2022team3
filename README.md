@@ -48,7 +48,7 @@
   * [Scrums](https://docs.google.com/document/d/1VWi5AxpVP9JSTgsx6JaYVoLT8HNNQKlySfG8yHniVK8/edit)
   * Sprint Video Demo
   * Sprint APK
-  * Spring retrospective
+  * [Spring retrospective](https://docs.google.com/document/d/1X1A1WQtI5iO9NI-wGVCfso7cmfOUnDULAv2VJXz_mt8/edit?usp=sharing)
 
 # **Final presentation**
 
