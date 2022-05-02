@@ -12,8 +12,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.common.api.Status;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.firebase.auth.FirebaseAuth;
 import com.pace.lumbar.R;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class ClientProfCreation extends AppCompatActivity {
 
@@ -50,6 +59,26 @@ public class ClientProfCreation extends AppCompatActivity {
         address = findViewById(R.id.etAddressClient);
         pwdPtOne = findViewById(R.id.etPassword);
         pwdPtTwo = findViewById(R.id.etconfirm);
+
+
+//        //Initialize places
+//        Places.initialize(getApplicationContext(), "AIzaSyAf_V5-KkmEPO4OMPrOoT4V4IQKI_OJflI");
+//
+//        //Set EditText non focusable
+//        address.setFocusable(false);
+//        address.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //Initialize place field list
+//                List<Place.Field> fieldlist = Arrays.asList(Place.Field.ADDRESS,
+//                        Place.Field.LAT_LNG,Place.Field.NAME);
+//                //Create intent
+//                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
+//                        fieldlist).build(ClientProfCreation.this);
+//                //Start activity result
+//                startActivityForResult(intent, 100);
+//            }
+//        });
 
         //allows for profile pic selection from Gallery
         profSelectBtn.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +146,18 @@ public class ClientProfCreation extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+//        if(requestCode == 100 && resultCode == RESULT_OK){
+//            //When success, initialize place
+//            Place place = Autocomplete.getPlaceFromIntent(data);
+//            //Set address on etAddress
+//            address.setText(place.getAddress());
+//        } else if (resultCode == AutocompleteActivity.RESULT_ERROR){
+//            //When error
+//            //Initialize status
+//            Status status = Autocomplete.getStatusFromIntent(data);
+//            Toast.makeText(getApplicationContext(), status.getStatusMessage(),Toast.LENGTH_SHORT).show();
+//        }
 
         if (resultCode == RESULT_OK) {
 

@@ -2,6 +2,7 @@ package com.pace.lumbar.match;
 
 import android.content.Context;
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -39,6 +40,7 @@ public class Matching extends AppCompatActivity {
 
     private String currentUID;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
     private DatabaseReference currentUserDB = firebaseDatabase.getReference("Client");
     private DatabaseReference usersDB = firebaseDatabase.getReference("Lawyer");
     ListView listView;
