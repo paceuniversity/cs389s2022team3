@@ -2,7 +2,6 @@ package com.pace.lumbar.match;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -20,10 +19,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
-import com.pace.lumbar.chat.ChatActivity;
-import com.pace.lumbar.fragments.ProfileActivity;
+import com.pace.lumbar.ProfileActivity;
 import com.pace.lumbar.R;
 import com.pace.lumbar.adapters.arrayAdapter;
 

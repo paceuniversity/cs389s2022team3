@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.pace.lumbar.R;
-import com.pace.lumbar.fragments.ProfileActivity;
+import com.pace.lumbar.ProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +29,7 @@ public class MatchActivity extends AppCompatActivity {
     private RecyclerView mRecylerView;
     private RecyclerView.Adapter mMatchesAdapter;
     private RecyclerView.LayoutManager mMatchesLayoutManager;
-    private String currentUserID;
-    private FirebaseUser userType;
+    private String currentUserID, userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,16 +81,31 @@ public class MatchActivity extends AppCompatActivity {
 
     private void getUserMatchID() {
         DatabaseReference matchDb = FirebaseDatabase.getInstance().getReference().child("Client").child(currentUserID).child("connections").child("matches");
-
-        if(matchDb.child("name") == null){
-            FirebaseDatabase.getInstance().getReference().child("Lawyer").child(currentUserID).child("connections").child("matches");
-        }
+        DatabaseReference lawyerMatchesDb = FirebaseDatabase.getInstance().getReference().child("Lawyer").child(currentUserID).child("connections").child("matches");
 
         matchDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     for(DataSnapshot match : snapshot.getChildren()){
+                        userType = "Lawyer";
+                        FetchMatchInformation(match.getKey());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        lawyerMatchesDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot match : snapshot.getChildren()){
+                        userType = "Client";
                         FetchMatchInformation(match.getKey());
                     }
                 }
@@ -105,11 +119,7 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     private void FetchMatchInformation(String key) {
-        DatabaseReference userDb = FirebaseDatabase.getInstance().getReference().child("Client").child(key);
-
-        if(userDb.child("name") == null){
-            FirebaseDatabase.getInstance().getReference().child("Lawyer").child(key);
-        }
+        DatabaseReference userDb = FirebaseDatabase.getInstance().getReference().child(userType).child(key);
 
         userDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -117,12 +127,12 @@ public class MatchActivity extends AppCompatActivity {
                 if(snapshot.exists()){
                     String userId = snapshot.getKey();
                     String name = "";
-                    Uri profileIMGUri = null;
+                    String profileIMGUri = "";
                     if(snapshot.child("name").getValue() != null){
                         name = snapshot.child("name").getValue().toString();
                     }
                     if(snapshot.child("profileIMGUri").getValue() != null || !snapshot.child("profileIMGUri").getValue().toString().equals("")){
-                        profileIMGUri = (Uri) snapshot.child("profileIMGUri").getValue();
+                        profileIMGUri = snapshot.child("profileIMGUri").getValue().toString();
                     }
 
                     MatchesObject obj = new MatchesObject(userId, name, profileIMGUri);
