@@ -114,13 +114,14 @@
         app:layout_constraintTop_toBottomOf="@+id/etFname" />
 
     <EditText
-        android:id="@+id/etAddress"
-        android:layout_width="271dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/etAddressClient"
+        android:layout_width="283dp"
+        android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="36dp"
         android:background="@drawable/edit_round"
         android:hint="Enter Address"
         android:inputType="text"
@@ -130,7 +131,7 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/addrClient"
+        app:layout_constraintStart_toEndOf="@+id/addressClient"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
 
     <EditText
@@ -153,7 +154,7 @@
         app:layout_constraintHorizontal_bias="0.0"
 
         app:layout_constraintStart_toEndOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/etAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/etAddressClient" />
 
     <EditText
         android:id="@+id/etconfirm"
@@ -187,7 +188,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/addrClient"
+        android:id="@+id/addressClient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/head"
@@ -213,7 +214,7 @@
         android:textColor="#654900"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addrClient" />
+        app:layout_constraintTop_toBottomOf="@+id/addressClient" />
 
     <TextView
         android:id="@+id/conpass"

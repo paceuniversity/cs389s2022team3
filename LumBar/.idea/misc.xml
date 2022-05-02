@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/activity_chat.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/activity_matches.xml" value="0.192481884057971" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.192481884057971" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/matchesitems.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/drawable/selector.xml" value="0.177" />
         <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_main.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_matches.xml" value="0.24351851851851852" />
@@ -15,16 +20,14 @@
         <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/menu/menu_navigation.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/drawable/selector.xml" value="0.1965" />
-        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/activity_law_log_pg1.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/activity_law_log_pg2.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matches.xml" value="0.3828571428571429" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/client_case_create.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/client_profile_creation.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.2857142857142857" />
         <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/item.xml" value="0.2760416666666667" />
-        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/menu/menu_navigation.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/josephine_chatopens/cs389s2022team3-main/LumBar/app/src/main/res/layout/activity_profile.xml" value="0.2717948717948718" />
+        <entry key="..\:/Users/jodec/Desktop/josephine_chatopens/cs389s2022team3-main/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.2717948717948718" />
+        <entry key="..\:/Users/jodec/Desktop/josephine_chatopens/cs389s2022team3-main/LumBar/app/src/main/res/layout/item.xml" value="0.2760416666666667" />
       </map>
     </option>
   </component>

@@ -13,7 +13,7 @@
             android:name=".fragments.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".fragments.MatchesActivity"
+            android:name=".chat.ChatActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
@@ -67,14 +67,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AboutPage"
+            android:name=".setting.AboutPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingPage"
+            android:name=".setting.SettingPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
@@ -88,33 +88,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragments.Matching"
+            android:name=".match.Matching"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".EditProfile"
+            android:name=".setting.EditProfile"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".HelpActivity"
+            android:name=".setting.HelpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".TermsPrivacy"
+            android:name=".setting.TermsPrivacy"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

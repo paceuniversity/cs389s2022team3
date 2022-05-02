@@ -1,10 +1,11 @@
-package com.pace.lumbar;
+package com.pace.lumbar.setting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.pace.lumbar.R;
 
 public class TermsPrivacy extends AppCompatActivity {
 

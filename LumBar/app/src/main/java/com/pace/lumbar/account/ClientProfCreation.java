@@ -30,14 +30,14 @@ public class ClientProfCreation extends AppCompatActivity {
     private EditText email;
     private EditText phoneNumPt;
     private EditText emailPt;
-    private EditText etAddress;
     private Button profSelectBtn;
     private ImageButton backbtn;
     private ImageView profImageView;
     private Button createProfBtn;
-    //private EditText userPt;
+    private EditText address;
     private EditText pwdPtOne;
     private EditText pwdPtTwo;
+    private Uri imageUri;
     private int SELECT_PICTURE = 200;
     private FirebaseAuth mAuth;
 
@@ -53,32 +53,32 @@ public class ClientProfCreation extends AppCompatActivity {
         email = findViewById(R.id.emailAddress);
         phoneNumPt = findViewById(R.id.phone);
         emailPt = findViewById(R.id.emailAddress);
-        etAddress = findViewById(R.id.etAddress);
         profSelectBtn = findViewById(R.id.uploadImgBtn);
         profImageView = findViewById(R.id.profileImgView);
         createProfBtn = findViewById(R.id.createProfBtn);
-        //userPt = findViewById(R.id.etAddress);
+        address = findViewById(R.id.etAddressClient);
         pwdPtOne = findViewById(R.id.etPassword);
         pwdPtTwo = findViewById(R.id.etconfirm);
 
-        //Initialize places
-        Places.initialize(getApplicationContext(), "AIzaSyAf_V5-KkmEPO4OMPrOoT4V4IQKI_OJflI");
 
-        //Set EditText non focusable
-        etAddress.setFocusable(false);
-        etAddress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Initialize place field list
-                List<Place.Field> fieldlist = Arrays.asList(Place.Field.ADDRESS,
-                        Place.Field.LAT_LNG,Place.Field.NAME);
-                //Create intent
-                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
-                        fieldlist).build(ClientProfCreation.this);
-                //Start activity result
-                startActivityForResult(intent, 100);
-            }
-        });
+//        //Initialize places
+//        Places.initialize(getApplicationContext(), "AIzaSyAf_V5-KkmEPO4OMPrOoT4V4IQKI_OJflI");
+//
+//        //Set EditText non focusable
+//        address.setFocusable(false);
+//        address.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //Initialize place field list
+//                List<Place.Field> fieldlist = Arrays.asList(Place.Field.ADDRESS,
+//                        Place.Field.LAT_LNG,Place.Field.NAME);
+//                //Create intent
+//                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
+//                        fieldlist).build(ClientProfCreation.this);
+//                //Start activity result
+//                startActivityForResult(intent, 100);
+//            }
+//        });
 
         //allows for profile pic selection from Gallery
         profSelectBtn.setOnClickListener(new View.OnClickListener() {
@@ -104,16 +104,16 @@ public class ClientProfCreation extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isNotEmpty(namePt) && isNotEmpty(phoneNumPt) &&
-                        isNotEmpty(etAddress) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo) &&
+                        isNotEmpty(address) && isNotEmpty(pwdPtOne) && isNotEmpty(pwdPtTwo) &&
                         isNotEmpty(emailPt) ) {
-                    if (pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString()) == false) {
+                    if (!pwdPtOne.getText().toString().equals(pwdPtTwo.getText().toString())) {
                         CharSequence incompleteMsg = "Creation failed: passwords must match";
                         Toast.makeText(getApplicationContext(), incompleteMsg,
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         openActivity2(namePt.getText().toString(), phoneNumPt.getText().toString(),
-                                emailPt.getText().toString(), etAddress.getText().toString(),
-                                pwdPtOne.getText().toString());
+                                emailPt.getText().toString(), address.getText().toString(),
+                                pwdPtOne.getText().toString(), imageUri);
                     }
                 } else{
                     CharSequence incompleteMsg = "Creation failed: profile info incomplete";
@@ -124,7 +124,6 @@ public class ClientProfCreation extends AppCompatActivity {
         });
 
     }
-
 
     private boolean isNotEmpty(EditText edTxt) {
         return edTxt.getText().toString().trim().length() > 0;
@@ -148,17 +147,17 @@ public class ClientProfCreation extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 100 && resultCode == RESULT_OK){
-            //When success, initialize place
-            Place place = Autocomplete.getPlaceFromIntent(data);
-            //Set address on etAddress
-            etAddress.setText(place.getAddress());
-        } else if (resultCode == AutocompleteActivity.RESULT_ERROR){
-            //When error
-            //Initialize status
-            Status status = Autocomplete.getStatusFromIntent(data);
-            Toast.makeText(getApplicationContext(), status.getStatusMessage(),Toast.LENGTH_SHORT).show();
-        }
+//        if(requestCode == 100 && resultCode == RESULT_OK){
+//            //When success, initialize place
+//            Place place = Autocomplete.getPlaceFromIntent(data);
+//            //Set address on etAddress
+//            address.setText(place.getAddress());
+//        } else if (resultCode == AutocompleteActivity.RESULT_ERROR){
+//            //When error
+//            //Initialize status
+//            Status status = Autocomplete.getStatusFromIntent(data);
+//            Toast.makeText(getApplicationContext(), status.getStatusMessage(),Toast.LENGTH_SHORT).show();
+//        }
 
         if (resultCode == RESULT_OK) {
 
@@ -166,23 +165,24 @@ public class ClientProfCreation extends AppCompatActivity {
             // SELECT_PICTURE constant
             if (requestCode == SELECT_PICTURE) {
                 // Get the url of the image from data
-                Uri selectedImageUri = data.getData();
-                if (null != selectedImageUri) {
+                imageUri = data.getData();
+                if (null != imageUri) {
                     // update the preview image in the layout
-                    profImageView.setImageURI(selectedImageUri);
+                    profImageView.setImageURI(imageUri);
                 }
             }
         }
     }
-
-    private void openActivity2(String name, String phoneNum, String email,
-                               String address, String password) {
+    private void openActivity2(String name, String phone, String email,
+                               String address, String password, Uri imageUri) {
         Intent intent = new Intent(this, ClientCaseCreate.class);
         intent.putExtra("name", name);
-        intent.putExtra("phoneNum", phoneNum);
+        intent.putExtra("phone", phone);
         intent.putExtra("email", email);
         intent.putExtra("address", address);
         intent.putExtra("password", password);
+        intent.putExtra("imageUri", imageUri);
+
         startActivity(intent);
     }
 }

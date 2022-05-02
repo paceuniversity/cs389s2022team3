@@ -260,20 +260,6 @@
         app:layout_constraintTop_toBottomOf="@+id/phonenum" />
 
     <TextView
-        android:id="@+id/caseweb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:padding="5dp"
-        android:text="Case Websites: "
-        android:textColor="#654900"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caseTopicTxt" />
-
-    <TextView
         android:id="@+id/caseTopicTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -302,26 +288,6 @@
         app:layout_constraintStart_toEndOf="@+id/caseTopicTxt"
         app:layout_constraintTop_toBottomOf="@+id/website" />
 
-    <EditText
-        android:id="@+id/caseWeb"
-        android:layout_width="241dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/website"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/edit_round"
-        android:hint="Enter Case Related Website"
-        android:inputType="text"
-        android:padding="5dp"
-        android:textColor="#7E000000"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toEndOf="@+id/caseweb"
-        app:layout_constraintTop_toBottomOf="@+id/caseSpinner" />
-
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
@@ -340,10 +306,9 @@
         android:id="@+id/donebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/caseWeb"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="16dp"
         android:text="Done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -352,14 +317,40 @@
         android:id="@+id/prevbutton"
         android:layout_width="95dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/caseWeb"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="16dp"
         android:layout_toStartOf="@+id/donebutton"
         android:text="Prev"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/budgetReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/head"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:padding="5dp"
+        android:text="Budget: "
+        android:textColor="#654900"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caseTopicTxt" />
+
+    <EditText
+        android:id="@+id/budgetEDIT"
+        android:layout_width="292dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/budgetReg"
+        app:layout_constraintTop_toBottomOf="@+id/caseSpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

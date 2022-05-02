@@ -4,41 +4,55 @@ import java.io.Serializable;
 
 public class Client implements Serializable { //parent class for Client and Lawyer
 
+    private String uid;
     private String name;
     private String phone;
     private String email;
     private String city;
     private String state;
-    private String username;
-    private String password;
-    private String caseType;
-    private String caseDetails;
     private String address;
+    private String password;
+    private String topic;
+    private String detail;
+    private String profImageUri;
 
-    //TODO: profile pic
-
-    public Client() {
-    }
-
-    public Client(String name, String phone, String email, String city, String state, String address,
-                  String password, String caseType, String caseDetails) {
+    public Client(String uid, String name, String phoneNumber, String email, String address, String city, String state,
+                  String password, String caseType, String caseDetails, String profImageUri) {
+        this.uid = uid;
         this.name = name;
-        this.phone = phone;
+        this.phone = phoneNumber;
         this.email = email;
         this.city = city;
         this.state = state;
         this.address = address;
         this.password = password;
         this.email = email;
-        this.caseType = caseType;
-        this.caseDetails = caseDetails;
+        this.topic = caseType;
+        this.detail = caseDetails;
+        this.profImageUri = profImageUri;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getProfImageUri() {
+        return profImageUri;
+    }
+
+    public void setProfImageUri(String profImageUri) {
+        this.profImageUri = profImageUri;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getPhoneNumber() {
+    public String getPhone() {
         return phone;
     }
 
@@ -50,21 +64,17 @@ public class Client implements Serializable { //parent class for Client and Lawy
         return state;
     }
 
-    public String getUsername() {
-        return username;
+    public String getAddress() {
+        return address;
     }
 
     public String getEmail() {
         return email;
     }
-    //for testing
+
     public String getPassword() {
         return password;
     }
-
-//    public Case getCase(){
-//        return myCase;
-//    }
 
     public void setCity(String city) {
         this.city = city;
@@ -74,7 +84,23 @@ public class Client implements Serializable { //parent class for Client and Lawy
         this.email = email;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public void setPhone(String phoneNumber) {
         this.phone = phoneNumber;
     }
 
@@ -82,21 +108,17 @@ public class Client implements Serializable { //parent class for Client and Lawy
         this.state = state;
     }
 
-    public void setName(String name) {
-        this.name = this.name;
+    public void setName(String realName) {
+        this.name = realName;
     }
 
-    public String getCaseType() {
-        return caseType;
+    public String getTopic() {
+        return topic;
     }
 
-    public String getCaseDetails() {
-        return caseDetails;
+    public String getDetail() {
+        return detail;
     }
-
-//    public void setMyCase(Case myCase) {
-//        this.myCase = myCase;
-//    }
 }
 
 

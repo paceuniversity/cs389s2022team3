@@ -2,6 +2,7 @@ package com.pace.lumbar.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -22,23 +23,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.pace.lumbar.account.Client;
 import com.pace.lumbar.R;
-import com.pace.lumbar.SettingPage;
+import com.pace.lumbar.chat.ChatActivity;
+import com.pace.lumbar.match.Matching;
+import com.pace.lumbar.setting.SettingPage;
 
+/* Reference: https://www.youtube.com/watch?v=GuMwCuvGWx4 */
 
 public class ProfileActivity extends AppCompatActivity {
     private ImageButton menuBtn;
     private TextView nameTxt, topicTxt, emailTxt, phoneTxt, stateTxt, detailTxt;
     private ImageView avatar;
-    //    private FirebaseUser firebaseUser;
-//    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-//    private DatabaseReference userRef;
-//    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-//    private String userID;
-//    private Activity context;
-//    private FirebaseAuth firebaseAuth;
-//    private FirebaseAuth.AuthStateListener authStateListener;
+
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference reference;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -65,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.match:
                         startActivity(new Intent(getApplicationContext(),
-                                MatchesActivity.class));
+                                ChatActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
 
@@ -118,22 +114,40 @@ public class ProfileActivity extends AppCompatActivity {
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Client userProfile = snapshot.getValue(Client.class);
+                Log.d("enter", "enter");
 
-                if(userProfile!=null){
-                    String name = userProfile.getName();
+                if(snapshot.exists()){
+                    Log.d("userExist", "exist");
+                    String name = snapshot.child("name").getValue().toString();
                     Log.d("userid", name);
-                    String email = userProfile.getEmail();
+                    String email = snapshot.child("email").getValue().toString();
                     Log.d("userid", email);
-                    String phone = userProfile.getPhoneNumber();
-                    String state = userProfile.getState();
-                    String topic = userProfile.getCaseType();
-                    String detail = userProfile.getCaseDetails();
+                    String phone = snapshot.child("phone").getValue().toString();
+                    String address = snapshot.child("address").getValue().toString();
+
+                    if(snapshot.child("profileIMGUri").getValue()!=null && snapshot.child("profileIMGUri").getValue().toString().length() > 0){
+                        String imgUri = snapshot.child("profileIMGUri").getValue().toString();
+                        avatar.setImageURI(Uri.parse(imgUri));
+                    }
+                    else{
+                        avatar.setImageResource(R.mipmap.ic_launcher);
+                    }
+
+                    String topic = "", detail = "";
+
+                    if(snapshot.child("firmName").exists()) {
+                        detail = snapshot.child("website").getValue().toString();
+                        topic = snapshot.child("firmName").getValue().toString();
+                    }
+                    else {
+                        detail = snapshot.child("detail").getValue().toString();
+                        topic = snapshot.child("topic").getValue().toString();
+                    }
 
                     nameTxt.setText(name);
                     emailTxt.setText(email);
                     phoneTxt.setText(phone);
-                    stateTxt.setText(state);
+                    stateTxt.setText(address);
                     detailTxt.setText(detail);
                     topicTxt.setText(topic);
                 }
@@ -144,153 +158,4 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
-
-//    private void setupFirebaseAuth(){
-//        firebaseAuth = FirebaseAuth.getInstance();
-//        database = FirebaseDatabase.getInstance();
-//        userRef = database.getReference();
-//
-//        authStateListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser user = firebaseAuth.getCurrentUser();
-//                if(user!=null){
-//                    userID = firebaseUser.getUid();
-//                    Log.d("userid", userID);
-//                }
-//                else{
-//                    Log.d("userid", "failed to get Authuser");
-//                }
-//            }
-//        };
-//
-//        userRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                //retrieve info
-////                String value = snapshot.getValue(String.class);
-////                Log.d("userid", "Value is: " + value);
-//                showData(snapshot);
-//
-//                //retrieve images
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//    }
-//
-//    private void showData(DataSnapshot snapshot) {
-//        for(DataSnapshot ds : snapshot.getChildren()){
-//            Client client = new Client();
-//            Case clientCase = new Case();
-//            client.setRealName(ds.child(userID).getValue(Client.class).getRealName());
-//            client.setEmail(ds.child(userID).getValue(Client.class).getEmail());
-//            client.setPhoneNumber(ds.child(userID).getValue(Client.class).getPhoneNumber());
-//            client.setState(ds.child(userID).getValue(Client.class).getState());
-//            clientCase.setCaseType(ds.child(userID).getValue(Case.class).getCaseType());
-//            clientCase.setCaseDetails(ds.child(userID).getValue(Case.class).getCaseDetails());
-//
-//            Log.d("userid", client.getRealName());
-//            Log.d("userid", client.getEmail());
-//            Log.d("userid", client.getPhoneNumber());
-//            Log.d("userid", clientCase.getCaseType());
-//            Log.d("userid", clientCase.getCaseDetails());
-//            Log.d("userid", client.getState());
-//
-//            ArrayList<String> array = new ArrayList<>();
-//            array.add(client.getRealName());
-//            array.add(client.getEmail());
-//            array.add(client.getPhoneNumber());
-//            array.add(client.getState());
-//            array.add(clientCase.getCaseType());
-//            array.add(clientCase.getCaseDetails());
-//
-//            ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.fragment_profile, array);
-//
-//        }
-//    }
-//
-//    public void onStart(){
-//        super.onStart();
-//        firebaseAuth.addAuthStateListener(authStateListener);
-//    }
-//    public void onStop(){
-//        super.onStop();
-//        if(authStateListener!=null){
-//            firebaseAuth.removeAuthStateListener(authStateListener);
-//        }
-//    }
-
-
-//    public void onStart(){
-//        super.onStart();
-//        data();
-//    }
-//
-//    public void data(){
-//        super.onStart();
-//        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-//        userRef = FirebaseDatabase.getInstance().getReference("Client");
-//        if(firebaseUser != null){
-//            userID = firebaseUser.getUid();
-//            Log.d("userid", userID);
-//        }
-//
-//        nameTxt = context.findViewById(R.id.profname);
-//        topicTxt = context.findViewById(R.id.caseTopic);
-//        emailTxt = context.findViewById(R.id.emailProf);
-//        phoneTxt = context.findViewById(R.id.phoneProf);
-//        stateTxt = context.findViewById(R.id.addrProf);
-//        detailTxt = context.findViewById(R.id.topic);
-//        avatar = context.findViewById(R.id.profileImgView);
-//
-//        userRef.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                Log.d("userid", "in snapshot");
-//                Client userProf = snapshot.getValue(Client.class);
-//                Case userCase = snapshot.getValue(Case.class);
-//
-//                if(userProf!=null){
-//                    nameTxt.setText((userProf.getRealName()));
-//                    Log.d("userid", nameTxt.getText().toString());
-//                    topicTxt.setText((userCase.getCaseType()));
-//                    Log.d("userid", topicTxt.getText().toString());
-//                    emailTxt.setText((userProf.getEmail()));
-//                    Log.d("userid", nameTxt.getText().toString());
-//                    phoneTxt.setText((userProf.getPhoneNumber()));
-//                    Log.d("userid", nameTxt.getText().toString());
-//                    stateTxt.setText((userProf.getState()));
-//                    Log.d("userid", nameTxt.getText().toString());
-//                    detailTxt.setText((userCase.getCaseDetails()));
-//                    Log.d("userid", userCase.getCaseDetails());
-//                }
-//                else{
-//                    Log.d("userid", "user null");
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
-
-//        userRef.child("users").child(userID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                if (!task.isSuccessful()) {
-//                    Log.d("userid", "Error getting data", task.getException());
-//                }
-//                else {
-//                    Log.d("userid", String.valueOf(task.getResult().getValue()));
-//                }
-//            }
-//        });
-//    }
 }

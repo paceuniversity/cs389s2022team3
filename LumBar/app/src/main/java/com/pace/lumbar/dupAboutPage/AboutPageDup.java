@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.pace.lumbar.R;
-import com.pace.lumbar.SettingPage;
-import com.pace.lumbar.SlideAdapter;
+import com.pace.lumbar.setting.SettingPage;
+import com.pace.lumbar.setting.SlideAdapter;
 
 public class AboutPageDup extends AppCompatActivity {
 

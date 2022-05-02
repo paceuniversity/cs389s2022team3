@@ -1,4 +1,4 @@
-package com.pace.lumbar.fragments;
+package com.pace.lumbar.chat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +9,10 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.pace.lumbar.R;
+import com.pace.lumbar.fragments.ProfileActivity;
+import com.pace.lumbar.match.Matching;
 
-public class MatchesActivity extends AppCompatActivity {
+public class ChatActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
