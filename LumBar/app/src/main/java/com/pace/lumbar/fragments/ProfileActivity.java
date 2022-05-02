@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pace.lumbar.R;
 import com.pace.lumbar.chat.ChatActivity;
+import com.pace.lumbar.match.MatchActivity;
 import com.pace.lumbar.match.Matching;
 import com.pace.lumbar.setting.SettingPage;
 
@@ -61,7 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.match:
                         startActivity(new Intent(getApplicationContext(),
-                                ChatActivity.class));
+                                MatchActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
 
