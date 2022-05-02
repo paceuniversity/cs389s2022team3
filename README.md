@@ -46,8 +46,8 @@
 * **Sprint 3** 
   * [Sprint planning](https://docs.google.com/document/d/17-lt3mgCHHbr3EXsBYjzqDFy-zIeAZJobvYVShG1qsA/edit?usp=sharing) | [backlog](https://docs.google.com/spreadsheets/d/135c6JsQN4UTsBRrBcKcYqUYMNWI__qDn9qXHS7ra_cc/edit#gid=1920406310)
   * [Scrums](https://docs.google.com/document/d/1VWi5AxpVP9JSTgsx6JaYVoLT8HNNQKlySfG8yHniVK8/edit)
-  * Sprint Video Demo
-  * Sprint APK
+  * [Sprint Video Demo](https://youtube.com/shorts/x57ZchE6aKA?feature=share)
+  * [Sprint APK](https://drive.google.com/file/d/1zv_YtNWkj7vm3SUG717URCh3Fo0CR1FT/view?usp=drivesdk)
   * [Spring retrospective](https://docs.google.com/document/d/1X1A1WQtI5iO9NI-wGVCfso7cmfOUnDULAv2VJXz_mt8/edit?usp=sharing)
 
 # **Final presentation**
