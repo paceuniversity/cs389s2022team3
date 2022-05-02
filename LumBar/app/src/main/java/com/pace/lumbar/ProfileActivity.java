@@ -1,4 +1,4 @@
-package com.pace.lumbar.fragments;
+package com.pace.lumbar;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -23,8 +23,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.pace.lumbar.R;
-import com.pace.lumbar.chat.ChatActivity;
 import com.pace.lumbar.match.MatchActivity;
 import com.pace.lumbar.match.Matching;
 import com.pace.lumbar.setting.SettingPage;
@@ -37,7 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView avatar;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference reference;
+    private DatabaseReference reference, lawyerRef;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ImageView ivPhoto;
     private String imagePath = "";
@@ -99,6 +97,8 @@ public class ProfileActivity extends AppCompatActivity {
         super.onStart();
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Client");
+
+
         if(user != null){
             userID = user.getUid();
             Log.d("userid", userID);
@@ -136,14 +136,50 @@ public class ProfileActivity extends AppCompatActivity {
 
                     String topic = "", detail = "";
 
-                    if(snapshot.child("firmName").exists()) {
-                        detail = snapshot.child("website").getValue().toString();
-                        topic = snapshot.child("firmName").getValue().toString();
+                    detail = snapshot.child("detail").getValue().toString();
+                    topic = snapshot.child("topic").getValue().toString();
+
+                    nameTxt.setText(name);
+                    emailTxt.setText(email);
+                    phoneTxt.setText(phone);
+                    stateTxt.setText(address);
+                    detailTxt.setText(detail);
+                    topicTxt.setText(topic);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+        lawyerRef = FirebaseDatabase.getInstance().getReference("Lawyer");
+        lawyerRef.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.d("enter", "enter");
+
+                if(snapshot.exists()){
+                    Log.d("userExist", "exist");
+                    String name = snapshot.child("name").getValue().toString();
+                    Log.d("userid", name);
+                    String email = snapshot.child("email").getValue().toString();
+                    Log.d("userid", email);
+                    String phone = snapshot.child("phone").getValue().toString();
+                    String address = snapshot.child("address").getValue().toString();
+
+                    if(snapshot.child("profileIMGUri").getValue()!=null && snapshot.child("profileIMGUri").getValue().toString().length() > 0){
+                        String imgUri = snapshot.child("profileIMGUri").getValue().toString();
+                        avatar.setImageURI(Uri.parse(imgUri));
                     }
-                    else {
-                        detail = snapshot.child("detail").getValue().toString();
-                        topic = snapshot.child("topic").getValue().toString();
+                    else{
+                        avatar.setImageResource(R.mipmap.ic_launcher);
                     }
+
+                    String topic = "", detail = "";
+
+                    detail = snapshot.child("website").getValue().toString();
+                    topic = snapshot.child("firmName").getValue().toString();
 
                     nameTxt.setText(name);
                     emailTxt.setText(email);
