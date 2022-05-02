@@ -73,13 +73,13 @@ public class SettingPage extends AppCompatActivity {
             }
         });
 
-        editBtn = findViewById(R.id.edit);
-        editBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SettingPage.this, EditProfile.class);
-                startActivity(intent);
-            }
-        });
+//        editBtn = findViewById(R.id.edit);
+//        editBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SettingPage.this, EditProfile.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

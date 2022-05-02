@@ -108,11 +108,22 @@ public class LawLogPg2 extends AppCompatActivity {
                             String userId = mAuth.getCurrentUser().getUid();
                             DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("Lawyer").child(userId);
 
-                            Lawyer lawyer = new Lawyer(userId, name, email, phone, password, imageUri, lawFirmText.getText().toString(),
-                                    addressText.getText().toString(), cityEditText.getText().toString(),
-                                    stateSpinner.getSelectedItem().toString(),
-                                    emailText.getText().toString(), phoneNumText.getText().toString(),
-                                    firmWebsiteText.getText().toString(), caseType, budget.getText().toString());
+                            Lawyer lawyer;
+
+//                            if(imageUri == null){
+//                                lawyer = new Lawyer(userId, name, email, phone, password, "", lawFirmText.getText().toString(),
+//                                        addressText.getText().toString(), cityEditText.getText().toString(),
+//                                        stateSpinner.getSelectedItem().toString(),
+//                                        emailText.getText().toString(), phoneNumText.getText().toString(),
+//                                        firmWebsiteText.getText().toString(), caseType, budget.getText().toString());
+//                            }
+//                            else{
+                                lawyer = new Lawyer(userId, name, email, phone, password, "", lawFirmText.getText().toString(),
+                                        addressText.getText().toString(), cityEditText.getText().toString(),
+                                        stateSpinner.getSelectedItem().toString(),
+                                        emailText.getText().toString(), phoneNumText.getText().toString(),
+                                        firmWebsiteText.getText().toString(), caseType, budget.getText().toString());
+//                            }
 
                             currentUserDb.setValue(lawyer);
                             CharSequence caseCreateMsg = "New user and firm created";

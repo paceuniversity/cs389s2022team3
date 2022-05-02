@@ -181,7 +181,7 @@ public class ClientProfCreation extends AppCompatActivity {
         intent.putExtra("email", email);
         intent.putExtra("address", address);
         intent.putExtra("password", password);
-        intent.putExtra("imageUri", imageUri);
+        intent.putExtra("imageUri", imageUri.toString());
 
         startActivity(intent);
     }

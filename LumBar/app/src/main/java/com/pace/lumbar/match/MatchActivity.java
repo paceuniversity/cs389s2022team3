@@ -24,6 +24,8 @@ import com.pace.lumbar.ProfileActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+/*Reference: https://www.youtube.com/watch?v=9dC4w04AuOs&list=PLxabZQCAe5fio9dm1Vd0peIY6HLfo5MCf&index=16*/
+
 public class MatchActivity extends AppCompatActivity {
 
     private RecyclerView mRecylerView;

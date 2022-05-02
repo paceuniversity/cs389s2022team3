@@ -38,7 +38,7 @@ public class ClientCaseCreate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         String name = intent.getExtras().getString("name");
-        String phone = intent.getExtras().getString("phoneNum");
+        String phone = intent.getExtras().getString("phone");
         String email = intent.getExtras().getString("email");
         String address = intent.getExtras().getString("address");
         String password = intent.getExtras().getString("password");

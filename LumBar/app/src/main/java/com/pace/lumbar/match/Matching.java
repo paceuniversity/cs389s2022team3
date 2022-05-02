@@ -38,7 +38,7 @@ public class Matching extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    private String currentUID;
+    private String currentUID, uid;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
     private DatabaseReference currentUserDB = firebaseDatabase.getReference("Client");
@@ -89,9 +89,10 @@ public class Matching extends AppCompatActivity {
             Log.d("userID", currentUID);
         }
 
+        rowItems = new ArrayList<Cards>();
+
         getOppositeUserTypes();
 
-        rowItems = new ArrayList<Cards>();
         arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
 
         SwipeFlingAdapterView flingContainer = findViewById(R.id.frame);
@@ -120,7 +121,8 @@ public class Matching extends AppCompatActivity {
             @Override
             public void onRightCardExit(Object dataObject) {
                 Cards obj = (Cards) dataObject;
-                String uid = obj.getUid();
+                uid = obj.getUid();
+
                 usersDB.child(uid).child("connections").child("matches").child(currentUID).setValue(true);
                 currentUserDB.child(currentUID).child("connections").child("matches").child(uid).setValue(true);
 
@@ -152,12 +154,42 @@ public class Matching extends AppCompatActivity {
         oppositeUserDB.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if(snapshot.exists() && !snapshot.child("connections").child("no").hasChild(currentUID)
-                        && !snapshot.child("connections").child("yes").hasChild(currentUID)){
-
+                if(snapshot.exists() && !snapshot.child("uid").getValue().toString().equals(currentUID)
+                        && snapshot.hasChild("connections")){
+                    if(snapshot.child("connections").hasChild("no") && snapshot.child("connections").hasChild("matches")) {
+                        if (!snapshot.child("connections").child("no").hasChild(currentUID)
+                                && !snapshot.child("connections").child("matches").hasChild(currentUID)) {
+                            Cards item = new Cards(snapshot.child("uid").getValue().toString(), snapshot.child("name").getValue().toString(), snapshot.child("firmName").getValue().toString(),
+                                    snapshot.child("email").getValue().toString(), snapshot.child("phone").getValue().toString(), snapshot.child("address").getValue().toString(),
+                                    snapshot.child("topic").getValue().toString(), snapshot.child("budget").getValue().toString(), snapshot.child("profileIMGUri").getValue().toString());
+                            rowItems.add(item);
+                            arrayAdapter.notifyDataSetChanged();
+                        }
+                    }
+                    else if(snapshot.child("connections").hasChild("no")) {
+                        if (!snapshot.child("connections").child("no").hasChild(currentUID)) {
+                            Cards item = new Cards(snapshot.child("uid").getValue().toString(), snapshot.child("name").getValue().toString(), snapshot.child("firmName").getValue().toString(),
+                                    snapshot.child("email").getValue().toString(), snapshot.child("phone").getValue().toString(), snapshot.child("address").getValue().toString(),
+                                    snapshot.child("topic").getValue().toString(), snapshot.child("budget").getValue().toString(), snapshot.child("profileIMGUri").getValue().toString());
+                            rowItems.add(item);
+                            arrayAdapter.notifyDataSetChanged();
+                        }
+                    }
+                    else if(snapshot.child("connections").hasChild("matches")) {
+                        if (!snapshot.child("connections").child("matches").hasChild(currentUID)) {
+                            Cards item = new Cards(snapshot.child("uid").getValue().toString(), snapshot.child("name").getValue().toString(), snapshot.child("firmName").getValue().toString(),
+                                    snapshot.child("email").getValue().toString(), snapshot.child("phone").getValue().toString(), snapshot.child("address").getValue().toString(),
+                                    snapshot.child("topic").getValue().toString(), snapshot.child("budget").getValue().toString(), snapshot.child("profileIMGUri").getValue().toString());
+                            rowItems.add(item);
+                            arrayAdapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+                else if(snapshot.exists() && !snapshot.child("uid").getValue().toString().equals(currentUID)
+                        && !snapshot.hasChild("connections")){
                     Cards item = new Cards(snapshot.child("uid").getValue().toString(), snapshot.child("name").getValue().toString(), snapshot.child("firmName").getValue().toString(),
                             snapshot.child("email").getValue().toString(), snapshot.child("phone").getValue().toString(), snapshot.child("address").getValue().toString(),
-                            snapshot.child("topic").getValue().toString(), snapshot.child("website").getValue().toString(), snapshot.child("profileIMGUri").getValue().toString());
+                            snapshot.child("topic").getValue().toString(), snapshot.child("budget").getValue().toString(), snapshot.child("profileIMGUri").getValue().toString());
                     rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }

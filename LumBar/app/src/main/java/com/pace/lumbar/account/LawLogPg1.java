@@ -79,7 +79,7 @@ public class LawLogPg1 extends AppCompatActivity {
                                 intent.putExtra("email", emailPt.getText().toString());
                                 intent.putExtra("phoneNum", phonePt.getText().toString());
                                 intent.putExtra("password", pwdPtOne.getText().toString());
-                                intent.putExtra("profImgUri", imageUri);
+                                intent.putExtra("profImgUri", imageUri.toString());
                                 startActivity(intent);
                             }
                         });

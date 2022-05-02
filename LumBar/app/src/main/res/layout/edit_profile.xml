@@ -31,13 +31,13 @@
         android:layout_below="@+id/head"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="36dp"
         android:padding="5dp"
         android:text="Name: "
         android:textColor="#654900"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uploadImgBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/head" />
 
     <EditText
         android:id="@+id/etFname"
@@ -46,7 +46,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/edit_round"
         android:hint="Enter Your Name"
         android:inputType="text"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/profileImgView"
+        app:layout_constraintTop_toBottomOf="@+id/head"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -103,6 +103,39 @@
         app:layout_constraintTop_toBottomOf="@+id/etFname" />
 
     <TextView
+        android:id="@+id/addEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:padding="5dp"
+        android:text="Address: "
+        android:textColor="#654900"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phonenum" />
+
+    <EditText
+        android:id="@+id/etAddrEdit"
+        android:layout_width="285dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_round"
+        android:ellipsize="start"
+        android:ems="10"
+        android:hint="Enter Address"
+        android:inputType="text"
+        android:padding="5dp"
+        android:textColor="#7E000000"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/addEdit"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+    <TextView
         android:id="@+id/cityTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -113,7 +146,7 @@
         android:textColor="#654900"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phonenum" />
+        app:layout_constraintTop_toBottomOf="@+id/addEdit" />
 
     <EditText
         android:id="@+id/cityPlainText"
@@ -121,8 +154,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:background="@drawable/edit_round"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_round"
         android:ellipsize="start"
         android:ems="10"
         android:hint="Enter City"
@@ -133,7 +166,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/cityTextView"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        app:layout_constraintTop_toBottomOf="@+id/etAddrEdit" />
 
     <TextView
         android:id="@+id/stateTextView"
@@ -153,7 +186,7 @@
         style="@style/Widget.AppCompat.Spinner.Underlined"
         android:layout_width="307dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="12dp"
         android:autofillHints="Select State"
         android:contentDescription="@string/stateSelectorTxt"
         android:ems="10"
@@ -203,31 +236,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
-    <ImageView
-        android:id="@+id/profileImgView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="40dp"
-        android:contentDescription="Profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.784"
-        app:layout_constraintStart_toEndOf="@+id/uploadImgBtn"
-        app:layout_constraintTop_toBottomOf="@+id/head"
-        tools:ignore="ImageContrastCheck"
-        tools:src="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/uploadImgBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="80dp"
-        android:text="Select Photo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head" />
-
-<!--    <ImageButton-->
+    <!--    <ImageButton-->
 <!--        android:id="@+id/revertEdit"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
