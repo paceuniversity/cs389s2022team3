@@ -51,7 +51,7 @@ public class Client implements Serializable { //parent class for Client and Lawy
     public String getName() {
         return name;
     }
-
+  
     public String getPhone() {
         return phone;
     }

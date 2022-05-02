@@ -2,6 +2,7 @@ package com.pace.lumbar.match;
 
 import android.content.Context;
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -41,6 +42,8 @@ public class Matching extends AppCompatActivity {
 
     private String currentUID;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
+    private DatabaseReference currentUserDB = firebaseDatabase.getReference("Client");
     private DatabaseReference usersDB = firebaseDatabase.getReference("Lawyer");
     ListView listView;
     List<Cards> rowItems;
@@ -64,7 +67,7 @@ public class Matching extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.match:
                         startActivity(new Intent(getApplicationContext(),
-                                ChatActivity.class));
+                                MatchActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
 
@@ -88,10 +91,10 @@ public class Matching extends AppCompatActivity {
             Log.d("userID", currentUID);
         }
 
+        getOppositeUserTypes();
+
         rowItems = new ArrayList<Cards>();
         arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
-
-        getOppositeUserTypes();
 
         SwipeFlingAdapterView flingContainer = findViewById(R.id.frame);
         flingContainer.setAdapter(arrayAdapter);
@@ -111,7 +114,8 @@ public class Matching extends AppCompatActivity {
                 //If you want to use it just cast it (String) dataObject
                 Cards obj = (Cards) dataObject;
                 String uid = obj.getUid();
-                usersDB.child(uid).child("connections").child("no").child("currentUID").setValue(true);
+                usersDB.child(uid).child("connections").child("no").child(currentUID).setValue(true);
+                currentUserDB.child(currentUID).child("connections").child("no").child(uid).setValue(true);
                 makeToast(Matching.this, "Left!");
             }
 
@@ -119,8 +123,11 @@ public class Matching extends AppCompatActivity {
             public void onRightCardExit(Object dataObject) {
                 Cards obj = (Cards) dataObject;
                 String uid = obj.getUid();
-                usersDB.child(uid).child("connections").child("yes").child("currentUID").setValue(true);
-                isConnectionMatch(uid);
+                usersDB.child(uid).child("connections").child("yes").child(currentUID).setValue(true);
+                currentUserDB.child(currentUID).child("connections").child("yes").child(uid).setValue(true);
+
+                usersDB.child(uid).child("connections").child("matches").child(currentUID).setValue(true);
+                currentUserDB.child(currentUID).child("connections").child("matches").child(uid).setValue(true);
                 makeToast(Matching.this, "Right!");
             }
 
@@ -137,25 +144,6 @@ public class Matching extends AppCompatActivity {
             public void onItemClicked(int itemPosition, Object dataObject) {
                 makeToast(Matching.this, "Clicked!");
             }
-        });
-    }
-
-    private void isConnectionMatch(String userID) {
-        DatabaseReference currentUserConnectionDb = usersDB.child(currentUID).child("connections").child("yes").child(userID);
-        currentUserConnectionDb.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    makeToast(Matching.this, "New Connection");
-
-                    String key = FirebaseDatabase.getInstance().getReference().child("Chat").push().getKey();
-                    usersDB.child(snapshot.getKey()).child("connections").child("matches").child(currentUID).child("ChatId").setValue(key);
-                    usersDB.child(currentUID).child("connections").child("matches").child(snapshot.getKey()).child("ChatId").setValue(key);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) { }
         });
     }
 
