@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_chat.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matches.xml" value="0.22" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/client_case_create.xml" value="0.317481884057971" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/edit_profile.xml" value="0.6" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_home.xml" value="0.1609375" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/item.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/matchesitems.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/setting_page.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/activity_chat.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/activity_matches.xml" value="0.192481884057971" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.192481884057971" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.1" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/matchesitems.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/drawable/selector.xml" value="0.177" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_main.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_matches.xml" value="0.24351851851851852" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/activity_profile.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/fragment_home.xml" value="0.2717948717948718" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.2717948717948718" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/layout/setting_page.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/LumBar/app/src/main/res/menu/menu_navigation.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/drawable/selector.xml" value="0.1965" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/client_case_create.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.2857142857142857" />
+        <entry key="..\:/Users/jodec/Desktop/cs389s2022team3/LumBar/app/src/main/res/layout/item.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/jodec/Desktop/josephine_chatopens/cs389s2022team3-main/LumBar/app/src/main/res/layout/activity_profile.xml" value="0.2717948717948718" />
+        <entry key="..\:/Users/jodec/Desktop/josephine_chatopens/cs389s2022team3-main/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.2717948717948718" />
+        <entry key="..\:/Users/jodec/Desktop/josephine_chatopens/cs389s2022team3-main/LumBar/app/src/main/res/layout/item.xml" value="0.2760416666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
