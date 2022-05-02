@@ -6,31 +6,48 @@
     android:padding="20sp"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="50sp"
-        android:layout_height="50sp"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/MatchImg"/>
-
-    <LinearLayout
-        android:paddingLeft="20sp"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/custom_matches_border"
         android:orientation="vertical"
-        android:layout_gravity="center">
-        <TextView
-            android:paddingBottom="20sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Match's Name"
-            android:layout_gravity="center"
-            android:id="@+id/MatchName"/>
+        android:paddingLeft="20sp">
 
-        <TextView
-            android:id="@+id/MatchID"
-            android:layout_width="match_parent"
-            android:layout_height="31dp"
-            android:layout_gravity="center"
-            android:text="Match's ID" />
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/MatchImg"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-50dp"
+            android:layout_toEndOf="@+id/MatchImg"
+            android:orientation="vertical"
+            android:paddingLeft="10sp">
+
+            <TextView
+                android:id="@+id/MatchName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/amiko_bold"
+                android:paddingBottom="10sp"
+                android:text="Match's Name"
+                android:textColor="#353535"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/MatchID"
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/amiko"
+                android:text="Match's ID" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 </LinearLayout>
