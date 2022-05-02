@@ -21,8 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.pace.lumbar.R;
 
-public class ChatActivity extends AppCompatActivity {
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
