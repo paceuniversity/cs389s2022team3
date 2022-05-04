@@ -62,6 +62,7 @@
 [![](https://i.imgur.com/md5VyLX.png)](https://discord.com/)
 [![](https://i.imgur.com/sUs2pG4.png)](https://github.com/)
 [![](https://i.imgur.com/DMpHchR.png)](https://developer.android.com/studio)
-[![](https://i.imgur.com/UFflCJs.png)](https://www.adobe.com/products/photoshop.html)
 [![](https://i.imgur.com/HVKVyVW.png)](https://firebase.google.com/)
+[![](https://i.imgur.com/UFflCJs.png)](https://www.adobe.com/products/photoshop.html)
+[![](https://i.imgur.com/1jS4ZyR.png)](https://www.google.com/drive/)
 [![](https://i.imgur.com/q89C3ER.png)](https://www.youtube.com/channel/UC-ggiGQNhKwHINZOfSNSPfA)
