@@ -48,6 +48,9 @@ public class ChatActivity extends AppCompatActivity {
         mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Client").child(currentUserID).child("connections").child("matches").child(matchID).child("ChatID");
         mDatabaseUser2 = FirebaseDatabase.getInstance().getReference().child("Lawyer").child(currentUserID).child("connections").child("matches").child(matchID).child("ChatID");
 
+        mDatabaseChat = FirebaseDatabase.getInstance().getReference().child("Chat");
+        getChatID();
+
         mRecylerView = (RecyclerView) findViewById(R.id.recylcleView);
         mRecylerView.setNestedScrollingEnabled(false);
         mRecylerView.setHasFixedSize(false);
@@ -78,9 +81,10 @@ public class ChatActivity extends AppCompatActivity {
             newMSG.put("text", sentMSG);
 
             newMsgDB.setValue(newMSG);
+            mSendEditText.setText(sentMSG);
+        }else{
+            mSendEditText.setText(null);
         }
-
-        mSendEditText.setText(null);
     }
 
     private void getChatID() {
