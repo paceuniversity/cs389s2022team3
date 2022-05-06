@@ -93,6 +93,11 @@ public class Matching extends AppCompatActivity {
 
         getOppositeUserTypes();
 
+        if(userType.equals("Lawyer")){
+            currentUserDB = firebaseDatabase.getReference("Lawyer");
+            usersDB = firebaseDatabase.getReference("Client");
+        }
+
         arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
 
         SwipeFlingAdapterView flingContainer = findViewById(R.id.frame);
@@ -115,7 +120,7 @@ public class Matching extends AppCompatActivity {
                 String uid = obj.getUid();
                 usersDB.child(uid).child("connections").child("no").child(currentUID).setValue(true);
                 currentUserDB.child(currentUID).child("connections").child("no").child(uid).setValue(true);
-                makeToast(Matching.this, "Left!");
+                makeToast(Matching.this, "Remove!");
             }
 
             @Override
@@ -130,7 +135,7 @@ public class Matching extends AppCompatActivity {
 
                 usersDB.child(uid).child("connections").child("matches").child(currentUID).child("ChatId").setValue(key);
                 currentUserDB.child(currentUID).child("connections").child("matches").child(uid).child("ChatId").setValue(key);
-                makeToast(Matching.this, "Right!");
+                makeToast(Matching.this, "Connect!");
             }
 
             @Override
@@ -154,6 +159,11 @@ public class Matching extends AppCompatActivity {
         oppositeUserDB.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                if(snapshot.exists() && snapshot.child("uid").getValue().toString().equals(currentUID)){
+                    userType = "Lawyer";
+                    oppositeUserType = "Client";
+                }
+
                 if(snapshot.exists() && !snapshot.child("uid").getValue().toString().equals(currentUID)
                         && snapshot.hasChild("connections")){
                     if(snapshot.child("connections").hasChild("no") && snapshot.child("connections").hasChild("matches")) {

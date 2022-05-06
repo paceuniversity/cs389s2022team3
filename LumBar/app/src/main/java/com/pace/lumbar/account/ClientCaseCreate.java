@@ -97,7 +97,7 @@ public class ClientCaseCreate extends AppCompatActivity {
                             DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lumbar-af6f0-default-rtdb.firebaseio.com/").child("Client").child(userId);
                           
                             Client newUser = new Client(userId, name, phone, email, address, cityText.getText().toString(),
-                                    stateSpinner.getSelectedItem().toString(), password, caseType, caseDet, imageUri);
+                                    stateSpinner.getSelectedItem().toString(), password, caseType, caseDet, "");
 
                             currentUserDb.setValue(newUser);
                             CharSequence caseCreateMsg = "Case created";
@@ -107,6 +107,7 @@ public class ClientCaseCreate extends AppCompatActivity {
                             Intent intent = new Intent(ClientCaseCreate.this, Matching.class);
                             startActivity(intent);
                             finish();
+
                         }
                     });
 
