@@ -10,14 +10,24 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.common.api.Status;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.pace.lumbar.R;
 import com.pace.lumbar.match.Matching;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class LawLogPg2 extends AppCompatActivity {
     private Button backbtn, donebtn;
@@ -65,6 +75,25 @@ public class LawLogPg2 extends AppCompatActivity {
         phoneNumText = findViewById(R.id.phonenum);
         firmWebsiteText = findViewById(R.id.website);
         budget = findViewById(R.id.budgetEDIT);
+
+        //Initialize places
+        Places.initialize(getApplicationContext(), "AIzaSyAf_V5-KkmEPO4OMPrOoT4V4IQKI_OJflI");
+
+        //Set EditText non focusable
+        addressText.setFocusable(false);
+        addressText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Initialize place field list
+                List<Place.Field> fieldlist = Arrays.asList(Place.Field.ADDRESS,
+                        Place.Field.LAT_LNG,Place.Field.NAME);
+                //Create intent
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
+                        fieldlist).build(LawLogPg2.this);
+                //Start activity result
+                startActivityForResult(intent, 100);
+            }
+        });
 
         stateSpinner = findViewById(R.id.stateSpinner);
         ArrayAdapter<CharSequence> stateAdapter = ArrayAdapter.createFromResource
@@ -148,6 +177,23 @@ public class LawLogPg2 extends AppCompatActivity {
 
     private boolean isNotEmpty(EditText edTxt) {
         return edTxt.getText().toString().trim().length() > 0;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 100 && resultCode == RESULT_OK){
+            //When success, initialize place
+            Place place = Autocomplete.getPlaceFromIntent(data);
+            //Set address on etAddress
+            addressText.setText(place.getAddress());
+        } else if (resultCode == AutocompleteActivity.RESULT_ERROR){
+            //When error
+            //Initialize status
+            Status status = Autocomplete.getStatusFromIntent(data);
+            Toast.makeText(getApplicationContext(), status.getStatusMessage(),Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
