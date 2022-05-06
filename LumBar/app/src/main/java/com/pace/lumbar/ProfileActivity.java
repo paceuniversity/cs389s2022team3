@@ -103,7 +103,6 @@ public class ProfileActivity extends AppCompatActivity {
             userID = user.getUid();
             Log.d("userid", userID);
         }
-
         nameTxt = findViewById(R.id.profname);
         topicTxt = findViewById(R.id.caseTopic);
         emailTxt = findViewById(R.id.emailProf);
