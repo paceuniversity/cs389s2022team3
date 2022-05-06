@@ -104,13 +104,13 @@ public class ClientCaseCreate extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), caseCreateMsg,
                                     Toast.LENGTH_SHORT).show();
 
-
+                            Intent intent = new Intent(ClientCaseCreate.this, Matching.class);
+                            startActivity(intent);
+                            finish();
                         }
                     });
 
-                    Intent intent = new Intent(ClientCaseCreate.this, Matching.class);
-                    startActivity(intent);
-                    finish();
+
                     return;
                 }
             }
