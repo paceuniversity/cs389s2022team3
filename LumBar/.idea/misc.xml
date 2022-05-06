@@ -4,14 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_chat.xml" value="0.1" />
-        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matches.xml" value="0.22" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matches.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/activity_matching_system.xml" value="0.2056159420289855" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/client_case_create.xml" value="0.317481884057971" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/edit_profile.xml" value="0.6" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_home.xml" value="0.1609375" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_matches.xml" value="0.1" />
-        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/fragment_profile.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/item.xml" value="0.1" />
-        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/matchesitems.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/matchesitems.xml" value="0.6666666666666666" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/CS389/cs389s2022team3/LumBar/app/src/main/res/layout/setting_page.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/activity_chat.xml" value="0.1" />
         <entry key="..\:/Users/jchan/OneDrive/Desktop/LumBar/app/src/main/res/layout/activity_matches.xml" value="0.192481884057971" />
