@@ -3,6 +3,7 @@ package com.pace.lumbar.account;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +28,7 @@ import java.util.List;
 public class ClientProfCreation extends AppCompatActivity {
 
     private EditText namePt;
-    private EditText email;
+    //private EditText email;
     private EditText phoneNumPt;
     private EditText emailPt;
     private Button profSelectBtn;
@@ -50,7 +51,7 @@ public class ClientProfCreation extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         namePt = findViewById(R.id.etFname);
-        email = findViewById(R.id.emailAddress);
+        //email = findViewById(R.id.emailAddress);
         phoneNumPt = findViewById(R.id.phone);
         emailPt = findViewById(R.id.emailAddress);
         profSelectBtn = findViewById(R.id.uploadImgBtn);
@@ -61,24 +62,24 @@ public class ClientProfCreation extends AppCompatActivity {
         pwdPtTwo = findViewById(R.id.etconfirm);
 
 
-//        //Initialize places
-//        Places.initialize(getApplicationContext(), "AIzaSyAf_V5-KkmEPO4OMPrOoT4V4IQKI_OJflI");
-//
-//        //Set EditText non focusable
-//        address.setFocusable(false);
-//        address.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //Initialize place field list
-//                List<Place.Field> fieldlist = Arrays.asList(Place.Field.ADDRESS,
-//                        Place.Field.LAT_LNG,Place.Field.NAME);
-//                //Create intent
-//                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
-//                        fieldlist).build(ClientProfCreation.this);
-//                //Start activity result
-//                startActivityForResult(intent, 100);
-//            }
-//        });
+        //Initialize places
+        Places.initialize(getApplicationContext(), "AIzaSyAf_V5-KkmEPO4OMPrOoT4V4IQKI_OJflI");
+
+        //Set EditText non focusable
+        address.setFocusable(false);
+        address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Initialize place field list
+                List<Place.Field> fieldlist = Arrays.asList(Place.Field.ADDRESS,
+                        Place.Field.LAT_LNG,Place.Field.NAME);
+                //Create intent
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
+                        fieldlist).build(ClientProfCreation.this);
+                //Start activity result
+                startActivityForResult(intent, 100);
+            }
+        });
 
         //allows for profile pic selection from Gallery
         profSelectBtn.setOnClickListener(new View.OnClickListener() {
@@ -135,29 +136,32 @@ public class ClientProfCreation extends AppCompatActivity {
 
         // create an instance of the
         // intent of the type image
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
+//        Intent i = new Intent();
+//        i.setType("image/*");
+//        i.setAction(Intent.ACTION_GET_CONTENT);
 
         // pass the constant to compare it
         // with the returned requestCode
-        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+//        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+
+        Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(i, SELECT_PICTURE);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-//        if(requestCode == 100 && resultCode == RESULT_OK){
-//            //When success, initialize place
-//            Place place = Autocomplete.getPlaceFromIntent(data);
-//            //Set address on etAddress
-//            address.setText(place.getAddress());
-//        } else if (resultCode == AutocompleteActivity.RESULT_ERROR){
-//            //When error
-//            //Initialize status
-//            Status status = Autocomplete.getStatusFromIntent(data);
-//            Toast.makeText(getApplicationContext(), status.getStatusMessage(),Toast.LENGTH_SHORT).show();
-//        }
+        if(requestCode == 100 && resultCode == RESULT_OK){
+            //When success, initialize place
+            Place place = Autocomplete.getPlaceFromIntent(data);
+            //Set address on etAddress
+            address.setText(place.getAddress());
+        } else if (resultCode == AutocompleteActivity.RESULT_ERROR){
+            //When error
+            //Initialize status
+            Status status = Autocomplete.getStatusFromIntent(data);
+            Toast.makeText(getApplicationContext(), status.getStatusMessage(),Toast.LENGTH_SHORT).show();
+        }
 
         if (resultCode == RESULT_OK) {
 
@@ -173,6 +177,7 @@ public class ClientProfCreation extends AppCompatActivity {
             }
         }
     }
+
     private void openActivity2(String name, String phone, String email,
                                String address, String password, Uri imageUri) {
         Intent intent = new Intent(this, ClientCaseCreate.class);
