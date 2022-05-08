@@ -130,7 +130,7 @@ public class ProfileActivity extends AppCompatActivity {
                         avatar.setImageURI(Uri.parse(imgUri));
                     }
                     else{
-                        avatar.setImageResource(R.mipmap.ic_launcher);
+                        avatar.setImageResource(R.drawable.appicon);
                     }
 
                     String topic = "", detail = "";

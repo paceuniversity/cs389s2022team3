@@ -45,8 +45,8 @@ public class ChatActivity extends AppCompatActivity {
         matchID = getIntent().getExtras().getString("matchId");
         currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Client").child(currentUserID).child("connections").child("matches").child(matchID).child("ChatID");
-        mDatabaseUser2 = FirebaseDatabase.getInstance().getReference().child("Lawyer").child(currentUserID).child("connections").child("matches").child(matchID).child("ChatID");
+        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Client").child(currentUserID).child("connections").child("matches").child(matchID);
+        mDatabaseUser2 = FirebaseDatabase.getInstance().getReference().child("Lawyer").child(currentUserID).child("connections").child("matches").child(matchID);
 
         mDatabaseChat = FirebaseDatabase.getInstance().getReference().child("Chat");
         getChatID();
@@ -93,6 +93,7 @@ public class ChatActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     chatID = snapshot.getValue().toString();
+                    chatID = chatID.substring(8);
                     userType="Client";
                     mDatabaseChat = mDatabaseChat.child(chatID);
                     getChatMessage();
@@ -110,6 +111,7 @@ public class ChatActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     chatID = snapshot.getValue().toString();
+                    chatID = chatID.substring(8);
                     userType="Lawyer";
                     mDatabaseChat = mDatabaseChat.child(chatID);
                     getChatMessage();

@@ -135,9 +135,6 @@ public class MatchActivity extends AppCompatActivity {
                     if(snapshot.child("name").getValue() != null){
                         name = snapshot.child("name").getValue().toString();
                     }
-                    if(snapshot.child("profileIMGUri").getValue() != null || !snapshot.child("profileIMGUri").getValue().toString().equals("")){
-                        profileIMGUri = snapshot.child("profileIMGUri").getValue().toString();
-                    }
 
                     MatchesObject obj = new MatchesObject(userId, name, profileIMGUri);
                     resultMatches.add(obj);
