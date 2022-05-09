@@ -14,7 +14,8 @@
 
 * **App Name**: LumBar
 
-* **App Description**
+* **App Description**: When it comes to shopping for lawyers, many clients either get referrals from friends and family or search for lawyers through the Internet. LumBar makes this process straightforward by bringing the lawyers to you. When you set up your account, you are asked for information such as your home address, legal needs, and budget. In our matching pace, you are presented with potential lawyer profiles that display their specialties, address, and budget. You can "swipe" left to skip them and swipe right to show interest in that lawyer. Then, you are “matched” with that lawyer, giving you the ability to message that lawyer and obtain information about them that pertains to your case.
+
 
 * [**Idea Proposal**](https://docs.google.com/document/d/1K9LND5sPPHR9ES6Eiql0esIrMomXwbib/edit?usp=sharing&ouid=113850289169906394470&rtpof=true&sd=true)
 
