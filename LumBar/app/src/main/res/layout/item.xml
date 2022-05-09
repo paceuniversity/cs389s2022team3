@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="#25686868"
+    android:background="#25FFFFFF"
     android:clipToPadding="false"
     android:outlineProvider="bounds"
     android:paddingLeft="40sp"
@@ -35,12 +35,12 @@
             <TextView
                 android:id="@+id/nameMatch"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
+                android:layout_height="58dp"
                 android:fontFamily="@font/amiko_bold"
                 android:gravity="bottom"
                 android:paddingLeft="40sp"
                 android:textColor="@android:color/black"
-                android:textSize="35sp"
+                android:textSize="30sp"
                 tools:text="Name" />
 
             <TextView
@@ -51,7 +51,7 @@
                 android:gravity="bottom"
                 android:paddingLeft="40sp"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 tools:text="LawFirm" />
 
             <TextView
