@@ -55,7 +55,7 @@
 * [**Demo**](https://www.youtube.com/watch?v=PgOXmweHyRs)
 
 # **Poster**
-![LumBarPoster](https://user-images.githubusercontent.com/71271059/167327632-bed312f0-03e7-4e36-8ad8-e7cf52187190.png)
+<img width="400" hieght="1000" alt="LumBar Poster" src="LumBar%20Poster.png">
 
 # **Tools & Communications**
 [![](https://i.imgur.com/md5VyLX.png)](https://discord.com/)
