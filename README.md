@@ -52,11 +52,10 @@
 
 # **Final presentation**
 * [**Presentation**](https://docs.google.com/presentation/d/1mzVweSKVbmSz4_weloBQLhyWWRF-KX8T3Bu6BiJ02hM/edit?usp=sharing)
-* **Demo**
+* [**Demo**](https://www.youtube.com/watch?v=PgOXmweHyRs)
 
 # **Poster**
-
-# **Process description**
+<img width="400" hieght="1000" alt="LumBar Poster" src="LumBar%20Poster.png">
 
 # **Tools & Communications**
 [![](https://i.imgur.com/md5VyLX.png)](https://discord.com/)
